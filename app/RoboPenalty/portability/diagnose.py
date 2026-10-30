@@ -93,6 +93,7 @@ def print_report(result):
     print('RoboPenalty: ejecucion local APTA' if result['execution_ready'] else 'RoboPenalty: ejecucion local NO APTA')
     print('Importacion local verificada:', 'SI' if result['local_import']['ready'] else 'NO')
     print('Dependencias externas:','OK' if result['external']['ready'] else 'ERROR')
+    print('Recursos correctos:',str(sum(f['status']=='ok' for f in result['external']['files']))+'/'+str(len(result['external']['files'])))
     for item in result['external']['problems']:print(' -',json.dumps(item,ensure_ascii=False))
     print('Integridad del paquete:','OK' if result['inventory']['ready'] else 'ERROR')
     for item in result['inventory']['problems']:print(' -',json.dumps(item,ensure_ascii=False))

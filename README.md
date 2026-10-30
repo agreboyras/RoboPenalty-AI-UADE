@@ -4,7 +4,58 @@
 
 Esta distribución reúne la versión interactiva **9A**, el catálogo calibrado **8C** y el estadio **7D**. El objetivo es ofrecer una demostración reproducible de percepción, predicción, decisión y aprendizaje estadístico dentro de MuJoCo.
 
-> **Antes de instalar:** descargar este repositorio no basta para jugar. El paquete incluye 78 de los 104 recursos externos del perfil de ejecución. Para completar la instalación hace falta una copia **Deploy adaptada TP07 compatible, obtenida legítimamente**, que aporte los otros 26 archivos exactos. Una copia oficial de RoboNaldo_Deploy por sí sola no alcanza. Los archivos pendientes no se redistribuyen ni se descargan automáticamente.
+## Cómo instalar y jugar
+
+### Instalación y ejecución
+
+**Necesitás Windows, CPython 3.12 x64 y una copia Deploy adaptada TP07 compatible obtenida legítimamente.** El repositorio solo tiene 78/104 recursos. El Deploy oficial por sí solo no alcanza y los 26 faltantes no se descargan automáticamente.
+
+**1. Descargar.** En [RoboPenalty-AI-UADE](https://github.com/agreboyras/RoboPenalty-AI-UADE), elegir **Code → Download ZIP**, extraerlo y abrir en VS Code la carpeta `RoboPenalty-AI-UADE-main` que contiene `app/` y `scripts/`. Como alternativa, con Git:
+
+```powershell
+git clone https://github.com/agreboyras/RoboPenalty-AI-UADE.git
+Set-Location -LiteralPath .\RoboPenalty-AI-UADE
+```
+
+**2. Preparar la copia externa.** La fuente técnica compatible es [TP07 en la revisión ce4b34d…](https://github.com/agreboyras/TP07-IA-G1-Futbol/tree/ce4b34d1bccfd0420a81bf1688271d86feb8a117), con ocho modificaciones y tres adiciones respecto del [Deploy oficial f60f244…](https://github.com/OpenDriveLab/RoboNaldo_Deploy/tree/f60f24459aaabc3aea9187a2b13f8923049b629c). Su disponibilidad pública no resuelve las condiciones de uso. El equipo debe confirmar una vía autorizada para cada integrante; **si no tenés esa copia legítima, no hay actualmente un paso automático autorizado que complete la instalación**. No hace falta acceder a la computadora del autor ni buscar archivos sueltos: la guía identifica fuente, revisión y el conjunto exacto.
+
+**3. Instalar desde la raíz del proyecto.** Abrir PowerShell en VS Code:
+
+```powershell
+py -3.12 --version
+.\scripts\instalar.ps1
+```
+
+El instalador pide la carpeta Deploy si detecta una terminal interactiva y faltan recursos. Pegar la ruta de la carpeta que contiene directamente `FSM/`, `common/`, `deploy_mujoco/` y `policy/`. Puede estar en cualquier ubicación fuera de RoboPenalty y tener espacios. Si no pregunta, usar `-Interactivo`. ENTER sin carpeta prepara solo Python y los 78 recursos disponibles: termina **PARCIAL**, con el juego bloqueado.
+
+Si `py -3.12` no encuentra Python, instalar CPython 3.12 x64 o indicar el ejecutable que ya tengas instalado, sin asumir ninguna ruta del autor:
+
+```powershell
+$pythonEquipo = Read-Host "Ruta completa del ejecutable Python 3.12 x64"
+& $pythonEquipo --version
+.\scripts\instalar.ps1 -Python $pythonEquipo -Interactivo
+```
+
+Con una ruta conocida y sin preguntas (ejemplo de carpeta hermana):
+
+```powershell
+.\scripts\instalar.ps1 -NoInteractivo -DeployPath '..\Deploy Compatible'
+```
+
+Si PowerShell bloquea los scripts, revisar [preparación de Windows](docs/INSTALACION_WINDOWS.md#2-preparar-windows). El instalador crea `.venv`; no hace falta activarlo. No instala Isaac, SDK de robot ni modelos de voz.
+
+**4. Verificar y jugar.** Solo continuar cuando la instalación indique 104/104 recursos correctos:
+
+```powershell
+.\scripts\verificar.ps1
+.\scripts\jugar_automatico.ps1
+# O bien, cuando haya cerrado la primera tanda:
+.\scripts\jugar_dirigido.ps1
+```
+
+Abren el visor MuJoCo y ejecutan cinco penales. En modo dirigido, escribir `Iniciar partido`, esperar la solicitud y dar una orden por penal: `Patea al centro`, `Patea a la izquierda` (centro-izquierda), `Patea a la derecha`, `Patea a la derecha abierta` o `Patea a la esquina derecha`. Controles: `mostrar marcador`, `pausar partida`, `reanudar partida`, `salir`. El arquero permanece autónomo. Sin ventana: `jugar_automatico.ps1 -Headless`.
+
+**[Guía completa para estudiantes: descarga, recursos, instalación y solución de errores](docs/INSTALACION_WINDOWS.md).** Las fuentes y avisos se conservan en [THIRD_PARTY.md](THIRD_PARTY.md). La voz sigue pendiente de validación y está desactivada.
 
 ## Qué incluye
 
@@ -45,53 +96,9 @@ docs/                 Fuentes, integridad, instalación y resultados
 
 Se incluyen los módulos transitivos necesarios de fases anteriores, no todo el archivo histórico de desarrollo.
 
-## Instalación en Windows
+## Detalles de instalación
 
-### 1. Preparar el equipo
-
-- Windows con **CPython 3.12 de 64 bits** y PowerShell.
-- Acceso a PyPI para instalar las versiones fijadas en `app/RoboPenalty/requirements-windows.txt`.
-- Controlador gráfico compatible con el visor MuJoCo; también se puede ejecutar headless.
-- Carpeta Deploy adaptada compatible, obtenida legítimamente. Sus hashes y revisiones de procedencia están documentados en [dependencias](docs/RECURSOS_PENDIENTES.md).
-
-Descargar el ZIP de este repositorio y extraerlo, o clonarlo. Abrir en VS Code la carpeta que contiene este README, `app/` y `scripts/`. Git no es necesario para instalar ni jugar.
-
-Comprobar Python:
-
-```powershell
-py -3.12 --version
-```
-
-### 2. Importar recursos e instalar
-
-La carpeta Deploy puede tener cualquier nombre y estar en cualquier ubicación fuera de esta distribución. Por ejemplo, si se encuentra en una carpeta hermana llamada `DeployTP07`:
-
-```powershell
-# Opcional: inspeccionar primero, sin copiar nada.
-.\scripts\importar_deploy.ps1 -DeployPath ..\DeployTP07 -Inspeccionar
-
-# Importar los 26 archivos exactos, crear .venv e instalar paquetes.
-.\scripts\instalar.ps1 -DeployPath ..\DeployTP07
-```
-
-También se puede usar una ruta elegida en consola:
-
-```powershell
-$deploy = Read-Host "Ruta de la carpeta Deploy adaptada"
-.\scripts\instalar.ps1 -DeployPath $deploy
-```
-
-El instalador conserva avisos, exige SHA-256 exacto y deja los archivos importados fuera de Git. No busca las carpetas del autor ni convierte LF/CRLF. Después de importar correctamente, la carpeta fuente no se necesita para jugar.
-
-**Sin Deploy adaptado**, `instalar.ps1` prepara Python y los 78 recursos disponibles, termina con código 2 y mantiene bloqueada la partida. No existe una opción para ignorar hashes o conceder permisos.
-
-### 3. Verificar
-
-```powershell
-.\scripts\verificar.ps1
-```
-
-Para jugar deben estar correctos **104/104 recursos**, el inventario del paquete, el registro de importación local y los paquetes Python. El diagnóstico distingue la habilitación técnica local de los permisos pendientes de redistribución.
+La [guía Windows](docs/INSTALACION_WINDOWS.md) identifica las revisiones, los 26 archivos pendientes, el modo interactivo y `-NoInteractivo`, las rutas con espacios, el diagnóstico y los códigos de salida. [Importación local](docs/IMPORTACION_LOCAL.md) describe la integridad y la separación entre datos locales y contenido público. No se modifican hashes ni se aceptan sustitutos.
 
 ## Jugar cinco penales
 
@@ -132,9 +139,9 @@ py -3.12 -X utf8 -E -s -B tests/run_tests.py
 .\.venv\Scripts\python.exe -X utf8 -E -s -B tests/run_tests.py --include-core
 ```
 
-La validación local aislada registró **134 tests aprobados** y tres tandas completas: automática headless, dirigida por texto y dirigida con visor. Cada tanda completó 35.000 pasos, con 3 goles, 2 atajadas y 0 errados. Los estados y las trazas físicas registradas coincidieron exactamente con el baseline 8C para la secuencia comparada; también se comprobó el aislamiento de estadísticas manuales.
+La batería actual aprobó **144 tests: los 134 anteriores y diez nuevos de instalación guiada**. La prueba nueva, en una carpeta y entorno creados desde cero, completó tres tandas: automática headless, dirigida por entrada real de consola y automática con visor. Cada una registró 35.000 pasos, 3 goles, 2 atajadas y 0 errados, con igualdad exacta de los estados y trazas comparados frente a 8C. Las órdenes manuales conservaron su historial separado.
 
-Estos resultados corresponden a un entorno nuevo en la computadora de validación, no a una segunda computadora física. Ver [pruebas, tiempos y límites de comparación](docs/LOCAL_IMPORT_RESULTS.md). Las tandas no se ejecutan automáticamente al correr los tests unitarios.
+Se comprobó también el caso sin Deploy: código 2 y partida bloqueada, y el diálogo real con ENTER vacío o carpeta compatible. Estos resultados pertenecen a esta computadora y no garantizan otra máquina física. Ver [prueba nueva, tiempos y límites](docs/INSTALACION_GUIADA_RESULTADOS.md) y [comparación base](docs/LOCAL_IMPORT_RESULTS.md). Las tandas no se ejecutan automáticamente al correr los tests unitarios.
 
 ## Errores comunes y limitaciones
 

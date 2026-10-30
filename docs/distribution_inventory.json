@@ -724,8 +724,8 @@
     },
     {
       "path": "app/RoboPenalty/portability/diagnose.py",
-      "bytes": 8090,
-      "sha256": "7c864c489f5d7e130b99bc7a714cdcb6b4220b416071c0935e598d88f7e14d2e"
+      "bytes": 8230,
+      "sha256": "a8128a6cbf3216ab6c74e7bdeb5fee391779f6a556fea20e52c1ec608e4021b8"
     },
     {
       "path": "app/RoboPenalty/portability/distribution_profile.json",
@@ -984,18 +984,23 @@
     },
     {
       "path": "docs/IMPORTACION_LOCAL.md",
-      "bytes": 3813,
-      "sha256": "15d51869e27609ec1a99badf4f24ac881766ae688291b0452d451e38eace8de7"
+      "bytes": 4336,
+      "sha256": "b1acf94886193aaab862c975cd682d6d5f0d808fb64893dfac3a1750f0aa2551"
+    },
+    {
+      "path": "docs/INSTALACION_GUIADA_RESULTADOS.md",
+      "bytes": 8411,
+      "sha256": "3a7065aa186ea72615c315827eecac2d6e38b84ec7116519f390c2fb120dd64c"
     },
     {
       "path": "docs/INSTALACION_WINDOWS.md",
-      "bytes": 2656,
-      "sha256": "a5bd01fd895f30058c5d5c974e0a42bf52f905e8f2139ca1572fcd99fc1a926f"
+      "bytes": 13921,
+      "sha256": "fcef29664665ee32f888cb05ffad1e4f8df47eaa32e0dac967445f0df1f2bd46"
     },
     {
       "path": "docs/INSTALADOR.md",
-      "bytes": 3954,
-      "sha256": "1024c771af293132d063cd2a9cb8bd46a36f360875e7b0e76b1374e7800ca338"
+      "bytes": 4858,
+      "sha256": "0a9e15068059e6c07b62be26dd794d8bdaead1e5dbbcf339bbc5e264661ae8d1"
     },
     {
       "path": "docs/INSTALLER_RESULTS.json",
@@ -1029,8 +1034,8 @@
     },
     {
       "path": "docs/PUBLICACION.md",
-      "bytes": 9064,
-      "sha256": "cdfeead4b523daeb7584d156534037ea4f58a7b7fba623c0da5749fb95a90510"
+      "bytes": 9277,
+      "sha256": "2321e74ea010e18e099f5477c34903651e559ffb5247d37ecf5b25d2aa224666"
     },
     {
       "path": "docs/RECURSOS_PENDIENTES.md",
@@ -1054,13 +1059,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 10776,
-      "sha256": "71ce82bdcfd30debacef4f4df72c236599efa1c114d2a06f2032f197fe044df0"
+      "bytes": 12512,
+      "sha256": "acbeef4e6e90853405a22b159bf2fbe6ccf27332c736a6054f080b8cec827750"
     },
     {
       "path": "scripts/_common.ps1",
       "bytes": 963,
       "sha256": "89a89bb41dc39aaea2094599270ff6a0a4d03762eadc06443b4c01dcba6b5975"
+    },
+    {
+      "path": "scripts/_install_input.ps1",
+      "bytes": 2364,
+      "sha256": "a678de290c2fc5a08cf5423d864cd3deb3a5702e69c263da571fab578b99c50d"
     },
     {
       "path": "scripts/_jugar.ps1",
@@ -1074,8 +1084,8 @@
     },
     {
       "path": "scripts/instalar.ps1",
-      "bytes": 3151,
-      "sha256": "67d1a39499cb0658fb6a3a3feb4c8e8e08d0af99f4d212f90eb55621f348f88b"
+      "bytes": 4404,
+      "sha256": "0972ab4d76273d2b04aed75eb074adfacd969f0084d8135727ab309320b102d4"
     },
     {
       "path": "scripts/jugar_automatico.ps1",
@@ -1119,8 +1129,8 @@
     },
     {
       "path": "tests/run_tests.py",
-      "bytes": 1760,
-      "sha256": "a7d5650817ef751aa2edf0bb9f8e27e6c42497d71e700fcdcc10b5dd20ca6d87"
+      "bytes": 1932,
+      "sha256": "1f55a7e017aabe1e9beeb922de5bf20734825f5e12bbc7da27aff621d8f8398f"
     },
     {
       "path": "tests/test_distribution.py",
@@ -1136,6 +1146,11 @@
       "path": "tests/test_local_import.py",
       "bytes": 6860,
       "sha256": "90640a84773540fba8b08fa97ee1fa3363a1db0baca9b0540b4baa99ccb7ea20"
+    },
+    {
+      "path": "tests/test_student_install.py",
+      "bytes": 3607,
+      "sha256": "5114408b8528f7e23077a8de68126caffdd17fd00be34bb363804ea8f71dc8c9"
     },
     {
       "path": "THIRD_PARTY.md",

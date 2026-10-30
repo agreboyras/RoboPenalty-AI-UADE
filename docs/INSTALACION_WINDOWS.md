@@ -1,42 +1,219 @@
-# Instalacion Windows
+# Instalación de RoboPenalty AI UADE en Windows
 
-Requisitos: CPython 3.12 x64, PowerShell y red HTTPS para PyPI. No hace falta Git ni clonar repositorios externos. El instalador no instala Python en el sistema ni descarga modelos de voz.
+Esta guía parte de una computadora que nunca usó RoboPenalty. No requiere las carpetas del autor, Conda, Isaac Sim, Isaac Lab, PyTorch, ROS, SDK de Unitree ni un robot físico.
 
-## Con una copia Deploy adaptada obtenida legitimamente
+**Requisito que no puede resolver el instalador:** además del repositorio público se necesita una copia Deploy adaptada TP07 compatible obtenida legítimamente. El paquete público tiene 78/104 recursos; los 26 restantes no se descargan automáticamente. Sin ellos se pueden instalar paquetes, revisar código y correr tests, pero no jugar. Una carpeta oficial de Deploy sola no alcanza.
 
-Desde la raiz del paquete:
+## 1. Descargar y abrir la carpeta correcta
+
+Repositorio: [agreboyras/RoboPenalty-AI-UADE](https://github.com/agreboyras/RoboPenalty-AI-UADE).
+
+**Sin Git:** abrir el enlace, pulsar **Code → Download ZIP**, extraer todo el ZIP y abrir en VS Code la carpeta `RoboPenalty-AI-UADE-main`. No ejecutar archivos dentro de la vista del ZIP. En esa carpeta deben verse `README.md`, `scripts/`, `app/` y `tests/`. Abrir **Terminal → New Terminal** y seleccionar PowerShell.
+
+**Con Git, como alternativa**, desde una carpeta de trabajo:
 
 ```powershell
-./scripts/instalar.ps1 -DeployPath ../DeployTP07
-./scripts/verificar.ps1
-./scripts/jugar_dirigido.ps1
-./scripts/jugar_automatico.ps1
+git clone https://github.com/agreboyras/RoboPenalty-AI-UADE.git
+Set-Location -LiteralPath .\RoboPenalty-AI-UADE
 ```
 
-La carpeta puede tener cualquier nombre o ubicacion fuera de la distribucion. El importador exige los 26 SHA-256 exactos del perfil, conserva avisos y no modifica la fuente. Una copia oficial sola se reconoce pero no basta. Ver [importacion local](IMPORTACION_LOCAL.md) para inspeccion previa, errores LF/CRLF y comandos de juego.
+Los comandos siguientes se ejecutan desde la raíz del proyecto. La carpeta puede tener espacios; usar comillas al escribir rutas.
 
-## Sin Deploy adaptado
+## 2. Preparar Windows
 
-`./scripts/instalar.ps1` prepara Python y los 78/104 recursos disponibles. Retorna 2 y el juego queda bloqueado. No busca recursos en otras carpetas ni descarga los 26 pendientes. Una descarga de GitHub sola NO es una instalacion completamente autonoma.
-
-## Opciones y errores
-
-- `-SoloRecursos` omite Python; admite tambien `-DeployPath`.
-- `verificar.ps1 -ResourcesOnly` comprueba recursos e inventario sin exigir los paquetes.
-- `-Python $pythonEquipo` permite indicar un interprete real si no se encuentra CPython 3.12 con py.
-- Para ejecutar sin ventana: `jugar_automatico.ps1 -Headless`.
-- Si Windows bloquea scripts locales revisados: `Set-ExecutionPolicy -Scope Process RemoteSigned` solo en esa terminal. No cambiar politicas globales; respetar politicas de la organizacion.
-- Una diferencia SHA se rechaza sin sobrescribir ni convertir archivos. No editar manifiestos ni sustituir NPZ/ONNX.
-
-El .venv es propio, sin system-site-packages; pip usa el lock core fijado. No se instalan requirements de Deploy. El registro local y los recursos importados quedan fuera de Git; no constituyen una licencia. La voz permanece desactivada y pendiente de validacion.
-
-Si se descargo un ZIP y Windows marco los scripts como procedentes de Internet, RemoteSigned puede seguir rechazando scripts sin firma. Tras revisar los archivos del paquete, se pueden desbloquear exclusivamente sus scripts:
+Instalar **CPython 3.12 x64** desde [Python para Windows](https://www.python.org/downloads/windows/), incluyendo el lanzador `py`. Cerrar y abrir la terminal después de instalar.
 
 ```powershell
-Get-ChildItem .\scripts -Filter *.ps1 -File | Unblock-File
+py -3.12 --version
+$PSVersionTable.PSVersion
+```
+
+Se requiere Python 3.12 de 64 bits y PowerShell 5.1 o posterior. El instalador los comprueba. Para el visor se necesita un controlador gráfico compatible con MuJoCo; sin ventana se puede usar `-Headless`. Para instalar paquetes hace falta acceso HTTPS a PyPI.
+
+Si Python 3.12 está instalado pero no registrado en `py`, indicar su ejecutable explícitamente. Usar esta variante en lugar del primer comando de instalación; los scripts posteriores detectarán el `.venv` creado:
+
+```powershell
+$pythonEquipo = Read-Host "Ruta completa del ejecutable Python 3.12 x64"
+& $pythonEquipo --version
+.\scripts\instalar.ps1 -Python $pythonEquipo -Interactivo
+```
+
+No seleccionar el Python de otro proyecto. La prueba limpia utilizó esta opción porque el lanzador `py` de la sesión no tenía CPython registrado. El instalador no instala Python globalmente.
+
+Si Windows bloquea scripts locales revisados:
+
+```powershell
 Set-ExecutionPolicy -Scope Process RemoteSigned
 ```
 
-Esto no cambia las politicas globales ni reemplaza las politicas de una organizacion. Si siguen bloqueados por una politica administrada, consultar al administrador.
+Si el ZIP descargado dejó los scripts marcados como provenientes de Internet, revisar los archivos del proyecto y desbloquear únicamente sus scripts:
 
-Pruebas: `./.venv/Scripts/python.exe -X utf8 -E -s -B tests/run_tests.py --include-core`. Resultados de la instalacion local y simulacion: LOCAL_IMPORT_RESULTS.md.
+```powershell
+Get-ChildItem .\scripts -Filter *.ps1 -File | Unblock-File
+```
+
+No cambiar políticas globales ni intentar eludir políticas de una organización; consultar al administrador si una política administrada los bloquea.
+
+## 3. Conseguir y preparar Deploy compatible
+
+### Qué fuente corresponde a cada parte
+
+| Grupo | Fuente/revisión | Estado del instalador |
+|---|---|---|
+| 38 recursos Unitree MuJoCo | `unitreerobotics/unitree_mujoco`, `1eb6642e3f3fdfb7fb13a9794fd6a2dd93ea0e7d` | Incluidos con BSD-3-Clause y SHA verificado |
+| 35 meshes Unitree ROS y aviso | `unitreerobotics/unitree_ros`, `38a9b00ecbff0b70e85a7627eb9c65db9a2341f7` | Incluidos; descargador autorizado puede reponer sus destinos verificados |
+| Cinco archivos vacíos de estructura | Generados localmente, SHA de cero bytes | Generación habilitada |
+| 15 originales Deploy (13 fuentes/configuraciones, ONNX y NPZ) | `OpenDriveLab/RoboNaldo_Deploy`, `f60f24459aaabc3aea9187a2b13f8923049b629c` | Fuentes identificadas; descarga no habilitada por condiciones pendientes |
+| Ocho modificaciones y tres adiciones TP07 | `agreboyras/TP07-IA-G1-Futbol`, `ce4b34d1bccfd0420a81bf1688271d86feb8a117` | No están en la base oficial; importación local exacta, sin parches redistribuidos |
+
+Referencias verificadas: [Deploy oficial fijado](https://github.com/OpenDriveLab/RoboNaldo_Deploy/tree/f60f24459aaabc3aea9187a2b13f8923049b629c), [TP07 fijado](https://github.com/agreboyras/TP07-IA-G1-Futbol/tree/ce4b34d1bccfd0420a81bf1688271d86feb8a117) y [quickstart original](https://github.com/OpenDriveLab/RoboNaldo/blob/main/docs/quickstart.md). El quickstart original describe entrenamiento y otro entorno; **no seguir sus instrucciones de Isaac/Conda para instalar esta aplicación**.
+
+El árbol remoto TP07 contiene técnicamente los 26 archivos esperados, incluidos ONNX y NPZ. Eso no concede derechos de uso o redistribución. Los responsables del equipo deben confirmar las condiciones aplicables y una vía autorizada para cada integrante. No se habilitó un descargador de esos archivos ni se recomienda reenviar un ZIP de recursos sin permiso.
+
+**Si ya tenés autorización y acceso aplicables**, la copia compatible corresponde exactamente a esa revisión TP07. Para evitar depender de `main` y de conversiones CRLF, la [descarga ZIP de la revisión fijada](https://github.com/agreboyras/TP07-IA-G1-Futbol/archive/ce4b34d1bccfd0420a81bf1688271d86feb8a117.zip) es una referencia técnica; su uso queda sujeto a aquellas condiciones. Extraer la carpeta fuera de RoboPenalty. No hace falta instalar requirements de TP07 ni ejecutar su programa.
+
+Si todavía **no tenés una copia legítima compatible**, no existe en este paquete un paso autorizado que complete automáticamente esos recursos. Contactar a los responsables del proyecto para resolver acceso/condiciones con los titulares y coordinar la entrega por una vía permitida. Mientras tanto se puede preparar el entorno y estudiar/probar los componentes. Para una demostración inmediata puede usarse una instalación que ya disponga legítimamente de los recursos, sin redistribuirlos.
+
+### Diferencias TP07 que no aporta el Deploy oficial
+
+Ocho archivos modificados:
+
+- `common/logger.py`
+- `common/utils.py`
+- `deploy_mujoco/config/mujoco_freekick.yaml`
+- `deploy_mujoco/deploy_mujoco.py`
+- `g1_description/scene_with_ball.xml`
+- `policy/fixedpose/FixedPose.py`
+- `policy/robonaldo/FreeKick.py`
+- `policy/robonaldo/config/freekick.yaml`
+
+Tres añadidos:
+
+- `deploy_mujoco/celebration_coordinator.py`
+- `policy/celebration/Celebration.py`
+- `policy/celebration/__init__.py`
+
+Se necesitan por imports/recursos transitivos del runtime; no significa que se carguen políticas de festejo durante la tanda. El ONNX requerido es `policy/robonaldo/model/policy-obs-aic.onnx`; el NPZ es `policy/robonaldo/model/freekick_motion.npz`. No sustituirlo por `motions/right_kick.npz` del entrenamiento. El detalle de los 26 archivos y SHA-256 está en `docs/pending_resources.json` y `app/RoboPenalty/portability/external_sources.json`.
+
+### Cómo identificar la carpeta
+
+Debe contener directamente `FSM/`, `common/`, `deploy_mujoco/`, `g1_description/` y `policy/`. Seleccionar esa carpeta, no su padre ni el archivo ZIP. Puede tener cualquier nombre. Ejemplo: una carpeta hermana llamada `Deploy Compatible`.
+
+```powershell
+.\scripts\importar_deploy.ps1 -DeployPath '..\Deploy Compatible' -Inspeccionar
+```
+
+Una copia adaptada válida muestra `tp07-compatible` y `26/26 bytes exactos`. Una copia oficial puede mostrar `official-compatible`, pero **se rechaza para ejecutar**; no se genera una adaptación ficticia. La validación real es SHA-256, no el nombre de carpeta, el README ni un supuesto número de versión.
+
+## 4. Instalar
+
+### Instalación guiada recomendada
+
+```powershell
+.\scripts\instalar.ps1
+```
+
+En una terminal interactiva, si faltan recursos, pregunta por la carpeta Deploy. Pegar la ruta; se aceptan espacios y comillas exteriores. No modifica la fuente. Si no se tiene la copia compatible, pulsar ENTER: prepara solo los recursos disponibles y Python, termina **PARCIAL (código 2)** y bloquea el juego.
+
+Si el host no detecta una terminal interactiva, se puede forzar explícitamente la pregunta:
+
+```powershell
+.\scripts\instalar.ps1 -Interactivo
+```
+
+### Con la ruta ya conocida o para automatización
+
+```powershell
+.\scripts\instalar.ps1 -NoInteractivo -DeployPath '..\Deploy Compatible'
+```
+
+Sin Deploy y sin preguntas:
+
+```powershell
+.\scripts\instalar.ps1 -NoInteractivo
+```
+
+No combinar `-Interactivo` y `-NoInteractivo`. Una instalación ya importada no vuelve a preguntar por la fuente. `-SoloRecursos` omite la creación del entorno y pip; no comprueba que Python científico esté listo para jugar.
+
+El instalador crea `.venv` propio e instala versiones fijadas desde PyPI. **No hace falta activar el entorno** ni ejecutar `Activate.ps1`. Exige todos los hashes; los 26 archivos importados, sus avisos y el registro local quedan fuera de Git. No se descargan modelos Whisper.
+
+Mensajes esperados:
+
+- `Instalacion local completa: 104/104 recursos exactos`: instalación técnica local completa, código 0.
+- `INSTALACION PARCIAL: 78/104 recursos; NO se puede jugar`: Python preparado pero falta Deploy, código 2.
+- Fallo de red, paquetes, versión o integridad: error; no se habilita el juego ni se disimula como éxito.
+
+No hay una duración universal prometida. La instalación descarga paquetes y depende de la conexión; los tiempos de la prueba nueva, si se completó, se registran en `INSTALACION_GUIADA_RESULTADOS.md`.
+
+## 5. Verificar antes de jugar
+
+```powershell
+.\scripts\verificar.ps1
+```
+
+Debe mostrar ejecución local APTA, recursos `104/104`, inventario y paquetes OK. Que los permisos de **redistribución** sigan pendientes no es un error de integridad de una copia local válida ni una autorización implícita para publicarla.
+
+Para inspeccionar únicamente recursos, sin exigir paquetes:
+
+```powershell
+.\scripts\verificar.ps1 -ResourcesOnly
+```
+
+El verificador enumera faltantes y diferencias; no modifica los archivos. Ante un hash diferente, no editar el perfil ni borrar calibraciones: comprobar la revisión de la fuente y conseguir los bytes correctos. No se aceptan silenciosamente diferencias LF/CRLF. Ante una copia pública dañada, conservarla y extraer una copia íntegra en una carpeta nueva.
+
+## 6. Ejecutar cinco penales
+
+```powershell
+# Automático: inicia la tanda y el delantero elige sus acciones.
+.\scripts\jugar_automatico.ps1
+
+# Dirigido por texto: espera la orden de inicio y una selección por penal.
+.\scripts\jugar_dirigido.ps1
+```
+
+Ambos abren el visor, usan semilla 2026, distancia `long`, cinco penales y voz desactivada. Deben verse los dos G1, pelota, arco, estadio y marcador. El arquero siempre es autónomo.
+
+En modo dirigido:
+
+1. Escribir `Iniciar partido`.
+2. Esperar el mensaje de selección.
+3. Escribir una orden: `Patea a la derecha`, `Patea a la derecha abierta`, `Patea a la esquina derecha`, `Patea a la izquierda` (centro-izquierda) o `Patea al centro`.
+4. Esperar el resultado y repetir hasta completar cinco penales.
+
+Controles: `mostrar marcador`, `estado`, `ayuda`, `pausar partida`, `reanudar partida`, `salir`. Cámaras: `/cam behind`, `/cam overview`, `/cam goal`, `/cam execution`. La pausa se ejecuta entre pasos físicos. Cerrar el visor también termina de forma controlada; un penal interrumpido no se contabiliza como completo.
+
+Sin ventana:
+
+```powershell
+.\scripts\jugar_automatico.ps1 -Headless
+```
+
+La referencia automática registró 3 goles, 2 atajadas, 0 errados y 35.000 pasos. No exigir ese marcador a una secuencia manual distinta ni fabricar un resultado: se evalúa la física. Las salidas quedan en `app/RoboPenalty/phase9a/results/`, excluidas de Git.
+
+## 7. Solucionar problemas
+
+| Problema | Acción comprobable |
+|---|---|
+| No aparece Python 3.12 | Comprobar `py -3.12 --version`; instalar CPython 3.12 x64. Si existe un ejecutable sin lanzador, usar `-Python $pythonEquipo` con su ruta real entre comillas. |
+| Scripts bloqueados | Revisar los archivos y seguir el paso 2; no cambiar políticas globales. |
+| Falló pip | Leer el error de paquetes/red, comprobar conexión HTTPS a PyPI y repetir `instalar.ps1 -NoInteractivo`. El entorno queda separado de otros proyectos. No instalar a ciegas requirements externos ni quitar pines. |
+| Entorno interrumpido sin Python ejecutable | Conservar la carpeta y usar una extracción nueva; no reutilizar un entorno ajeno ni borrar datos históricos. |
+| Deploy oficial/incompatible | Ejecutar `importar_deploy.ps1 -Inspeccionar`; se requieren los 26 archivos TP07 exactos, no solo el ONNX. |
+| Recursos faltantes | Revisar la lista de `verificar.ps1`; conseguir legítimamente la copia compatible e indicar su carpeta. |
+| Error SHA / LF-CRLF | Obtener bytes de la revisión correcta sin conversión; no cambiar hashes ni forzar la aceptación. |
+| Visor no abre | Revisar el error gráfico/controlador y probar `jugar_automatico.ps1 -Headless`. No se promete solucionar un fallo DLL o gráfico sin ese error concreto. |
+| Ruta con espacios | Usar comillas: `-DeployPath '..\Deploy Compatible'`. El importador usa rutas literales, no comodines. |
+| Descarga incompleta/conexión | Corregir conexión y repetir; solo se reutilizan archivos completos con SHA correcto. Los temporales no cuentan como recursos válidos. |
+| Voz/micrófono | Esta guía usa texto; la voz sigue pendiente y no forma parte de la instalación estándar. |
+
+## Tests y evidencias
+
+```powershell
+# Tests sin paquetes científicos.
+py -3.12 -X utf8 -E -s -B tests/run_tests.py
+
+# Con paquetes instalados: añade tests de componentes.
+.\.venv\Scripts\python.exe -X utf8 -E -s -B tests/run_tests.py --include-core
+```
+
+Se conservan los 134 tests anteriores; el instalador guiado agrega tests de interacción/estado. La prueba de carpeta nueva y las tandas realmente ejecutadas se detallan en `INSTALACION_GUIADA_RESULTADOS.md`. No equivale a validar una segunda computadora física. Atribuciones y condiciones: [THIRD_PARTY.md](../THIRD_PARTY.md).

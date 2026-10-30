@@ -29,3 +29,9 @@ La instalacion completa, tandas y visor siguen pendientes hasta poder ejecutar l
 ## Importacion local independiente
 
 local_import.py acepta una carpeta seleccionada explicitamente, compara los 26 hashes pendientes y reconoce TP07 compatible u oficial compatible. Una copia oficial requiere 8 modificaciones y 3 adiciones que no se distribuyen como parches. La copia TP07 exacta se importa atomicamente por archivo, con bloqueo compartido, avisos y registro bajo .cache. Los 104 recursos, inventario y paquetes deben pasar para execution_ready. distribution_ready permanece falso mientras falten permisos de redistribucion; la descarga no cambia su politica. Ver IMPORTACION_LOCAL.md.
+
+## Entrada guiada para estudiantes
+
+instalar.ps1 comprueba Windows, Python 3.12 x64 y PowerShell >=5.1. Usa la salida JSON del descargador para mostrar un resumen legible, comprueba el inventario y pide una carpeta cuando faltan recursos y la consola es interactiva. -Interactivo fuerza esa entrada; -NoInteractivo conserva el flujo sin preguntas para tests/automatizacion. No se combinan. Una ruta -DeployPath explicita tiene prioridad y una importacion completa evita nuevas preguntas.
+
+_install_input.ps1 separa deteccion de interactividad, seleccion y comprobacion estricta de los 26 faltantes esperados; no contiene recursos externos ni modifica controles fisicos. Los errores SHA, duplicados o faltantes ajenos no se presentan como instalacion parcial aceptable. El diagnostico imprime N/104; la preparacion parcial no habilita lanzadores. El lock, hashes y avisos existentes permanecen intactos.

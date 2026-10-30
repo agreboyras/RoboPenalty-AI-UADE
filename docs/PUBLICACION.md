@@ -1,3 +1,5 @@
+> Informe del cierre público anterior (229 archivos). La revisión posterior del instalador guiado y sus pruebas se documenta en INSTALACION_GUIADA_RESULTADOS.md; los resultados de este informe son históricos.
+
 # Auditoría final de publicación pública
 
 Fecha: 30 de octubre de 2026. Veredicto: **LISTO CON LIMITACIONES** para publicar el conjunto revisado de código, documentación y recursos BSD. No es una distribución autónoma que permita jugar con solo descargar GitHub.

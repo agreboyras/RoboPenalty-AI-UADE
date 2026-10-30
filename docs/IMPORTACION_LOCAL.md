@@ -24,6 +24,8 @@ Set-ExecutionPolicy -Scope Process RemoteSigned
 
 Tambien se puede ejecutar `./scripts/importar_deploy.ps1` sin argumento: solicita la carpeta en consola. Para importar sin instalar paquetes, usar `instalar.ps1 -SoloRecursos -DeployPath ../DeployTP07`; despues ejecutar `instalar.ps1` para preparar Python. Una instalacion ya importada no necesita de nuevo la fuente para jugar o reinstalar paquetes.
 
+La entrada recomendada para estudiantes es ahora `./scripts/instalar.ps1`: pregunta por la carpeta solo si detecta una terminal interactiva y faltan recursos. `-Interactivo` fuerza la pregunta; `-NoInteractivo` la deshabilita para automatizacion. Una ruta explicita con `-DeployPath` evita preguntas. ENTER sin carpeta no autoriza descargas: prepara una instalacion parcial y retorna 2. Ver la guia completa INSTALACION_WINDOWS.md para descargar el proyecto y distinguir la fuente tecnica TP07 de los permisos pendientes.
+
 Modo dirigido: `Iniciar partido`, despues una orden por penal: `Patea a la derecha`, `Patea a la derecha abierta`, `Patea a la esquina derecha`, `Patea a la izquierda` (centro-izquierda) o `Patea al centro`. `Pausar partida`, `Reanudar partida`, `Mostrar marcador`, `Salir`. El arquero permanece autonomo.
 
 ## Integridad y fallos

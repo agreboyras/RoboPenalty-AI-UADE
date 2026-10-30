@@ -18,6 +18,8 @@ def main():
     if result.returncode:return result.returncode
     result=subprocess.run([sys.executable,'-X','utf8','-E','-s','-B',str(ROOT/'tests/test_installer.py')],cwd=ROOT)
     if result.returncode:return result.returncode
+    result=subprocess.run([sys.executable,'-X','utf8','-E','-s','-B',str(ROOT/'tests/test_student_install.py')],cwd=ROOT)
+    if result.returncode:return result.returncode
     if args.include_core:
         # Explicit paths to THIS bundle. No PYTHONPATH or old project's bootstrap.
         boot="import sys,runpy;from pathlib import Path;r=Path(sys.argv[1]);test=sys.argv[2];sys.argv=[test];sys.path[:0]=[str(r/'phase9a'),str(r/'phase6b'),str(r/'phase5'),str(r/'phase4b'),str(r/'phase4a'),str(r/'phase3b'),str(r/'phase3a'),str(r/'phase2'),str(r)];runpy.run_path(test,run_name='__main__')"
