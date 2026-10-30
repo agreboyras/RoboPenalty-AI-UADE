@@ -1009,8 +1009,8 @@
     },
     {
       "path": "docs/INSTALACION_WINDOWS.md",
-      "bytes": 14427,
-      "sha256": "7757a52c1eaab2b61eaa7b9eaee052c687fb4c216adff30f353350c54c4dfb78"
+      "bytes": 16482,
+      "sha256": "8a8852410b28a99f5618dc7e9ae77399273f844dd62a08d6b664e05a8ae13498"
     },
     {
       "path": "docs/INSTALADOR.md",
@@ -1074,8 +1074,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13054,
-      "sha256": "202323dee8062db1b18c090e9ffc71f7771e1b3866efbb31cfd7d2087fcab78d"
+      "bytes": 13163,
+      "sha256": "fcf39eda4ee7eff05cb96ab894edf030b98b973ae6cdd57ff643fb6ed84c7c43"
     },
     {
       "path": "scripts/_common.ps1",

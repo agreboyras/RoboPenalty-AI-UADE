@@ -10,12 +10,17 @@ Repositorio: [agreboyras/RoboPenalty-AI-UADE](https://github.com/agreboyras/Robo
 
 **Sin Git:** abrir el enlace, pulsar **Code → Download ZIP**, extraer todo el ZIP y abrir en VS Code la carpeta `RoboPenalty-AI-UADE-main`. No ejecutar archivos dentro de la vista del ZIP. En esa carpeta deben verse `README.md`, `scripts/`, `app/` y `tests/`. Abrir **Terminal → New Terminal** y seleccionar PowerShell.
 
-**Con Git, como alternativa**, desde una carpeta de trabajo:
+**Con Git (procedimiento recomendado y validado)**, instalar [Git para Windows](https://git-scm.com/download/win) y ejecutar desde una carpeta de trabajo nueva. El clonado de TP07 queda sujeto a las condiciones de uso explicadas en el paso 3:
 
 ```powershell
-git clone https://github.com/agreboyras/RoboPenalty-AI-UADE.git
+git --version
+git -c core.autocrlf=false clone https://github.com/agreboyras/RoboPenalty-AI-UADE.git
+git -c core.autocrlf=false clone https://github.com/agreboyras/TP07-IA-G1-Futbol.git
+git -C TP07-IA-G1-Futbol checkout --detach ce4b34d1bccfd0420a81bf1688271d86feb8a117
 Set-Location -LiteralPath .\RoboPenalty-AI-UADE
 ```
+
+Quedan dos carpetas hermanas. `checkout --detach` fija la revisión validada de TP07; no hay que editar sus archivos ni actualizarlo a otra revisión para esta instalación. No se necesita crear una rama. Si descargaste RoboPenalty como ZIP, podés usar la misma disposición con el TP07 de la revisión fijada, según el paso 3.
 
 Los comandos siguientes se ejecutan desde la raíz del proyecto. La carpeta puede tener espacios; usar comillas al escribir rutas.
 
@@ -24,7 +29,7 @@ Los comandos siguientes se ejecutan desde la raíz del proyecto. La carpeta pued
 Instalar **CPython 3.12 x64** desde [Python para Windows](https://www.python.org/downloads/windows/), incluyendo el lanzador `py`. Cerrar y abrir la terminal después de instalar.
 
 ```powershell
-py -3.12 --version
+py -3.12 -c "import sys; print(sys.version); assert sys.version_info[:2] == (3,12) and sys.maxsize > 2**32"
 $PSVersionTable.PSVersion
 ```
 
@@ -68,7 +73,7 @@ No cambiar políticas globales ni intentar eludir políticas de una organizació
 
 Referencias verificadas: [Deploy oficial fijado](https://github.com/OpenDriveLab/RoboNaldo_Deploy/tree/f60f24459aaabc3aea9187a2b13f8923049b629c), [TP07 fijado](https://github.com/agreboyras/TP07-IA-G1-Futbol/tree/ce4b34d1bccfd0420a81bf1688271d86feb8a117) y [quickstart original](https://github.com/OpenDriveLab/RoboNaldo/blob/main/docs/quickstart.md). El quickstart original describe entrenamiento y otro entorno; **no seguir sus instrucciones de Isaac/Conda para instalar esta aplicación**.
 
-El árbol remoto TP07 contiene técnicamente los 26 archivos esperados, incluidos ONNX y NPZ. Eso no concede derechos de uso o redistribución. Los responsables del equipo deben confirmar las condiciones aplicables y una vía autorizada para cada integrante. No se habilitó un descargador de esos archivos ni se recomienda reenviar un ZIP de recursos sin permiso.
+Un clon limpio obtenido directamente de GitHub en la revisión TP07 fijada contiene los **26 archivos SHA-256 exactos**, incluidos ONNX y NPZ. Se validó una instalación nueva desde ambos repositorios: 104/104 recursos, 170 tests y cinco penales automáticos headless, con 3 goles, 2 atajadas, 0 errados y 35.000 pasos. La rama `main` de TP07 apuntaba a ese mismo commit al comprobarla el 30/10/2026; se fija el commit porque puede cambiar. Eso no concede derechos de uso o redistribución. Los responsables del equipo deben confirmar las condiciones aplicables y una vía autorizada para cada integrante. No se habilitó un descargador de esos archivos ni se recomienda reenviar un ZIP de recursos sin permiso.
 
 **Si ya tenés autorización y acceso aplicables**, la copia compatible corresponde exactamente a esa revisión TP07. Para evitar depender de `main` y de conversiones CRLF, la [descarga ZIP de la revisión fijada](https://github.com/agreboyras/TP07-IA-G1-Futbol/archive/ce4b34d1bccfd0420a81bf1688271d86feb8a117.zip) es una referencia técnica; su uso queda sujeto a aquellas condiciones. Extraer la carpeta fuera de RoboPenalty. No hace falta instalar requirements de TP07 ni ejecutar su programa.
 
@@ -97,17 +102,30 @@ Se necesitan por imports/recursos transitivos del runtime; no significa que se c
 
 ### Cómo identificar la carpeta
 
-Debe contener directamente `FSM/`, `common/`, `deploy_mujoco/`, `g1_description/` y `policy/`. Seleccionar esa carpeta, no su padre ni el archivo ZIP. Puede tener cualquier nombre. Ejemplo: una carpeta hermana llamada `Deploy Compatible`.
+Debe contener directamente `FSM/`, `common/`, `deploy_mujoco/`, `g1_description/` y `policy/`. Seleccionar esa carpeta, no su padre ni el archivo ZIP. **En el procedimiento con Git del paso 1, seleccionar la raíz de `TP07-IA-G1-Futbol`**, no una subcarpeta `RoboNaldo_Deploy`. Aunque el repositorio se llame TP07, su raíz ya es el árbol Deploy. No ejecutar su programa ni instalar sus requirements. Si usás otra copia compatible, la carpeta puede tener otro nombre.
 
 ```powershell
-.\scripts\importar_deploy.ps1 -DeployPath '..\Deploy Compatible' -Inspeccionar
+.\scripts\importar_deploy.ps1 -DeployPath '..\TP07-IA-G1-Futbol' -Inspeccionar
 ```
 
 Una copia adaptada válida muestra `tp07-compatible`, `26/26 recursos compatibles` y cuántos textos requieren CRLF→LF. Para los 24 textos enumerados en el manifiesto, esa única transformación debe dar exactamente el SHA-256 canónico; se realiza en la copia de destino, nunca en el origen. ONNX y NPZ mantienen comparación estricta de sus bytes. Una copia oficial puede mostrar `official-compatible`, pero **se rechaza para ejecutar**; no se genera una adaptación ficticia. La validación es por SHA-256, no por nombre de carpeta.
 
 ## 4. Instalar
 
-### Instalación guiada recomendada
+### Instalación recomendada con los dos clones
+
+Desde la raíz RoboPenalty, usando la carpeta hermana TP07 del paso 1:
+
+```powershell
+$pythonEquipo = py -3.12 -c "import sys; print(sys.executable)"
+.\scripts\instalar.ps1 -Python "$pythonEquipo" -NoInteractivo -DeployPath "..\TP07-IA-G1-Futbol"
+if ($LASTEXITCODE -ne 0) { throw "Instalacion incompleta: revisar el diagnostico antes de jugar" }
+.\scripts\verificar.ps1
+```
+
+El último comando debe indicar 104/104 y paquetes OK antes de pasar al juego. Si Python no está registrado en `py`, usar su ejecutable real según el paso 2. No hace falta mover ni renombrar TP07.
+
+### Alternativa interactiva para otra carpeta compatible
 
 ```powershell
 .\scripts\instalar.ps1
@@ -119,12 +137,6 @@ Si el host no detecta una terminal interactiva, se puede forzar explícitamente 
 
 ```powershell
 .\scripts\instalar.ps1 -Interactivo
-```
-
-### Con la ruta ya conocida o para automatización
-
-```powershell
-.\scripts\instalar.ps1 -NoInteractivo -DeployPath '..\Deploy Compatible'
 ```
 
 Sin Deploy y sin preguntas:
@@ -143,7 +155,7 @@ Mensajes esperados:
 - `INSTALACION PARCIAL: 78/104 recursos; NO se puede jugar`: Python preparado pero falta Deploy, código 2.
 - Fallo de red, paquetes, versión o integridad: error; no se habilita el juego ni se disimula como éxito.
 
-No hay una duración universal prometida. La instalación descarga paquetes y depende de la conexión; los tiempos de la prueba nueva, si se completó, se registran en `INSTALACION_GUIADA_RESULTADOS.md`.
+No hay una duración universal prometida: la instalación descarga paquetes y depende de la conexión. La prueba con clones públicos del 30/10/2026 tardó 153,58 s en instalar; la sesión automática headless duró 55,60 s reales para 70 s simulados. Son mediciones de esta computadora, no una estimación garantizada para otros equipos.
 
 ## 5. Verificar antes de jugar
 
@@ -171,7 +183,7 @@ El verificador enumera faltantes y diferencias; no modifica los archivos. La tol
 .\scripts\jugar_dirigido.ps1
 ```
 
-Ambos abren el visor, usan semilla 2026, distancia `long`, cinco penales y voz desactivada. Deben verse los dos G1, pelota, arco, estadio y marcador. El arquero siempre es autónomo.
+Ejecutar una modalidad por vez. Ambos abren el visor, usan semilla 2026, distancia `long`, cinco penales y voz desactivada. Deben verse los dos G1, pelota, arco, estadio y marcador. El arquero siempre es autónomo.
 
 En modo dirigido:
 

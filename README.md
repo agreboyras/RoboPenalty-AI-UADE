@@ -8,54 +8,53 @@ Esta distribución reúne la versión interactiva **9A**, el catálogo calibrado
 
 ### Instalación y ejecución
 
-**Necesitás Windows, CPython 3.12 x64 y una copia Deploy adaptada TP07 compatible obtenida legítimamente.** El repositorio solo tiene 78/104 recursos. El Deploy oficial por sí solo no alcanza y los 26 faltantes no se descargan automáticamente.
+**Necesitás Windows, Git, CPython 3.12 x64 con el lanzador `py` y una copia TP07 compatible cuyo uso esté legítimamente permitido.** El repositorio RoboPenalty contiene 78/104 recursos. Los 26 restantes están técnicamente disponibles en TP07, pero sus permisos heredados siguen pendientes de aclaración con OpenDriveLab: que TP07 sea público **no concede una licencia** sobre ese material. No se incluyen ni se descargan automáticamente desde el instalador. Ver [THIRD_PARTY.md](THIRD_PARTY.md).
 
-**1. Descargar.** En [RoboPenalty-AI-UADE](https://github.com/agreboyras/RoboPenalty-AI-UADE), elegir **Code → Download ZIP**, extraerlo y abrir en VS Code la carpeta `RoboPenalty-AI-UADE-main` que contiene `app/` y `scripts/`. Como alternativa, con Git:
+**1. Comprobar requisitos y clonar.** Abrir PowerShell en una carpeta de trabajo nueva. Git se obtiene desde [Git para Windows](https://git-scm.com/download/win) y Python desde [Python para Windows](https://www.python.org/downloads/windows/). Con el acceso y uso de los recursos externos resueltos, ejecutar:
 
 ```powershell
-git clone https://github.com/agreboyras/RoboPenalty-AI-UADE.git
+git --version
+py -3.12 -c "import sys; print(sys.version); assert sys.version_info[:2] == (3,12) and sys.maxsize > 2**32"
+
+git -c core.autocrlf=false clone https://github.com/agreboyras/RoboPenalty-AI-UADE.git
+git -c core.autocrlf=false clone https://github.com/agreboyras/TP07-IA-G1-Futbol.git
+git -C TP07-IA-G1-Futbol checkout --detach ce4b34d1bccfd0420a81bf1688271d86feb8a117
 Set-Location -LiteralPath .\RoboPenalty-AI-UADE
 ```
 
-**2. Preparar la copia externa.** La fuente técnica compatible es [TP07 en la revisión ce4b34d…](https://github.com/agreboyras/TP07-IA-G1-Futbol/tree/ce4b34d1bccfd0420a81bf1688271d86feb8a117), con ocho modificaciones y tres adiciones respecto del [Deploy oficial f60f244…](https://github.com/OpenDriveLab/RoboNaldo_Deploy/tree/f60f24459aaabc3aea9187a2b13f8923049b629c). Su disponibilidad pública no resuelve las condiciones de uso. El equipo debe confirmar una vía autorizada para cada integrante; **si no tenés esa copia legítima, no hay actualmente un paso automático autorizado que complete la instalación**. No hace falta acceder a la computadora del autor ni buscar archivos sueltos: la guía identifica fuente, revisión y el conjunto exacto.
+Los dos repositorios quedan como carpetas hermanas. Se fija el commit TP07 validado para no depender de cambios futuros en `main`. **La raíz de `TP07-IA-G1-Futbol` es el Deploy que se importa**: contiene directamente `FSM/`, `common/`, `deploy_mujoco/` y `policy/`. No hay que buscar una subcarpeta llamada `RoboNaldo_Deploy`, instalar los requirements de TP07 ni ejecutar su programa. El Deploy oficial sin adaptaciones no alcanza.
 
-**3. Instalar desde la raíz del proyecto.** Abrir PowerShell en VS Code:
-
-```powershell
-py -3.12 --version
-.\scripts\instalar.ps1
-```
-
-El instalador pide la carpeta Deploy si detecta una terminal interactiva y faltan recursos. Pegar la ruta de la carpeta que contiene directamente `FSM/`, `common/`, `deploy_mujoco/` y `policy/`. Puede estar en cualquier ubicación fuera de RoboPenalty y tener espacios. Si no pregunta, usar `-Interactivo`. ENTER sin carpeta prepara solo Python y los 78 recursos disponibles: termina **PARCIAL**, con el juego bloqueado.
-
-La copia fuente puede usar LF o CRLF en los 24 textos explícitamente enumerados: solo se convierte CRLF→LF en la copia local si produce exactamente el SHA-256 esperado. No se modifica Deploy de origen. ONNX, NPZ y archivos instalados conservan SHA-256 estricto; espacios, codificación y otros cambios se rechazan. [Detalle y pruebas](docs/IMPORTACION_LF_CRLF.md).
-
-Si `py -3.12` no encuentra Python, instalar CPython 3.12 x64 o indicar el ejecutable que ya tengas instalado, sin asumir ninguna ruta del autor:
+**2. Instalar y verificar.** Desde la raíz de RoboPenalty:
 
 ```powershell
-$pythonEquipo = Read-Host "Ruta completa del ejecutable Python 3.12 x64"
-& $pythonEquipo --version
-.\scripts\instalar.ps1 -Python $pythonEquipo -Interactivo
-```
-
-Con una ruta conocida y sin preguntas (ejemplo de carpeta hermana):
-
-```powershell
-.\scripts\instalar.ps1 -NoInteractivo -DeployPath '..\Deploy Compatible'
-```
-
-Si PowerShell bloquea los scripts, revisar [preparación de Windows](docs/INSTALACION_WINDOWS.md#2-preparar-windows). El instalador crea `.venv`; no hace falta activarlo. No instala Isaac, SDK de robot ni modelos de voz.
-
-**4. Verificar y jugar.** Solo continuar cuando la instalación indique 104/104 recursos correctos:
-
-```powershell
+$pythonEquipo = py -3.12 -c "import sys; print(sys.executable)"
+.\scripts\instalar.ps1 -Python "$pythonEquipo" -NoInteractivo -DeployPath "..\TP07-IA-G1-Futbol"
+if ($LASTEXITCODE -ne 0) { throw "Instalacion incompleta: revisar el diagnostico antes de jugar" }
 .\scripts\verificar.ps1
-.\scripts\jugar_automatico.ps1
-# O bien, cuando haya cerrado la primera tanda:
-.\scripts\jugar_dirigido.ps1
 ```
 
-Abren el visor MuJoCo y ejecutan cinco penales. En modo dirigido, escribir `Iniciar partido`, esperar la solicitud y dar una orden por penal: `Patea al centro`, `Patea a la izquierda` (centro-izquierda), `Patea a la derecha`, `Patea a la derecha abierta` o `Patea a la esquina derecha`. Controles: `mostrar marcador`, `pausar partida`, `reanudar partida`, `salir`. El arquero permanece autónomo. Sin ventana: `jugar_automatico.ps1 -Headless`.
+Continuar únicamente con **104/104 recursos, inventario y paquetes OK**. El instalador crea `.venv` y no hace falta activarlo. Si solo se descarga RoboPenalty, se puede preparar Python y correr tests, pero sin los 26 recursos el juego queda bloqueado. No se instala Isaac, SDK de robot ni modelos de voz.
+
+La importación admite LF o CRLF únicamente en los textos enumerados si CRLF→LF produce el SHA-256 esperado; copia los bytes canónicos sin modificar TP07. ONNX y NPZ mantienen comprobación estricta. [Detalle de integridad](docs/IMPORTACION_LF_CRLF.md).
+
+Si Python no aparece en `py`, PowerShell bloquea scripts, preferís descargar ZIP o ya tenés Deploy en otra ubicación, seguir las alternativas de la [guía Windows](docs/INSTALACION_WINDOWS.md). No hace falta acceder a carpetas de la computadora del autor.
+
+**3. Jugar cinco penales.** Elegir una modalidad por vez:
+
+```powershell
+# Automático con visor: comienza la tanda.
+.\scripts\jugar_automatico.ps1
+
+# Dirigido por texto con visor: espera tus órdenes.
+.\scripts\jugar_dirigido.ps1
+
+# Automático sin ventana.
+.\scripts\jugar_automatico.ps1 -Headless
+```
+
+En modo dirigido, escribir `Iniciar partido`, esperar la solicitud y dar una orden por penal: `Patea al centro`, `Patea a la izquierda` (centro-izquierda), `Patea a la derecha`, `Patea a la derecha abierta` o `Patea a la esquina derecha`. Controles: `mostrar marcador`, `pausar partida`, `reanudar partida`, `salir`. El arquero permanece autónomo.
+
+La prueba con clones limpios de ambos repositorios, en la revisión TP07 fijada, completó **104/104 recursos, 170 tests y cinco penales automáticos headless: 3 goles, 2 atajadas, 0 errados y 35.000 pasos**. Esa prueba no repitió el visor ni representa validación en otra computadora física.
 
 **[Guía completa para estudiantes: descarga, recursos, instalación y solución de errores](docs/INSTALACION_WINDOWS.md).** Las fuentes y avisos se conservan en [THIRD_PARTY.md](THIRD_PARTY.md). La voz sigue pendiente de validación y está desactivada.
 
