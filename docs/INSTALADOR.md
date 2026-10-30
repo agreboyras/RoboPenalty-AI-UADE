@@ -8,7 +8,7 @@ portability/external_sources.json contiene 66 recursos mas un aviso. Por recurso
 
 ## HTTPS y escrituras
 
-Solo se acepta la URL raw.githubusercontent.com construida exactamente con uno de los pares repositorio/revision revisados. Se rechazan HTTP, otros hosts, redirecciones, consultas y rutas fuera del destino. TLS usa la comprobacion estandar; no se desactiva. Tamano y SHA-256 se verifican en memoria, luego en un archivo temporal hermano y finalmente se renombra atomicamente. No se normalizan finales de linea ni binarios.
+Solo se acepta la URL raw.githubusercontent.com construida exactamente con uno de los pares repositorio/revision revisados. Se rechazan HTTP, otros hosts, redirecciones, consultas y rutas fuera del destino. TLS usa la comprobacion estandar; no se desactiva. Tamano y SHA-256 se verifican en memoria, luego en un archivo temporal hermano y finalmente se renombra atomicamente. Las descargas siguen siendo de bytes exactos: no se normalizan finales de linea ni binarios. La unica excepcion de entrada esta separada en la importacion local de textos expresamente enumerados, descrita en IMPORTACION_LF_CRLF.md.
 
 Reintentos acotados para fallos de red/respuestas incompletas. Hash incorrecto se rechaza. Un destino existente solo se reutiliza si coincide; no se sobrescribe un archivo diferente. Un bloqueo del SO serializa instaladores en la misma carpeta y se libera al cerrar o morir el proceso. La reanudacion es POR ARCHIVO, sin HTTP Range. Un .part huerfano nunca se acepta como recurso ni se versiona; no se eliminan archivos ajenos.
 

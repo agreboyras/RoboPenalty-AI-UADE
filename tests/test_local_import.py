@@ -47,7 +47,7 @@ class LocalImportTests(unittest.TestCase):
 
     def test_crlf_rejected_unchanged(self):
         p=self.source/'modified.py';p.write_bytes(b'adapted\r\n')
-        self.assertIn('line_endings',[r['status'] for r in scan(self.source,self.plan)['files']])
+        self.assertIn('different',[r['status'] for r in scan(self.source,self.plan)['files']])
         self.assertFalse(import_local(self.source,self.root,self.plan)['compatible'])
         self.assertEqual(p.read_bytes(),b'adapted\r\n')
 

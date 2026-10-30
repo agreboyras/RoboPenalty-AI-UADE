@@ -16,6 +16,8 @@ def main():
     if result.returncode:return result.returncode
     result=subprocess.run([sys.executable,'-X','utf8','-E','-s','-B',str(ROOT/'tests/test_local_import.py')],cwd=ROOT)
     if result.returncode:return result.returncode
+    result=subprocess.run([sys.executable,'-X','utf8','-E','-s','-B',str(ROOT/'tests/test_text_import.py')],cwd=ROOT)
+    if result.returncode:return result.returncode
     result=subprocess.run([sys.executable,'-X','utf8','-E','-s','-B',str(ROOT/'tests/test_installer.py')],cwd=ROOT)
     if result.returncode:return result.returncode
     result=subprocess.run([sys.executable,'-X','utf8','-E','-s','-B',str(ROOT/'tests/test_student_install.py')],cwd=ROOT)

@@ -1,4 +1,4 @@
-"""Import exact, user-provided local resources. No downloads or license grants."""
+"""Import canonical user-provided local resources. No downloads or license grants."""
 import argparse
 import json
 import os
@@ -7,6 +7,7 @@ import tempfile
 
 from portability.downloads import digest, destination, atomic_write
 from portability.install_resources import ROOT, PLAN, load_plan, installation_lock
+from portability.text_import import canonical_bytes, ResourceMismatch
 
 RECEIPT = '.cache/local_import.json'
 
@@ -28,15 +29,21 @@ def scan(source, plan):
             data = path.read_bytes()
             actual = digest(data)
             row['sha256'] = actual
-            row['status'] = 'adapted' if actual == entry['sha256'] else 'different'
+            try:
+                canonical, transformation = canonical_bytes(entry, data)
+                row.update(status='adapted' if transformation == 'none' else 'crlf_to_lf',
+                           canonical_sha256=digest(canonical), transformation=transformation)
+            except ResourceMismatch as exc:
+                row.update(status='different', reason=str(exc))
             if row['status'] == 'different' and entry['category'] == 'tp07_modified':
-                if actual == entry['source']['sha256']:
+                try:
+                    canonical_bytes({**entry, 'sha256': entry['source']['sha256']}, data)
                     row['status'] = 'official_base'
-            if row['status'] == 'different' and digest(data.replace(b'\r\n', b'\n')) == entry['sha256']:
-                row['status'] = 'line_endings'  # Never silently normalize bytes.
+                except ResourceMismatch:
+                    pass
         rows.append(row)
-    compatible = all(r['status'] == 'adapted' for r in rows)
-    official = all(r['status'] in ('adapted', 'official_base') or
+    compatible = all(r['status'] in ('adapted', 'crlf_to_lf') for r in rows)
+    official = all(r['status'] in ('adapted', 'crlf_to_lf', 'official_base') or
                    (r['status'] == 'missing' and e['category'] == 'tp07_addition')
                    for r, e in zip(rows, pending(plan))) and any(r['status'] == 'official_base' for r in rows)
     return dict(compatible=compatible, kind='tp07-compatible' if compatible else 'official-compatible' if official else 'incomplete-or-different', files=rows)
@@ -116,18 +123,25 @@ def import_local(source, root=ROOT, plan=None):
         return result
     # Validate every source and every existing destination BEFORE writing any resource.
     payloads = {}
+    source_hashes, normalizations = {}, {}
     for entry in pending(plan):
         data = destination(source, entry['target'].split('/', 1)[1]).read_bytes()
-        if digest(data) != entry['sha256']:
-            raise ValueError('La fuente cambio durante la validacion: ' + entry['target'])
+        canonical, transformation = canonical_bytes(entry, data)
         dest = destination(root/'app', entry['target'])
         if dest.exists() and (not dest.is_file() or digest(dest.read_bytes()) != entry['sha256']):
             raise ValueError('Destino existente diferente; no se sobrescribe: ' + entry['target'])
-        payloads[entry['target']] = data
+        payloads[entry['target']] = canonical
+        source_hashes[entry['target']] = digest(data)
+        if transformation != 'none':
+            normalizations[entry['target']] = transformation
+        row = next(r for r in result['files'] if r['target'] == entry['target'])
+        row.update(sha256=digest(data), canonical_sha256=digest(canonical), transformation=transformation,
+                   status='adapted' if transformation == 'none' else 'crlf_to_lf')
     notice_data = notices(source, plan)
+    expected = {e['target']: e['sha256'] for e in pending(plan)}
     with installation_lock(root):
         for target, data in payloads.items():
-            atomic_write(root/'app', target, data, digest(data))
+            atomic_write(root/'app', target, data, expected[target])
         saved = {}
         for relative, data in notice_data.items():
             target = '.cache/local_import_notices/' + digest(data) + '/' + relative
@@ -135,9 +149,13 @@ def import_local(source, root=ROOT, plan=None):
             saved[target] = digest(data)
         write_receipt(root, dict(version=1, kind=result['kind'], runtime_profile_sha256=plan['runtime_profile_sha256'],
             resources={e['target']: e['sha256'] for e in pending(plan)}, notices=saved,
+            source_resources=source_hashes, normalizations=normalizations,
             note='Local resources supplied by user. Hashes do not grant use or redistribution rights. No source absolute path recorded.'))
     result['imported'] = len(payloads)
+    result['normalized_files'] = len(normalizations)
     result['receipt'] = receipt_status(root, plan)
+    if not result['receipt']['ready']:
+        raise ValueError('La comprobacion SHA-256 final de los recursos importados fallo.')
     return result
 
 
@@ -157,9 +175,13 @@ def main():
             for row in result['files']:
                 print(row['status'], row['target'])
             if result['compatible']:
-                print('26/26 bytes exactos.' + (' Inspeccion sin copia.' if a.inspect else ' Importacion local terminada; ejecutar verificar.ps1.'))
+                count = len(result['files'])
+                normalized = sum(r['status']=='crlf_to_lf' for r in result['files'])
+                print(f'{count}/{count} recursos compatibles; {normalized} requieren CRLF->LF local.')
+                print('Inspeccion sin copia; no se modifica la fuente.' if a.inspect else
+                      'Importacion local terminada con SHA-256 canonicos exactos; ejecutar verificar.ps1.')
             else:
-                print('No se importo nada. Deploy oficial requiere 8 modificaciones y 3 adiciones TP07 verificadas; no se distribuyen parches derivados sin permisos claros. Usar una copia adaptada obtenida legitimamente. LF/CRLF distintos se rechazan sin reescritura.')
+                print('No se importo nada. Deploy oficial requiere 8 modificaciones y 3 adiciones TP07 verificadas; no se distribuyen parches derivados sin permisos claros. Usar una copia adaptada obtenida legitimamente. Solo los textos explicitamente listados admiten CRLF->LF si resulta el SHA esperado; binarios, codificacion y otros cambios se rechazan.')
         return 0 if result['compatible'] else 2
     except (OSError, ValueError, KeyError, RuntimeError) as exc:
         print('Importacion rechazada:', str(exc))

@@ -730,7 +730,7 @@
     {
       "path": "app/RoboPenalty/portability/distribution_profile.json",
       "bytes": 901,
-      "sha256": "ba57397a7ff73d2e245476314c0563edac8fcb212b356e3485083d38aa54d064"
+      "sha256": "5cae5e065820f92504d43bdbabec597e66f779c66b6f1d40168b2a6610c66e1f"
     },
     {
       "path": "app/RoboPenalty/portability/downloads.py",
@@ -744,18 +744,18 @@
     },
     {
       "path": "app/RoboPenalty/portability/external_sources.json",
-      "bytes": 58274,
-      "sha256": "c8b789b6e8d63b00ca37fbd6491f26c2d726def3634cdd40b89938da718fba39"
+      "bytes": 60890,
+      "sha256": "4a15abd39c22a8ec1bdc0899d88e1813c745ecc65165af0aa860bfc193fb4aac"
     },
     {
       "path": "app/RoboPenalty/portability/install_resources.py",
-      "bytes": 6825,
-      "sha256": "b869c606f60e06f566df4941aee5a9330d68dcd364bb526aa272c9b84cd5fc97"
+      "bytes": 6918,
+      "sha256": "6beb00b8a720a3327a566cdfd96c60a8d0224d2226b46efcc2ca3849f542fb9b"
     },
     {
       "path": "app/RoboPenalty/portability/local_import.py",
-      "bytes": 8360,
-      "sha256": "ba19665979e3335602ed0dc487449e81b1e222ef0fd734d6babde9de45890a2c"
+      "bytes": 9797,
+      "sha256": "149815e6fdbd9f11f9c34c7fa4f28aef1b562eef765177f8f8d950f419761e76"
     },
     {
       "path": "app/RoboPenalty/portability/reconstruction.py",
@@ -771,6 +771,11 @@
       "path": "app/RoboPenalty/portability/runtime_profile.json",
       "bytes": 41053,
       "sha256": "a1b8e1165f0a543e612f898f280c9fa4293b634cd387b03012115bfcbdd10d5c"
+    },
+    {
+      "path": "app/RoboPenalty/portability/text_import.py",
+      "bytes": 1769,
+      "sha256": "64b6d7a418cb550fb665c539c9ee4b3035242dbe0103f932d7ac375f796adc2b"
     },
     {
       "path": "app/RoboPenalty/requirements-windows.txt",
@@ -983,9 +988,19 @@
       "sha256": "d06958a4f62d92a32580467f4477a0d67960805f34bcaf91c409e55148d64433"
     },
     {
+      "path": "docs/ETAPA2_VALIDACION_FINAL.md",
+      "bytes": 7615,
+      "sha256": "740085512be92dd7cb8ddcba583e732ca1a2fa99eb41a50be51a19aff3bbe3d0"
+    },
+    {
+      "path": "docs/IMPORTACION_LF_CRLF.md",
+      "bytes": 6099,
+      "sha256": "1606f434f16f6c2fe3bf4090a6488761cec9689e7ab4095c031241d2ad34a55d"
+    },
+    {
       "path": "docs/IMPORTACION_LOCAL.md",
-      "bytes": 4336,
-      "sha256": "b1acf94886193aaab862c975cd682d6d5f0d808fb64893dfac3a1750f0aa2551"
+      "bytes": 4549,
+      "sha256": "7ec4f32cbba98b2c40dc08aefa0b6b4f48a680da07ededbd0305ffd6d4573ac1"
     },
     {
       "path": "docs/INSTALACION_GUIADA_RESULTADOS.md",
@@ -994,13 +1009,13 @@
     },
     {
       "path": "docs/INSTALACION_WINDOWS.md",
-      "bytes": 13921,
-      "sha256": "fcef29664665ee32f888cb05ffad1e4f8df47eaa32e0dac967445f0df1f2bd46"
+      "bytes": 14427,
+      "sha256": "7757a52c1eaab2b61eaa7b9eaee052c687fb4c216adff30f353350c54c4dfb78"
     },
     {
       "path": "docs/INSTALADOR.md",
-      "bytes": 4858,
-      "sha256": "0a9e15068059e6c07b62be26dd794d8bdaead1e5dbbcf339bbc5e264661ae8d1"
+      "bytes": 5043,
+      "sha256": "a65c9914b15b72cda9b225ef6e33c2ca4f3d9ddd3a23a606b84ebd6b3b27dc4a"
     },
     {
       "path": "docs/INSTALLER_RESULTS.json",
@@ -1059,8 +1074,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12512,
-      "sha256": "acbeef4e6e90853405a22b159bf2fbe6ccf27332c736a6054f080b8cec827750"
+      "bytes": 13054,
+      "sha256": "202323dee8062db1b18c090e9ffc71f7771e1b3866efbb31cfd7d2087fcab78d"
     },
     {
       "path": "scripts/_common.ps1",
@@ -1129,8 +1144,8 @@
     },
     {
       "path": "tests/run_tests.py",
-      "bytes": 1932,
-      "sha256": "1f55a7e017aabe1e9beeb922de5bf20734825f5e12bbc7da27aff621d8f8398f"
+      "bytes": 2100,
+      "sha256": "4c194a14f4f2a2d282af146bd36dfb8c711ab8faa72fb22743ec6e606ffeb7c8"
     },
     {
       "path": "tests/test_distribution.py",
@@ -1144,8 +1159,8 @@
     },
     {
       "path": "tests/test_local_import.py",
-      "bytes": 6860,
-      "sha256": "90640a84773540fba8b08fa97ee1fa3363a1db0baca9b0540b4baa99ccb7ea20"
+      "bytes": 6857,
+      "sha256": "dc8e5c2bbcc83f6d748e4b2bce27690541de8fde0fab932c651c12dc06869064"
     },
     {
       "path": "tests/test_student_install.py",
@@ -1153,9 +1168,14 @@
       "sha256": "5114408b8528f7e23077a8de68126caffdd17fd00be34bb363804ea8f71dc8c9"
     },
     {
+      "path": "tests/test_text_import.py",
+      "bytes": 9593,
+      "sha256": "5716561b333130d25bfaa1cbd3fcfc0c93dca7c924d82c43c96443d8e39f9f24"
+    },
+    {
       "path": "THIRD_PARTY.md",
-      "bytes": 3853,
-      "sha256": "a4488753bcca224a3bbc72177a8dc7f2b7eb9952c3d863bd7c199315388a4d0b"
+      "bytes": 4134,
+      "sha256": "a9c34722f2bdb01c4b690399f2e05d3259b23c894afac2d5587135b0231fcbfc"
     }
   ]
 }

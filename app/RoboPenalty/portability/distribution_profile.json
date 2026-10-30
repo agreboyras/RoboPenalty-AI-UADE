@@ -18,5 +18,5 @@
     }
   },
   "note": "Mixed provenance; per-resource status in external_sources.json. All 104 runtime hashes remain mandatory; 26 resource steps remain pending.",
-  "external_sources_sha256": "c8b789b6e8d63b00ca37fbd6491f26c2d726def3634cdd40b89938da718fba39"
+  "external_sources_sha256": "4a15abd39c22a8ec1bdc0899d88e1813c745ecc65165af0aa860bfc193fb4aac"
 }

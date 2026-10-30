@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 from portability.downloads import (digest, destination, validate_source, download_atomic,
     atomic_write, PermissionPending)
+from portability.text_import import validate_text_policy
 
 APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[1]
@@ -33,6 +34,7 @@ def load_plan(path=PLAN):
         destination(APP.parent, target)
         if target in found or expected.get(target) != entry['sha256']:
             raise ValueError('Duplicate or unreviewed resource target/hash')
+        validate_text_policy(entry)
         found[target] = entry['sha256']
         if entry['action'] == 'generate_empty':
             if target not in EMPTY_PATHS or entry['sha256'] != digest(b'') or entry['authorization']!='own-empty-structure':

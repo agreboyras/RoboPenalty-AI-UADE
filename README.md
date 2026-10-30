@@ -28,6 +28,8 @@ py -3.12 --version
 
 El instalador pide la carpeta Deploy si detecta una terminal interactiva y faltan recursos. Pegar la ruta de la carpeta que contiene directamente `FSM/`, `common/`, `deploy_mujoco/` y `policy/`. Puede estar en cualquier ubicación fuera de RoboPenalty y tener espacios. Si no pregunta, usar `-Interactivo`. ENTER sin carpeta prepara solo Python y los 78 recursos disponibles: termina **PARCIAL**, con el juego bloqueado.
 
+La copia fuente puede usar LF o CRLF en los 24 textos explícitamente enumerados: solo se convierte CRLF→LF en la copia local si produce exactamente el SHA-256 esperado. No se modifica Deploy de origen. ONNX, NPZ y archivos instalados conservan SHA-256 estricto; espacios, codificación y otros cambios se rechazan. [Detalle y pruebas](docs/IMPORTACION_LF_CRLF.md).
+
 Si `py -3.12` no encuentra Python, instalar CPython 3.12 x64 o indicar el ejecutable que ya tengas instalado, sin asumir ninguna ruta del autor:
 
 ```powershell
@@ -139,14 +141,14 @@ py -3.12 -X utf8 -E -s -B tests/run_tests.py
 .\.venv\Scripts\python.exe -X utf8 -E -s -B tests/run_tests.py --include-core
 ```
 
-La batería actual aprobó **144 tests: los 134 anteriores y diez nuevos de instalación guiada**. La prueba nueva, en una carpeta y entorno creados desde cero, completó tres tandas: automática headless, dirigida por entrada real de consola y automática con visor. Cada una registró 35.000 pasos, 3 goles, 2 atajadas y 0 errados, con igualdad exacta de los estados y trazas comparados frente a 8C. Las órdenes manuales conservaron su historial separado.
+La batería actual aprobó **170 tests: los 144 anteriores y 26 nuevos de importación LF/CRLF**. La validación previa de instalación guiada, en una carpeta y entorno creados desde cero, completó tres tandas: automática headless, dirigida por entrada real de consola y automática con visor. Cada una registró 35.000 pasos, 3 goles, 2 atajadas y 0 errados, con igualdad exacta de los estados y trazas comparados frente a 8C. Las órdenes manuales conservaron su historial separado.
 
 Se comprobó también el caso sin Deploy: código 2 y partida bloqueada, y el diálogo real con ENTER vacío o carpeta compatible. Estos resultados pertenecen a esta computadora y no garantizan otra máquina física. Ver [prueba nueva, tiempos y límites](docs/INSTALACION_GUIADA_RESULTADOS.md) y [comparación base](docs/LOCAL_IMPORT_RESULTS.md). Las tandas no se ejecutan automáticamente al correr los tests unitarios.
 
 ## Errores comunes y limitaciones
 
 - **Faltan recursos o el hash difiere:** revisar la carpeta elegida con `importar_deploy.ps1 -Inspeccionar`. La copia oficial sola carece de ocho modificaciones y tres adiciones TP07. No editar manifiestos ni sustituir modelos o NPZ parecidos.
-- **LF/CRLF distintos:** se rechazan expresamente; conseguir los bytes compatibles. `.gitattributes` preserva los bytes incluidos en este repositorio.
+- **LF/CRLF:** se admiten únicamente al importar los textos enumerados, si CRLF→LF produce el SHA canónico exacto. Los archivos ya instalados deben conservar sus bytes canónicos; no se normalizan binarios ni se corrigen cambios de contenido. `.gitattributes` preserva los bytes versionados.
 - **No se encuentra Python 3.12:** instalar CPython 3.12 x64 o pasar `-Python $pythonEquipo` con un ejecutable real. No usar el entorno de otro proyecto.
 - **PowerShell bloquea scripts:** revisar [instalación Windows](docs/INSTALACION_WINDOWS.md); cualquier cambio de política sugerido es solo para esa terminal, sujeto a las políticas del equipo.
 - **Fallo de red:** corregir la conexión y repetir la instalación. Solo se reutilizan recursos completos cuyos hashes coinciden; un archivo distinto no se sobrescribe.

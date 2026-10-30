@@ -103,7 +103,7 @@ Debe contener directamente `FSM/`, `common/`, `deploy_mujoco/`, `g1_description/
 .\scripts\importar_deploy.ps1 -DeployPath '..\Deploy Compatible' -Inspeccionar
 ```
 
-Una copia adaptada válida muestra `tp07-compatible` y `26/26 bytes exactos`. Una copia oficial puede mostrar `official-compatible`, pero **se rechaza para ejecutar**; no se genera una adaptación ficticia. La validación real es SHA-256, no el nombre de carpeta, el README ni un supuesto número de versión.
+Una copia adaptada válida muestra `tp07-compatible`, `26/26 recursos compatibles` y cuántos textos requieren CRLF→LF. Para los 24 textos enumerados en el manifiesto, esa única transformación debe dar exactamente el SHA-256 canónico; se realiza en la copia de destino, nunca en el origen. ONNX y NPZ mantienen comparación estricta de sus bytes. Una copia oficial puede mostrar `official-compatible`, pero **se rechaza para ejecutar**; no se genera una adaptación ficticia. La validación es por SHA-256, no por nombre de carpeta.
 
 ## 4. Instalar
 
@@ -159,7 +159,7 @@ Para inspeccionar únicamente recursos, sin exigir paquetes:
 .\scripts\verificar.ps1 -ResourcesOnly
 ```
 
-El verificador enumera faltantes y diferencias; no modifica los archivos. Ante un hash diferente, no editar el perfil ni borrar calibraciones: comprobar la revisión de la fuente y conseguir los bytes correctos. No se aceptan silenciosamente diferencias LF/CRLF. Ante una copia pública dañada, conservarla y extraer una copia íntegra en una carpeta nueva.
+El verificador enumera faltantes y diferencias; no modifica los archivos. La tolerancia CRLF→LF existe únicamente en la importación de textos enumerados; después, los 104 archivos instalados deben coincidir byte a byte con el perfil. Ante otra diferencia, no editar hashes ni borrar calibraciones: comprobar la revisión y conseguir los bytes correctos. Ante una copia pública dañada, conservarla y extraer una copia íntegra en una carpeta nueva.
 
 ## 6. Ejecutar cinco penales
 
@@ -200,7 +200,7 @@ La referencia automática registró 3 goles, 2 atajadas, 0 errados y 35.000 paso
 | Entorno interrumpido sin Python ejecutable | Conservar la carpeta y usar una extracción nueva; no reutilizar un entorno ajeno ni borrar datos históricos. |
 | Deploy oficial/incompatible | Ejecutar `importar_deploy.ps1 -Inspeccionar`; se requieren los 26 archivos TP07 exactos, no solo el ONNX. |
 | Recursos faltantes | Revisar la lista de `verificar.ps1`; conseguir legítimamente la copia compatible e indicar su carpeta. |
-| Error SHA / LF-CRLF | Obtener bytes de la revisión correcta sin conversión; no cambiar hashes ni forzar la aceptación. |
+| Error SHA / LF-CRLF | Usar esta revisión del importador: acepta solo CRLF→LF en textos enumerados con SHA canónico exacto. No admite espacios/BOM/codificación distintos ni binarios alterados; conseguir una fuente compatible. No editar hashes ni convertir archivos instalados. |
 | Visor no abre | Revisar el error gráfico/controlador y probar `jugar_automatico.ps1 -Headless`. No se promete solucionar un fallo DLL o gráfico sin ese error concreto. |
 | Ruta con espacios | Usar comillas: `-DeployPath '..\Deploy Compatible'`. El importador usa rutas literales, no comodines. |
 | Descarga incompleta/conexión | Corregir conexión y repetir; solo se reutilizan archivos completos con SHA correcto. Los temporales no cuentan como recursos válidos. |
@@ -216,4 +216,4 @@ py -3.12 -X utf8 -E -s -B tests/run_tests.py
 .\.venv\Scripts\python.exe -X utf8 -E -s -B tests/run_tests.py --include-core
 ```
 
-Se conservan los 134 tests anteriores; el instalador guiado agrega tests de interacción/estado. La prueba de carpeta nueva y las tandas realmente ejecutadas se detallan en `INSTALACION_GUIADA_RESULTADOS.md`. No equivale a validar una segunda computadora física. Atribuciones y condiciones: [THIRD_PARTY.md](../THIRD_PARTY.md).
+La batería incluye 170 tests: los 144 previos y 26 de importación LF/CRLF. Ver IMPORTACION_LF_CRLF.md para esa etapa. La prueba de carpeta nueva y las tandas realmente ejecutadas se detallan en `INSTALACION_GUIADA_RESULTADOS.md`. No equivale a validar una segunda computadora física. Atribuciones y condiciones: [THIRD_PARTY.md](../THIRD_PARTY.md).

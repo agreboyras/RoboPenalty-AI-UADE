@@ -25,3 +25,5 @@ Los paquetes Python se obtienen desde PyPI y no se incluyen en Git; conservar lo
 
 El usuario puede seleccionar una copia Deploy adaptada que ya posea legitimamente. El importador valida los 26 recursos pendientes contra el perfil congelado, conserva avisos y los coloca en rutas locales excluidas de Git. Esto habilita solo una ejecucion local con integridad comprobada; no concede ni afirma permisos de uso o redistribucion. La descarga de los recursos pendientes sigue desactivada. No se incluyen parches derivados del Deploy. Procedimiento: docs/IMPORTACION_LOCAL.md.
 
+La opcion tecnica CRLF->LF del manifiesto se limita a la importacion de 24 textos y exige el SHA-256 canonico existente. No cambia el estado `authorization: pending`, no concede derechos y no se aplica a ONNX, NPZ ni avisos de licencia. Los avisos conservan sus bytes originales.
+

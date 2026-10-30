@@ -31,7 +31,7 @@ Modo dirigido: `Iniciar partido`, despues una orden por penal: `Patea a la derec
 ## Integridad y fallos
 
 - Se verifican todos los 26 archivos antes de copiar. Se usan exactamente los SHA-256 existentes; tambien se comprueban los otros 78 recursos y el inventario del paquete antes de jugar.
-- Diferencias LF/CRLF se informan y rechazan: no se convierten bytes silenciosamente. Obtener la copia exacta adecuada; no editar el manifiesto para hacerla pasar.
+- Los 24 textos con `local_import_text` explícito pueden venir con LF o CRLF. Solo se reemplazan pares CRLF por LF en memoria y en el destino si el SHA resultante coincide exactamente con el esperado. El origen no se escribe; no se cambian espacios, BOM ni codificación. Los binarios y todos los destinos instalados siguen exigiendo SHA estricto. Ver IMPORTACION_LF_CRLF.md.
 - Una carpeta oficial o incompleta no importa nada. Se enumeran todos los faltantes y diferencias. No sustituir NPZ/ONNX por otros parecidos.
 - Una interrupcion puede dejar archivos parciales ya terminados; una nueva importacion reutiliza solo los correctos. Los temporales se escriben atomicamente. Un archivo existente diferente se rechaza y no se sobrescribe.
 - Los recursos van a `app/RoboNaldo_Deploy/`, en rutas especificamente excluidas de Git. Los avisos cercanos se conservan en `.cache/local_import_notices/` y un registro sin ruta personal en `.cache/local_import.json`. Ambos estan excluidos de Git. No publicar una copia ZIP de la instalacion local como si fuese el paquete publico.
