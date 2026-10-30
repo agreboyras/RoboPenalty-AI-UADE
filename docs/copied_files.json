@@ -221,7 +221,8 @@
       "path": "app/RoboPenalty/phase7d/presentation.py",
       "source_sha256": "50ac56c61f7a9506070800d670c6a6c963ca104f8466354d5300d58b60785a1e",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Render-only provisional UADE signs and opt-out; historical source SHA retained."
     },
     {
       "path": "app/RoboPenalty/phase7d/prototype/preview.py",
@@ -245,7 +246,8 @@
       "path": "app/RoboPenalty/phase7d/visual_scene.py",
       "source_sha256": "3b2799299a8547d42e278f990397c6be9f55d021bd359943625e06464160b747",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Render-only provisional UADE signs and opt-out; historical source SHA retained."
     },
     {
       "path": "app/RoboPenalty/phase8b1/planners.py",
@@ -575,7 +577,8 @@
       "path": "app/RoboPenalty/phase9a/run_session.py",
       "source_sha256": "c0c49fc1662836d7705cc91e2acb8c568c9ca0ba7dd843fd377d4c2e328df0d1",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Render-only provisional UADE signs and opt-out; historical source SHA retained."
     },
     {
       "path": "app/RoboPenalty/phase9a/selection.py",

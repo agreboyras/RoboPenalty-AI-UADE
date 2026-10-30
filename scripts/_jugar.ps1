@@ -1,4 +1,4 @@
-param([ValidateSet('auto','directed')][string]$Mode, [string]$Python, [switch]$Headless, [int]$Seed = 2026)
+param([ValidateSet('auto','directed')][string]$Mode, [string]$Python, [switch]$Headless, [int]$Seed = 2026, [switch]$SinPublicidad)
 . "$PSScriptRoot/_common.ps1"
 $exe = Get-BundlePython -Python $Python
 & "$PSScriptRoot/verificar.ps1" -Python $exe
@@ -10,6 +10,7 @@ $stamp = (Get-Date -Format 'yyyyMMdd_HHmmss') + '_' + [guid]::NewGuid().ToString
 $arguments = @('-X', 'utf8', '-E', '-s', '-B', '.\run_robopenalty.py', '--mode', $Mode,
     '--once', '--penalties', '5', '--seed', [string]$Seed, '--output', ".\phase9a\results\${Mode}_$stamp")
 if (-not $Headless) { $arguments += '--viewer' }
+if ($SinPublicidad) { $arguments += '--no-institutional-ads' }
 if ($Mode -eq 'auto') { $arguments += '--autostart' }
 Push-Location -LiteralPath $app
 try {

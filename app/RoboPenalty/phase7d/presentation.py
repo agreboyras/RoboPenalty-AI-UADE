@@ -9,7 +9,7 @@ from phase7d.integrity import model_signature
 from presentation import png_write
 
 class MonumentalPresenter(EnhancedPresenter):
-    def __init__(self,runtime,config,output,distance,*,lod='medium',camera='behind',camera_requests=None):
+    def __init__(self,runtime,config,output,distance,*,lod='medium',camera='behind',camera_requests=None,institutional_ads=True):
         if distance!='long':raise ValueError('7D supports validated long distance only')
         self.lod=lod;self.stage=6;self.decoration=lod!='none';self.view=camera
         self.owner=threading.get_ident();self.camera_requests=camera_requests;self.camera_events=[]
@@ -17,7 +17,7 @@ class MonumentalPresenter(EnhancedPresenter):
         self.pause_display_events=[];self.last_pause_display=None
         self.initial_signature=model_signature(runtime.model)
         self.appearance_changes=prepare_model(runtime.model)
-        self.visual_scene=StadiumScene(runtime.model,lod)
+        self.visual_scene=StadiumScene(runtime.model,lod,institutional_ads=institutional_ads)
         CommandPresenter.__init__(self,runtime,config,output,distance)
         self.visual_capacity=None
         if self.handle is not None:
@@ -42,6 +42,7 @@ class MonumentalPresenter(EnhancedPresenter):
         unchanged=bool(self.runtime.engine.np.array_equal(before,self.runtime.integration_state(self.runtime.data)))
         if not unchanged:raise RuntimeError('Scoreboard rendering changed physics')
         self.screen_events.append(dict(status=dict(status),screen=list(self.visual_scene.screen_state),
+                                       institutional_ad_geoms=sum(p.name.startswith('uade_ad_') for p in self.visual_scene.primitives),
                                        time_sim_s=float(self.runtime.data.time),state_unchanged=unchanged))
 
     def sync(self,kind='transition'):
@@ -74,7 +75,9 @@ class MonumentalPresenter(EnhancedPresenter):
             'physical_model_unchanged':unchanged,'visual_geom_count':len(self.visual_scene.primitives),
             'visual_capacity':self.visual_capacity,'camera_events':self.camera_events,'view':self.view,
             'decoration':self.decoration,'model_signature':self.initial_signature},'phase7d':{
-            'lod':self.lod,'screen_state':self.visual_scene.screen_state,'screen_updates':self.visual_scene.screen_updates,
+            'lod':self.lod,'institutional_ads':self.visual_scene.institutional_ads,
+            'institutional_ad_geoms':sum(p.name.startswith('uade_ad_') for p in self.visual_scene.primitives),
+            'screen_state':self.visual_scene.screen_state,'screen_updates':self.visual_scene.screen_updates,
             'screen_events':self.screen_events,'pause_display_events':self.pause_display_events,
             'status_update_wall_s_including_optional_capture':self.population_wall_s,'status_update_calls':self.population_calls,
             'appearance_changes':self.appearance_changes}}

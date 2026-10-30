@@ -1,9 +1,11 @@
 """Production adapter reusing the approved prototype without changing it."""
 from phase7d.prototype.revision import RevisedBowl,prepare_revision
 from phase7d.prototype.stadium import BowlScene
+from phase7d.institutional_ads import advertisements
 
 class StadiumScene(RevisedBowl):
-    def __init__(self,model,lod='medium'):
+    def __init__(self,model,lod='medium',*,institutional_ads=True):
+        self.institutional_ads=bool(institutional_ads and lod!='none')
         self.screen_state=None;self.screen_updates=0;self.lod=lod
         if lod=='none':
             self.faces={};self.face_transforms={}
@@ -13,6 +15,9 @@ class StadiumScene(RevisedBowl):
             if lod=='low':
                 self.static=[p for p in self.static if '_step_' not in p.name]
                 BowlScene.update_status(self,dict(zip(('goals','saves','penalty','total'),self.screen_state)))
+        if self.institutional_ads:
+            self.static+=advertisements()
+            BowlScene.update_status(self,dict(zip(('goals','saves','penalty','total'),self.screen_state)))
 
     def update_status(self,status):
         state=tuple(int(status.get(k,v)) for k,v in [('goals',0),('saves',0),('penalty',0),('total',5)])

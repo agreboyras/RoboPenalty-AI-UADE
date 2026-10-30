@@ -398,14 +398,19 @@
       "sha256": "016861bfb8ffec26cc45a8baede3b2a6f488cda8f10065a9196986edaa174871"
     },
     {
+      "path": "app/RoboPenalty/phase7d/institutional_ads.py",
+      "bytes": 3490,
+      "sha256": "27be547d1b1422d596036da9d5c6ba4d64065c4fd6bc0124568cae83097ff25c"
+    },
+    {
       "path": "app/RoboPenalty/phase7d/integrity.py",
       "bytes": 118,
       "sha256": "c661d48771374fff3696585506993ac4f49d5c130a47401691afad3d326cec7b"
     },
     {
       "path": "app/RoboPenalty/phase7d/presentation.py",
-      "bytes": 5120,
-      "sha256": "50ac56c61f7a9506070800d670c6a6c963ca104f8466354d5300d58b60785a1e"
+      "bytes": 5495,
+      "sha256": "a5cd7e0bae18b02298856b4721cb6ab36a53c8560a8aaec1fdc1a9bf05b8fe3e"
     },
     {
       "path": "app/RoboPenalty/phase7d/prototype/preview.py",
@@ -424,8 +429,8 @@
     },
     {
       "path": "app/RoboPenalty/phase7d/visual_scene.py",
-      "bytes": 1083,
-      "sha256": "3b2799299a8547d42e278f990397c6be9f55d021bd359943625e06464160b747"
+      "bytes": 1416,
+      "sha256": "427331d4140ad02405c41daea1861d968d83f35885e55239f95a6aff2384e573"
     },
     {
       "path": "app/RoboPenalty/phase8b1/planners.py",
@@ -699,8 +704,8 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/run_session.py",
-      "bytes": 6973,
-      "sha256": "c0c49fc1662836d7705cc91e2acb8c568c9ca0ba7dd843fd377d4c2e328df0d1"
+      "bytes": 7136,
+      "sha256": "43e76abfc117235a71be5bfa0dbeeccf48851c16bb2d2af1ca3feb9ba6717135"
     },
     {
       "path": "app/RoboPenalty/phase9a/selection.py",
@@ -984,13 +989,98 @@
     },
     {
       "path": "docs/copied_files.json",
-      "bytes": 36381,
-      "sha256": "d06958a4f62d92a32580467f4477a0d67960805f34bcaf91c409e55148d64433"
+      "bytes": 36693,
+      "sha256": "abe8c2f65c4fe8a9f10ec8b4e38e9d3426c9ec61c0507aa3ee48ba0606cf5127"
     },
     {
       "path": "docs/ETAPA2_VALIDACION_FINAL.md",
       "bytes": 7615,
       "sha256": "740085512be92dd7cb8ddcba583e732ca1a2fa99eb41a50be51a19aff3bbe3d0"
+    },
+    {
+      "path": "docs/images/uade_prototype/behind.png",
+      "bytes": 652181,
+      "sha256": "5ebf995e5f1e12fcfcedcd535456441565fe3b1bdc38690bccf8f5335c3551da"
+    },
+    {
+      "path": "docs/images/uade_prototype/behind_off.png",
+      "bytes": 659663,
+      "sha256": "3fb2a35c42c29d4cbbe85192bfee3306924343fb10b2909da7ef529c0268f94e"
+    },
+    {
+      "path": "docs/images/uade_prototype/execution.png",
+      "bytes": 557011,
+      "sha256": "be89174443b66aca606bed089a2858154b7f065d834588352e6fb4f430af0c52"
+    },
+    {
+      "path": "docs/images/uade_prototype/goal.png",
+      "bytes": 256995,
+      "sha256": "29fdaea9efcbe60adca5b07f9700a0d0a4465c85b9f44001502ece21f4be2bf0"
+    },
+    {
+      "path": "docs/images/uade_prototype/overview.png",
+      "bytes": 265795,
+      "sha256": "c0e7e86f379d73187a818645ff20bfded77b0c940359d9c4bd9a7474dac1ff5d"
+    },
+    {
+      "path": "docs/images/uade_v2/off_behind.png",
+      "bytes": 659663,
+      "sha256": "3fb2a35c42c29d4cbbe85192bfee3306924343fb10b2909da7ef529c0268f94e"
+    },
+    {
+      "path": "docs/images/uade_v2/off_execution.png",
+      "bytes": 552949,
+      "sha256": "779fe70ca92e498a05f482ce3c350daae80c19c800085e1825ac59a9f43dd312"
+    },
+    {
+      "path": "docs/images/uade_v2/off_goal.png",
+      "bytes": 260105,
+      "sha256": "fb6f06e7c21d2bbf52c3557e392f3d8597b2a37191b051b3aa6f7529c2224c34"
+    },
+    {
+      "path": "docs/images/uade_v2/off_overview.png",
+      "bytes": 265405,
+      "sha256": "d061798944bc29e1ccb23664bc08a01deeea320bd4bac6d6ebd65a06f3c26334"
+    },
+    {
+      "path": "docs/images/uade_v2/v1_behind.png",
+      "bytes": 652181,
+      "sha256": "5ebf995e5f1e12fcfcedcd535456441565fe3b1bdc38690bccf8f5335c3551da"
+    },
+    {
+      "path": "docs/images/uade_v2/v1_execution.png",
+      "bytes": 557011,
+      "sha256": "be89174443b66aca606bed089a2858154b7f065d834588352e6fb4f430af0c52"
+    },
+    {
+      "path": "docs/images/uade_v2/v1_goal.png",
+      "bytes": 256995,
+      "sha256": "29fdaea9efcbe60adca5b07f9700a0d0a4465c85b9f44001502ece21f4be2bf0"
+    },
+    {
+      "path": "docs/images/uade_v2/v1_overview.png",
+      "bytes": 265795,
+      "sha256": "c0e7e86f379d73187a818645ff20bfded77b0c940359d9c4bd9a7474dac1ff5d"
+    },
+    {
+      "path": "docs/images/uade_v2/v2_behind.png",
+      "bytes": 659920,
+      "sha256": "651fa4733deb8ef0ad4f06d4175a66366145ce83ffa52f895c9b18c6aa4a7951"
+    },
+    {
+      "path": "docs/images/uade_v2/v2_execution.png",
+      "bytes": 559428,
+      "sha256": "d459ec89dc6c4ee912c2684831147edbb8fa10150e23b4b7ab2596a1e1a6ce29"
+    },
+    {
+      "path": "docs/images/uade_v2/v2_goal.png",
+      "bytes": 262658,
+      "sha256": "a71ad05f065a338909cb75b943ed5fbdba19a7f24094a398fd4ec097caad50ae"
+    },
+    {
+      "path": "docs/images/uade_v2/v2_overview.png",
+      "bytes": 267052,
+      "sha256": "74dfeaae8e2a9a9928daf230f90e1a7ba0454eaf1dde08c40c07bafffa89e5a5"
     },
     {
       "path": "docs/IMPORTACION_LF_CRLF.md",
@@ -1053,6 +1143,16 @@
       "sha256": "2321e74ea010e18e099f5477c34903651e559ffb5247d37ecf5b25d2aa224666"
     },
     {
+      "path": "docs/PUBLICIDAD_UADE.md",
+      "bytes": 8846,
+      "sha256": "157075bf1aaebb852d27896cfbe849829e4b3dd1dc372956a6ddcf1e5d46da73"
+    },
+    {
+      "path": "docs/PUBLICIDAD_UADE_V2.md",
+      "bytes": 10389,
+      "sha256": "be81ddf27432b4a4bb58b718268fad8351020c5dfe682334bffc54bd0e94c276"
+    },
+    {
       "path": "docs/RECURSOS_PENDIENTES.md",
       "bytes": 2333,
       "sha256": "822b6c4a3a6f8b662de29df0774d05dbdfbd6d12d81fa0a19062ab5381fb9a90"
@@ -1074,8 +1174,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13163,
-      "sha256": "fcf39eda4ee7eff05cb96ab894edf030b98b973ae6cdd57ff643fb6ed84c7c43"
+      "bytes": 14140,
+      "sha256": "8dffe72a348fbdd9de5bc0e2497a4088936bb5737441317a01afe72c89a95a6b"
     },
     {
       "path": "scripts/_common.ps1",
@@ -1089,8 +1189,8 @@
     },
     {
       "path": "scripts/_jugar.ps1",
-      "bytes": 962,
-      "sha256": "8f339bc267c6e77fded70ce0b3aa95279771b1cd5d7364b77d0e600499a7b858"
+      "bytes": 1049,
+      "sha256": "4e9b56c831a2bcffa404d571aec20b9de46169d2ae6939b801bf3fa87b823ed0"
     },
     {
       "path": "scripts/importar_deploy.ps1",
@@ -1104,13 +1204,13 @@
     },
     {
       "path": "scripts/jugar_automatico.ps1",
-      "bytes": 168,
-      "sha256": "52638782c848e3527029bdb774f76e93fe27d18241ca972212c95ca9d7a950fe"
+      "bytes": 222,
+      "sha256": "d38e3036e8985c9d0db96ec49f074787af27e6f0f125faab303c6c86885505c8"
     },
     {
       "path": "scripts/jugar_dirigido.ps1",
-      "bytes": 172,
-      "sha256": "ea7091dc2f0742f040eb6daa268f7505a9f67eaf5f75cb2ca18dc31d66dde8cf"
+      "bytes": 226,
+      "sha256": "3c7fcec828e7f64055373769ab0acc00683d6c2c51ba147d25a8aff6b65fc631"
     },
     {
       "path": "scripts/verificar.ps1",
@@ -1144,8 +1244,8 @@
     },
     {
       "path": "tests/run_tests.py",
-      "bytes": 2100,
-      "sha256": "4c194a14f4f2a2d282af146bd36dfb8c711ab8faa72fb22743ec6e606ffeb7c8"
+      "bytes": 2282,
+      "sha256": "4bc21e92e2c1ccc7b3243911899de38964d1a04291732e940467a3b4ad92764c"
     },
     {
       "path": "tests/test_distribution.py",
@@ -1156,6 +1256,11 @@
       "path": "tests/test_installer.py",
       "bytes": 11438,
       "sha256": "cddd5ea5e539d6b74744332c607e8bf5be7e5df239bb7b9ba6e3a2f8404ce8ac"
+    },
+    {
+      "path": "tests/test_institutional_ads.py",
+      "bytes": 3789,
+      "sha256": "24e28d0c091c3bcccc05c0844ea19926a6031875f48a404298714dfe90e8ded7"
     },
     {
       "path": "tests/test_local_import.py",

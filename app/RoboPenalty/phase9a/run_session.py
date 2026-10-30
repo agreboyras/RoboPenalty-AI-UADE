@@ -28,6 +28,7 @@ def main():
     p.add_argument('--seed',type=int,default=2026);p.add_argument('--autostart',action='store_true');p.add_argument('--once',action='store_true')
     p.add_argument('--script',type=Path);p.add_argument('--output',type=Path);p.add_argument('--capture-frame',action='store_true')
     p.add_argument('--no-decoration',action='store_true');p.add_argument('--unpaced',action='store_true')
+    p.add_argument('--no-institutional-ads',action='store_true',help='Hide provisional UADE signs; keep the stadium')
     a=p.parse_args()
     if a.list_devices:print(json.dumps(devices(),indent=2));return
     if not a.output or a.output.exists() or not a.output.resolve().is_relative_to(HERE):p.error('Choose NEW output directory inside phase9a')
@@ -37,7 +38,7 @@ def main():
     bus=InputBus();control=Control(bus,a.mode);runtime=Runtime();control.emit=lambda *x,**kw:print(*x,file=runtime.console,**kw)
     presenter=voice=console=service=None;matches=[];current=None;failure=None;termination=None;voice_joined=console_joined=None
     try:
-        presenter=MonumentalPresenter(runtime,visual,a.output,'long',lod='none' if a.no_decoration else 'medium',camera='behind',camera_requests=bus.camera_requests)
+        presenter=MonumentalPresenter(runtime,visual,a.output,'long',lod='none' if a.no_decoration else 'medium',camera='behind',camera_requests=bus.camera_requests,institutional_ads=not a.no_institutional_ads)
         runtime.attach(presenter);script=Script(json.loads(a.script.read_text(encoding='utf-8'))) if a.script else None
         service=Service(control,runtime,presenter,script);service.voice_on_wait=a.voice;presenter.service=service
         boundary=CommandBoundary(runtime.engine.mujoco,service);runtime.engine.mujoco=boundary

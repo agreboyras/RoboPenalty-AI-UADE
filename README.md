@@ -130,6 +130,19 @@ Controles: `ayuda`, `estado`, `mostrar marcador`, `pausar partida`, `reanudar pa
 
 Las salidas de partida se crean bajo `app/RoboPenalty/phase9a/results/` y quedan excluidas de Git.
 
+## Publicidad UADE: versión visual 2
+
+El estadio muestra dos vallas bajas detrás del arco, seis laterales exteriores y una franja en la base de la tribuna del fondo, tanto en modo automático como dirigido. Combinan azul oscuro, blanco y rojo, con el texto «UADE» sin la leyenda PROTOTIPO. La tipografía sigue siendo provisional: **no son los logos ni el escudo oficiales**, no usan imágenes institucionales y no tienen colisiones. Toda la publicidad queda fuera del césped.
+
+Para comparar manteniendo el resto del estadio, agregar `-SinPublicidad` al lanzador elegido:
+
+```powershell
+.\scripts\jugar_automatico.ps1 -SinPublicidad
+.\scripts\jugar_dirigido.ps1 -SinPublicidad
+```
+
+La entrada Python equivalente es `--no-institutional-ads`. [Diseño V2, capturas reales, comparación con V1 y mediciones](docs/PUBLICIDAD_UADE_V2.md). La [primera versión](docs/PUBLICIDAD_UADE.md) se conserva como referencia histórica.
+
 ## Pruebas y validación
 
 ```powershell
@@ -140,7 +153,7 @@ py -3.12 -X utf8 -E -s -B tests/run_tests.py
 .\.venv\Scripts\python.exe -X utf8 -E -s -B tests/run_tests.py --include-core
 ```
 
-La batería actual aprobó **170 tests: los 144 anteriores y 26 nuevos de importación LF/CRLF**. La validación previa de instalación guiada, en una carpeta y entorno creados desde cero, completó tres tandas: automática headless, dirigida por entrada real de consola y automática con visor. Cada una registró 35.000 pasos, 3 goles, 2 atajadas y 0 errados, con igualdad exacta de los estados y trazas comparados frente a 8C. Las órdenes manuales conservaron su historial separado.
+La batería incluye los **170 tests anteriores y seis de publicidad**, que requieren los paquetes de ejecución y se ejecutan con `--include-core`. La validación previa de instalación guiada, en una carpeta y entorno creados desde cero, completó tres tandas: automática headless, dirigida por entrada real de consola y automática con visor. Cada una registró 35.000 pasos, 3 goles, 2 atajadas y 0 errados, con igualdad exacta de los estados y trazas comparados frente a 8C. Las órdenes manuales conservaron su historial separado.
 
 Se comprobó también el caso sin Deploy: código 2 y partida bloqueada, y el diálogo real con ENTER vacío o carpeta compatible. Estos resultados pertenecen a esta computadora y no garantizan otra máquina física. Ver [prueba nueva, tiempos y límites](docs/INSTALACION_GUIADA_RESULTADOS.md) y [comparación base](docs/LOCAL_IMPORT_RESULTS.md). Las tandas no se ejecutan automáticamente al correr los tests unitarios.
 
