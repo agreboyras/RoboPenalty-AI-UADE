@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "date": "2026-10-30",
+  "resources_after_local_import": "104/104 exact",
+  "public_package_resources": "78/104",
+  "pending_downloads_and_redistribution_unchanged": 26,
+  "tests_passed": 134,
+  "test_suites": {
+    "package": 18,
+    "local_import": 18,
+    "installer": 28,
+    "predictor_agent": 25,
+    "evaluation": 6,
+    "utility": 23,
+    "commands_control": 12,
+    "selection": 4
+  },
+  "official_scan": {
+    "shared_exact": 15,
+    "official_bases": 8,
+    "tp07_additions_missing": 3,
+    "imported": false
+  },
+  "adapted_scan": {
+    "exact": 26,
+    "kind": "tp07-compatible"
+  },
+  "trials": [
+    {
+      "mode": "auto",
+      "session_wall_s": 64.38736530020833,
+      "process_wall_s": 70.14538799994625,
+      "simulated_s": 70,
+      "steps": 35000,
+      "outcomes": [
+        "goal",
+        "goal",
+        "goal",
+        "save",
+        "save"
+      ],
+      "goals": 3,
+      "saves": 2,
+      "misses": 0,
+      "exact_baseline": true,
+      "comparison_differences": 0,
+      "foot_ball_contacts": 5,
+      "shooter_falls": 0,
+      "simulation_failure": null,
+      "automatic_learning_exact": true,
+      "manual_statistics_isolated": false,
+      "viewer_closed": true,
+      "viewer_render_thread_joined": true,
+      "control_pauses": [],
+      "blocked_original_reference_access": true
+    },
+    {
+      "mode": "directed",
+      "session_wall_s": 64.11041010008194,
+      "process_wall_s": 70.82313579996116,
+      "simulated_s": 70,
+      "steps": 35000,
+      "outcomes": [
+        "goal",
+        "goal",
+        "goal",
+        "save",
+        "save"
+      ],
+      "goals": 3,
+      "saves": 2,
+      "misses": 0,
+      "exact_baseline": true,
+      "comparison_differences": 0,
+      "foot_ball_contacts": 5,
+      "shooter_falls": 0,
+      "simulation_failure": null,
+      "automatic_learning_exact": false,
+      "manual_statistics_isolated": true,
+      "viewer_closed": true,
+      "viewer_render_thread_joined": true,
+      "control_pauses": [
+        {
+          "wall_s": 0.3275802999269217,
+          "sim_before_s": 2.0000000000000013,
+          "sim_after_s": 2.0000000000000013,
+          "full_integration_state_unchanged": true
+        }
+      ],
+      "blocked_original_reference_access": true
+    },
+    {
+      "mode": "viewer",
+      "session_wall_s": 128.22054559993558,
+      "process_wall_s": 133.01545209996402,
+      "simulated_s": 70,
+      "steps": 35000,
+      "outcomes": [
+        "goal",
+        "goal",
+        "goal",
+        "save",
+        "save"
+      ],
+      "goals": 3,
+      "saves": 2,
+      "misses": 0,
+      "exact_baseline": true,
+      "comparison_differences": 0,
+      "foot_ball_contacts": 5,
+      "shooter_falls": 0,
+      "simulation_failure": null,
+      "automatic_learning_exact": false,
+      "manual_statistics_isolated": true,
+      "viewer_closed": true,
+      "viewer_render_thread_joined": true,
+      "control_pauses": [
+        {
+          "wall_s": 0.34689350007101893,
+          "sim_before_s": 2.0000000000000013,
+          "sim_after_s": 2.0000000000000013,
+          "full_integration_state_unchanged": true
+        }
+      ],
+      "blocked_original_reference_access": true
+    }
+  ],
+  "comparison_scope": [
+    "initial hashes and states",
+    "recorded ball traces and contacts",
+    "keeper decisions, lateral/posture/return/monitor traces",
+    "full final integration states",
+    "classifications and steps",
+    "automatic learning statistics"
+  ],
+  "comparison_exclusions": [
+    "wall times",
+    "process paths and object IDs",
+    "external integrity count (104 rather than historical 209)"
+  ],
+  "caveats": [
+    "Not an autonomous installation from GitHub alone",
+    "Local provenance receipt is not legal permission",
+    "Runtime tested on this Windows machine with fresh isolated venv; not a second physical computer",
+    "Voice not validated; disabled",
+    "Pattern scans cannot prove absence of every possible secret"
+  ],
+  "installer_errors_during_validation": [
+    "Sandbox temporary-folder permission failure for ensurepip; completed outside sandbox",
+    "Sandbox DNS failure for PyPI; installation completed with authorized network"
+  ],
+  "sources_modified": false,
+  "git_initialized": false,
+  "commit_or_push": false
+}

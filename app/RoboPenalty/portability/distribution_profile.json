@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "backend": "vendored-sha256",
+  "runtime_profile_sha256": "a1b8e1165f0a543e612f898f280c9fa4293b634cd387b03012115bfcbdd10d5c",
+  "roots": {
+    "RoboNaldo_Deploy": {
+      "repository": "https://github.com/agreboyras/TP07-IA-G1-Futbol.git",
+      "commit": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+      "authorization": "pending",
+      "included": false,
+      "included_partial": true
+    },
+    "unitree_mujoco": {
+      "repository": "https://github.com/unitreerobotics/unitree_mujoco.git",
+      "commit": "1eb6642e3f3fdfb7fb13a9794fd6a2dd93ea0e7d",
+      "authorization": "BSD-3-Clause",
+      "included": true
+    }
+  },
+  "note": "Mixed provenance; per-resource status in external_sources.json. All 104 runtime hashes remain mandatory; 26 resource steps remain pending.",
+  "external_sources_sha256": "c8b789b6e8d63b00ca37fbd6491f26c2d726def3634cdd40b89938da718fba39"
+}

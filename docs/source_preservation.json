@@ -1,0 +1,27 @@
+{
+  "before": {
+    "original": {
+      "files": 272,
+      "sha256": "f9025d52800b5bd3618698818012f3079563b3adbba7530882008b1bba726c8b"
+    },
+    "portability": {
+      "files": 280,
+      "sha256": "e347396e72ff2daf306811af21f7dff502bac7c76498a22da9ef2b30f0caef16"
+    }
+  },
+  "archives_count": 15,
+  "archives_verified_before": true,
+  "after": {
+    "original": {
+      "files": 272,
+      "sha256": "f9025d52800b5bd3618698818012f3079563b3adbba7530882008b1bba726c8b"
+    },
+    "portability": {
+      "files": 280,
+      "sha256": "e347396e72ff2daf306811af21f7dff502bac7c76498a22da9ef2b30f0caef16"
+    }
+  },
+  "source_trees_unchanged": true,
+  "archives_verified_after": true,
+  "last_read_only_verification": "2026-10-30"
+}

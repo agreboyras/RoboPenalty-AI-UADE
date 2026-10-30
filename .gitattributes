@@ -1,0 +1,3 @@
+# Preserve exact bytes: historical calibrations and pinned third-party hashes.
+* -text
+*.py diff=python

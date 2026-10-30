@@ -1,0 +1,894 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "path": "app/RoboPenalty/phase2/freekick_adapter.py",
+      "source_sha256": "be96b0e67f77293dcb4a44baf2304ca91e8fd1bad0317ae03be8332be9897c84",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase2/scene.py",
+      "source_sha256": "b16e80a9f8972782a72b4e3a45b23e631a7b06c2639684dd4310272386bf8af2",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase3a/lateral_control.py",
+      "source_sha256": "230b8f04a795131656f19e89df72a947f6c20e5b425daa899a46fe172e12a2b9",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase3a/lateral_scene.py",
+      "source_sha256": "b6569fd86c5154136fab541ff89a67192e967e583e2dec4ae612be2c91c55573",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase3b/agent.py",
+      "source_sha256": "2d533b4e398d7421170975a5d0d83c44fdd0b7d8cd92311987ec1173143713b0",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase3b/observations.py",
+      "source_sha256": "677f2111d234f2ab17ad9cebbcc66b041fcdc8f4920bbf48ab03c4ad1825e45f",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase3b/predictor.py",
+      "source_sha256": "b2140d5c3bf01c57357eb96b245a77e9f25e497548f1598bb3104a1b5f6b9496",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase4a/evaluation.py",
+      "source_sha256": "4cc58a971eeda14f9bb74aa9eb09646baf804ec7ae0cb56e5f098a916197a8c9",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase4a/experiment.py",
+      "source_sha256": "fe9de82dc4afd9010bde5e983120b390aed403c49eb31f6fcd5e56ac1a3954e7",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase4a/scenarios.py",
+      "source_sha256": "d7e0b37a252a638247649d2c0b7aea9c6cdfd32afa1c9a02679e48ddc21ca8a0",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase4b/catalog.py",
+      "source_sha256": "bf46be63454620ee06059baeb0418c0be83fcb62ddd8a68e8e9171ac0fea13c9",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase4b/striker_agent.py",
+      "source_sha256": "52117c07e8598b2f3c76b3686a4ce435be0b3fa06de21845df94aebca8aa7265",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase5/game.py",
+      "source_sha256": "09ac8f7987482d336e793cc6f35430e005c25e6ff40a152a4751493521498b5e",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase5/runtime.py",
+      "source_sha256": "b42665902cff3310ade89fb0a9757c549d9261369f6f721952762df5f6d7da98",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase6a/integration.py",
+      "source_sha256": "aba90a5ced99e2e4e0ecc4e9280dd962f62a263711acbd51dc7d95db9903a0e5",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase6a/presentation.py",
+      "source_sha256": "d1e257d280c4adf6e1a8485ed2d1c3d340547f0278e9d7612cf7df8188a3d7df",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/asr_profiles.py",
+      "source_sha256": "c7242a47a7c4906bdbbfbb9191a93bf6ce27c0607161548b71ad29a116fe14ce",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/audio.py",
+      "source_sha256": "632dee25e38544a4281e7a5257a268651ec63e4705707fc7cdc111dd75bc0412",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/commands.py",
+      "source_sha256": "d7c19195dcc6ed624d75c9ad83a7b3d7ce7a4dbf85a619a8094eb55f5c2bfc17",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/control.py",
+      "source_sha256": "667b6182eb9b749d7f95fe68727f9d5251bdfc9a817be1d9f13508fd9882cb89",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/session.py",
+      "source_sha256": "359c19cb3c9b1ce8552d952151ebc0fab48c5f3cabb3271f75d34b546baf4527",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/__init__.py",
+      "source_sha256": "e8d9d87a7f2d277983e206b5b0045489fbb762f68d8562ab8bacabcf7beac303",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/cameras.py",
+      "source_sha256": "6d4f1298bad6428aed1056716a0a122d13d3327da6b3e7b34ba3856aa6aa96ba",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/integrity.py",
+      "source_sha256": "71209fdc46ece4ca1219fca81478a834424058b0354ae4417e5613ef36c77218",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/layout.py",
+      "source_sha256": "33686ebead2a2d50a4128079ab571f4f972bab2c4f04cecbbd56d5022d203f24",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/presentation.py",
+      "source_sha256": "59495823f77f74cc47ac5d37770d08c91f05034343fea414735804f89dd001e4",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/visual_scene.py",
+      "source_sha256": "283b03961f2afa74366d6206f93ad13615a31b8b7e47c8a438af836a92409337",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/cameras.py",
+      "source_sha256": "f927cfcc48ebb917e80e6dc866b28576ff2176ed80942fae9b5e4e70f241714b",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/environment.py",
+      "source_sha256": "ce62c9181f7e2b04582b614b636a09117e6bd230deea23435f9fa7068423913f",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/integrity.py",
+      "source_sha256": "fcdde7b23b923cc1ac85e63a8d006c2a47e6803508268e0aa6726b545a09190a",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/presentation.py",
+      "source_sha256": "c3db0ca73098847bc834bf680b233fb49d80409f0dfa02d12af4b573e691d24f",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/preview.py",
+      "source_sha256": "86c0945149552c86d7459f3cc3f2ddb68319d3bdfd7fccc69620d8f80ef70bf8",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/scoreboard.py",
+      "source_sha256": "900630680494b790272ff093b1bdf22964cc619b520cd80877db9b44ffb9206e",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/visual_scene.py",
+      "source_sha256": "e072436b0727ded21580b7c726a33f380fbfd56662877442f52ec3a58b5665f4",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/cameras.py",
+      "source_sha256": "016861bfb8ffec26cc45a8baede3b2a6f488cda8f10065a9196986edaa174871",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/integrity.py",
+      "source_sha256": "c661d48771374fff3696585506993ac4f49d5c130a47401691afad3d326cec7b",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/presentation.py",
+      "source_sha256": "50ac56c61f7a9506070800d670c6a6c963ca104f8466354d5300d58b60785a1e",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/prototype/preview.py",
+      "source_sha256": "441985762dcd6a240fb0c2831eb762e789adf7af3c178232dfcecace8333623d",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/prototype/revision.py",
+      "source_sha256": "180165b047cc45dbc567471fa7f4bd3487cee8caec9b048c79cc90e0d63f5a58",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/prototype/stadium.py",
+      "source_sha256": "316456231b47a5568fbc4d5b746dffc2c925589812d7d305d7f2ece82c9f18b7",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/visual_scene.py",
+      "source_sha256": "3b2799299a8547d42e278f990397c6be9f55d021bd359943625e06464160b747",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b1/planners.py",
+      "source_sha256": "bec97a476fc1a68bf3dac910d2e2af4670eba63ed20f1b66bccfa8f025090d01",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b1/runtime_adapter.py",
+      "source_sha256": "02adcd0273966a55fbe2f8723adde2084cbf854fc8cb083908cf64d8ce263e3b",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b2/catalog.py",
+      "source_sha256": "b343c40456d3753ac8b911feba2cba85255fe4a846b542d6535ef30f24dc3fcf",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b2/experiment.py",
+      "source_sha256": "5ead479fd8b405a0db37881f0d808637b409af32f9f5da32f6c2d00ab93439dd",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b2/runtime.py",
+      "source_sha256": "6c21b5049f9afee5b9c2d461ace09e58caf5bbb60bc4c9486837c25412338020",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b3/posture.py",
+      "source_sha256": "cbf5795d891fca65929ad09796e635828aac001f2c6c5d57c078412db750d2b4",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b3/runtime.py",
+      "source_sha256": "db46d2547031523c88985d772266d1c5a5038583c420c9b18f24421cda89dd91",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/catalog.py",
+      "source_sha256": "10b14ec790949008e73ca493642cebb2f14002eb7a2b447dd607e1d51e32750c",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/catalog_v1.json",
+      "source_sha256": "4095405ec5b5011cb3e9ca040f8fbdd27579a2571e626e0abaf186d300fc2b20",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.000_01.json",
+      "source_sha256": "26d0a55b97fa0d4a189521432b373e29ce37edaec804fd64e5e5aeba1fd6a036",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.000_02.json",
+      "source_sha256": "98ac36c2454749a670c8ec2b9a92a59ddf7d9d1accb4fe20cce31cbee1ad4765",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.001_02.json",
+      "source_sha256": "2b46e64d490d01460f803c73e6ea4eca7e222d04ad0789f2e7fe9fec118edabc",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.002_02.json",
+      "source_sha256": "34eac0c6822b15cc62df7da8d8fdc2d96faf6bd2d3cc6d11eba6a9688d91c76c",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.005_02.json",
+      "source_sha256": "b784e2dc043c2150e606e5e1fb64ddf87b24dbc702195421ba3c42cd61a8f22f",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy-0.001_02.json",
+      "source_sha256": "ffdbe0d312c18f905fda8d2fbc7906f4ad2180c989c7cce9d0915b327fd47520",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy-0.002_02.json",
+      "source_sha256": "c741145d21d08e139aba8a56ba5f5e855db167a17d29530550915d1f5379cb75",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy-0.005_02.json",
+      "source_sha256": "59ad3a76269ed9099c2d5ee72e56194433e0feb941e0e7beecaa44f71b879b1f",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.000_01.json",
+      "source_sha256": "083c63b26df42b4841abdc7e76531765ae9e7b56aebf6a7c2a81075495feadb6",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.000_02.json",
+      "source_sha256": "ba57b330b11300b8a7098d075cf3ac9a47b589676fa464e2582fad4637ad0495",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.001_02.json",
+      "source_sha256": "815571da3fd73c5d5f0b6e19e34ffd8ec4e9b440b983d0493be250b68ca35df3",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.002_02.json",
+      "source_sha256": "2f94051ad8dfb8151cb3e7631be69b2bcb2daaf00b0b9d9bc82e979834103cd8",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.005_02.json",
+      "source_sha256": "39cc629abaa4f68538c46cdb2a439064182fdda4bcb76ed0689c61723d126e71",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy-0.001_02.json",
+      "source_sha256": "268e2ebb68800b39472f0b2cc0f05ab4ce6071b538083bdea6274ff5ebdcd708",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy-0.002_02.json",
+      "source_sha256": "65539b4725fba296c9290c29366d2029fb8984227ca341d9a3cf96c0906f69fd",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy-0.005_02.json",
+      "source_sha256": "96a25becb1cb289533101aee1c460b374b27c0f533098a04c257f2d68ede394e",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy+0.000_01.json",
+      "source_sha256": "8138f4b8cc5a9ec67b8a5160364e50e7f6bd07da742927045401c1546dc1292f",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy+0.001_01.json",
+      "source_sha256": "7de45b54e01aacb71813c53d0e48d965c23131c13c942104c460b1621163a656",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy+0.002_01.json",
+      "source_sha256": "b898ee5a8be4b6a6c6ded30db9935f8b3a7c9d7f6ab5832c4ec83923da1b7c04",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy+0.005_01.json",
+      "source_sha256": "eae9739da102cba9422bfbec6b456b61f58ef1cca7d19615b69f2ca5b8f3f449",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy-0.001_01.json",
+      "source_sha256": "7fc0cd27f773d679e703b132df35e26e2b161cdddab4efa44c603e8e107a907e",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy-0.002_01.json",
+      "source_sha256": "186f91c816ec6393ec57b73da647777ab2ffba355d6c3f25841ea8bf2da2c54d",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy-0.005_01.json",
+      "source_sha256": "d5ef08071437a816bf0e65a8c7e21993295b25e81bb5d716bcc11b4783dedcd3",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy+0.000_01.json",
+      "source_sha256": "f622a38910025413eb12083461f9764eaa52fbad8e8dc35c29a8116b69602a62",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy+0.001_01.json",
+      "source_sha256": "3f498686a2b25cc5b71653c0bfb06bec41d3d5989b573464c2231dd32d423713",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy+0.002_01.json",
+      "source_sha256": "ac2ab635de7eb571baae7939a9b6b1f22231a551d583c6946383596577922055",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy+0.005_01.json",
+      "source_sha256": "622ced01d37ec7cce24aa07b45f49e9760953be9ce54b6e8b78dd21f66f4b733",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy-0.001_01.json",
+      "source_sha256": "c5161fd40553b89021efc518491c956fa760aab7ef420626175fef84739cda0d",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy-0.002_01.json",
+      "source_sha256": "82e2e2ae6f007c2c339f9ba6ac4b039e8ffda86ddd92c0ed1defebfbfa67a73a",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy-0.005_01.json",
+      "source_sha256": "3a78884d553a33789b67f9c463f88ddec4f1ee722072177c98159df00f57f425",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy+0.000_01.json",
+      "source_sha256": "f581c85df43e0ec816963b75b760a26595e82f875edcae5ddfdad9e3fefccff2",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy+0.001_01.json",
+      "source_sha256": "0c3a2c5b17d35e278d6a0d84c7cf0891611eb208d89f423e13029c716eb94b54",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy+0.002_01.json",
+      "source_sha256": "a5b1eeca93d7f30211a203e5a15e724e5d59ba11f40aa0dfc4e2512310c9ea4c",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy+0.005_01.json",
+      "source_sha256": "067300c95443819339350f7a834d6f5ed3e1c1f7dff6cf1d1e795b3916625db2",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy-0.001_01.json",
+      "source_sha256": "884b5264d84ee22cfc5b88e347fa94005b15f90d748cd0d56e9f46ee3ddc37f4",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy-0.002_01.json",
+      "source_sha256": "a624c8020f157ddbd62355b122983f832c32834835f6c68e2494721da4a970dd",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy-0.005_01.json",
+      "source_sha256": "152c5ebada31a648ed174c730be58b487e040363175130233f3a46f9702113be",
+      "classification": "calibration",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/return_control.py",
+      "source_sha256": "dc7c94c7766caab281a40a030d2eb807394228b15b2966d7685313c7e1476529",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/runtime.py",
+      "source_sha256": "841454bff304dcbd66fc1018daf57546d3876abe4b3cdbfc52b9b4ad41a71ebe",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/bootstrap.py",
+      "source_sha256": "75fe90fdaf2d0e74c5fd89bad3d65310918813d590d6e34479a6953153b69528",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/bus.py",
+      "source_sha256": "b633d48e181d5a124963562edbedabfb9a33baae0ee9aa8bec1def9d48e07cb0",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/commands.py",
+      "source_sha256": "4aa521a3866f7f0b3debf61e6311cd409237e937197b25a59f29f85385634cbd",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/console.py",
+      "source_sha256": "abaf2d07203af7a3ff8d6f6d8590a2e787e57964ae32ff7cf347af8aae0b30c6",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/control.py",
+      "source_sha256": "27b5f3bc2848deebd5a54cf8747010d1fc2dc7d4c087a701e984a7225d26b7ca",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/fixtures/directed.json",
+      "source_sha256": "294913b6a78f2742784f0062ab1e7bd35e3fa637af82a1f67c65dfe595e1ea35",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/run_session.py",
+      "source_sha256": "c0c49fc1662836d7705cc91e2acb8c568c9ca0ba7dd843fd377d4c2e328df0d1",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/selection.py",
+      "source_sha256": "f92abb4c4099c5fb990606c1280abf03f9c437df58a45f7ffdb36bb038adb6a7",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/session.py",
+      "source_sha256": "cd924a0e4709c15fef2ee04589bff128cc96b3425001650a2a12e2f4e8de8a91",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/voice.py",
+      "source_sha256": "7c89b02a66ed0a641037e51b22c6734721ac910fda49d0e9dfa3c5188ddbf9f9",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/portability/diagnose.py",
+      "source_sha256": "d04e13b419b35ccc55af197f24648bc12ff6e0782d3b694ab0ba5d12696b68f3",
+      "classification": "owned_runtime",
+      "status": "adapted_distribution_preflight_only"
+    },
+    {
+      "path": "app/RoboPenalty/portability/external_manifest.json",
+      "source_sha256": "a4f850441bad399c6293414c64cbc63410af3083c94131031363c5af32bd0626",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/portability/resources.py",
+      "source_sha256": "bda78416e553e1c1846725d5e028a88e16f8e55def3a73bc026d165acda27731",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/portability/runtime_profile.json",
+      "source_sha256": "a1b8e1165f0a543e612f898f280c9fa4293b634cd387b03012115bfcbdd10d5c",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/requirements-windows.txt",
+      "source_sha256": "102b43935773a865af5ef5cb0b10616802fb0d3594c33b26b6ea954d47ac6870",
+      "classification": "owned_runtime",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/RoboPenalty/run_robopenalty.py",
+      "source_sha256": "e2eb068105a1be8615a5f869f59661f0cbaab125246e252454059935d99560bc",
+      "classification": "owned_runtime",
+      "status": "adapted",
+      "note": "Preflight uses exact verified local import; no physics changes."
+    },
+    {
+      "path": "app/unitree_mujoco/LICENSE",
+      "source_sha256": "a5d73fc4aca9074e3e6fe0b1a0ba763cf9514b2249b7390ed20fe8d53630bf25",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/g1_29dof.xml",
+      "source_sha256": "423e28bd718b19f7a65cda539b6f794ddbb268b4b9bdbd85f4bd982b30729617",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/head_link.STL",
+      "source_sha256": "d297328b3569fc85074355e76cba6c889d19de5361224bcd3c5b8ce82e13b9b6",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_ankle_pitch_link.STL",
+      "source_sha256": "d49e3abc6f5b12e532062cd575b87b5ef40cd2a3fc18f54a1ca5bba4f773d51d",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_ankle_roll_link.STL",
+      "source_sha256": "c4092af943141d4d9f74232f3cfa345afc6565f46a077793b8ae0e68b39dc33f",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_elbow_link.STL",
+      "source_sha256": "fa752198accd104d5c4c3a01382e45165b944fbbc5acce085059223324e5bed3",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_hip_pitch_link.STL",
+      "source_sha256": "4725168105ee768ee31638ef22b53f6be2d7641bfd7cfefe803488d884776fa4",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_hip_roll_link.STL",
+      "source_sha256": "91f25922ee8a7c3152790051bebad17b4d9cd243569c38fe340285ff93a97acf",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_hip_yaw_link.STL",
+      "source_sha256": "a16d88aa6ddac8083aa7ad55ed317bea44b1fa003d314fba88965b7ed0f3b55b",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_knee_link.STL",
+      "source_sha256": "8d92b9e3d3a636761150bb8025e32514c4602b91c7028d523ee42b3e632de477",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_rubber_hand.STL",
+      "source_sha256": "cff2221a690fa69303f61fce68f2d155c1517b52efb6ca9262dd56e0bc6e70fe",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_shoulder_pitch_link.STL",
+      "source_sha256": "f0d1cfd02fcf0d42f95e678eeca33da3afbcc366ffba5c052847773ec4f31d52",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_shoulder_roll_link.STL",
+      "source_sha256": "fb9df21687773522598dc384f1a2945c7519f11cbc8bd372a49170316d6eee88",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_shoulder_yaw_link.STL",
+      "source_sha256": "1aa97e9748e924336567992181f78c7cd0652fd52a4afcca3df6b2ef6f9e712e",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_wrist_pitch_link.STL",
+      "source_sha256": "b251d8e05047f695d0f536cd78c11973cfa4e78d08cfe82759336cc3471de3a9",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_wrist_roll_link.STL",
+      "source_sha256": "edc387c9a0ba8c2237e9b296d32531426fabeb6f53e58df45c76106bca74148c",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_wrist_yaw_link.STL",
+      "source_sha256": "83f8fb3a726bf9613d65dd14f0f447cb918c3c95b3938042a0c9c09749267d3b",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/logo_link.STL",
+      "source_sha256": "8571a0a19bc4916fa55f91449f51d5fdefd751000054865a842449429d5f155b",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/pelvis.STL",
+      "source_sha256": "5ba6bbc888e630550140d3c26763f10206da8c8bd30ed886b8ede41c61f57a31",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/pelvis_contour_link.STL",
+      "source_sha256": "5cc5c2c7a312329e3feeb2b03d3fc09fc29705bd01864f6767e51be959662420",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_ankle_pitch_link.STL",
+      "source_sha256": "15be426539ec1be70246d4d82a168806db64a41301af8b35c197a33348c787a9",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_ankle_roll_link.STL",
+      "source_sha256": "4b66222ea56653e627711b56d0a8949b4920da5df091da0ceb343f54e884e3a5",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_elbow_link.STL",
+      "source_sha256": "1be925d7aa268bb8fddf5362b9173066890c7d32092c05638608126e59d1e2ab",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_hip_pitch_link.STL",
+      "source_sha256": "e4f3c99d7f4a7d34eadbef9461fc66e3486cb5442db1ec50c86317d459f1a9c6",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_hip_roll_link.STL",
+      "source_sha256": "4c254ef66a356f492947f360dd931965477b631e3fcc841f91ccc46d945d54f6",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_hip_yaw_link.STL",
+      "source_sha256": "e479c2936ca2057e9eb2f7dff6c189b7419d7b8484dea0b298cbb36a2a6aa668",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_knee_link.STL",
+      "source_sha256": "63c4008449c9bbe701a6e2b557b7a252e90cf3a5abcf54cee46862b9a69f8ec8",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_rubber_hand.STL",
+      "source_sha256": "99533b778bca6246144fa511bb9d4e555e075c641f2a0251e04372869cd99d67",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_shoulder_pitch_link.STL",
+      "source_sha256": "24cdb387e0128dfe602770a81c56cdce3a0181d34d039a11d1aaf8819b7b8c02",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_shoulder_roll_link.STL",
+      "source_sha256": "962b97c48f9ce9e8399f45dd9522e0865d19aa9fd299406b2d475a8fc4a53e81",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_shoulder_yaw_link.STL",
+      "source_sha256": "a0b76489271da0c72461a344c9ffb0f0c6e64f019ea5014c1624886c442a2fe5",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_wrist_pitch_link.STL",
+      "source_sha256": "d22f8f3b3127f15a63e5be1ee273cd5075786c3142f1c3d9f76cbf43d2a26477",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_wrist_roll_link.STL",
+      "source_sha256": "a7ee9212ff5b94d6cb7f52bb1bbf3f352194d5b598acff74f4c77d340c5b344f",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_wrist_yaw_link.STL",
+      "source_sha256": "bc9dece2d12509707e0057ba2e48df8f3d56db0c79410212963a25e8a50f61a6",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/torso_link.STL",
+      "source_sha256": "e96d023f0368a4e3450b86ca5d4f10227d8141156a373e7da8cb3c93266523e0",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/waist_roll_link.STL",
+      "source_sha256": "34f0aa73f41131230be4d25876c944fdf6c24d62553f199ff8b980c15e8913df",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/waist_support_link.STL",
+      "source_sha256": "1fae9e1bb609848a1667d32eed8d6083ae443538a306843056a2a660f1b2926a",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/waist_yaw_link.STL",
+      "source_sha256": "2883f20e03f09b669b5b4ce10677ee6b5191c0934b584d7cbaef2d0662856ffb",
+      "classification": "unitree_bsd3",
+      "status": "unchanged"
+    },
+    {
+      "path": "tests/reference/phase3b/test_agent.py",
+      "source_sha256": "778e9fb820b6eb307c8acc9370dc4307417f7e0f0402e2f9bb1a0fb7013dd593",
+      "classification": "reference_test",
+      "status": "unchanged"
+    },
+    {
+      "path": "tests/reference/phase4a/test_evaluation.py",
+      "source_sha256": "8de205131b2a64057d65f1f80f39f6f4150b856597ab870c583ac04018a587ba",
+      "classification": "reference_test",
+      "status": "unchanged"
+    },
+    {
+      "path": "tests/reference/phase4b/test_striker.py",
+      "source_sha256": "641ed37253569cf5bf52ae0ac9dd69c4835e9d3265d09e14b21cbe7a2aea58fe",
+      "classification": "reference_test",
+      "status": "unchanged"
+    },
+    {
+      "path": "tests/reference/phase9a/test_input.py",
+      "source_sha256": "19310007ad2242b13ddc336800386f1cd03e9c33b9233dce320ea65a680d6645",
+      "classification": "reference_test",
+      "status": "unchanged"
+    },
+    {
+      "path": "tests/reference/phase9a/test_selection.py",
+      "source_sha256": "17c02aa73ec86d220383f2d06417534097404249b2dbd34883974c78e3368d81",
+      "classification": "reference_test",
+      "status": "unchanged"
+    }
+  ]
+}

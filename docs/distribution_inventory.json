@@ -1,0 +1,1146 @@
+{
+  "version": 1,
+  "scope": "Reviewed distributable files only; inventory excludes itself; local validation/cache/env outputs excluded",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 104,
+      "sha256": "cfee216439ad2bfd0a8fb46026b3275ee4e932e83da9711472f7571846b5bcc1"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 3562,
+      "sha256": "1eeddaf2506898b66cee5080bb0bdd3c6ed39a51eeec365b5d0cba63b143d0f8"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/common/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/deploy_mujoco/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/FSM/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/head_link.STL",
+      "bytes": 932784,
+      "sha256": "005fb67fbd3eff94aa8bf4a6e83238174e9f91b6721f7111594322f223724411"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_ankle_pitch_link.STL",
+      "bytes": 71184,
+      "sha256": "d49e3abc6f5b12e532062cd575b87b5ef40cd2a3fc18f54a1ca5bba4f773d51d"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_ankle_roll_link.STL",
+      "bytes": 653384,
+      "sha256": "c4092af943141d4d9f74232f3cfa345afc6565f46a077793b8ae0e68b39dc33f"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_elbow_link.STL",
+      "bytes": 88784,
+      "sha256": "fa752198accd104d5c4c3a01382e45165b944fbbc5acce085059223324e5bed3"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_hip_pitch_link.STL",
+      "bytes": 181684,
+      "sha256": "4725168105ee768ee31638ef22b53f6be2d7641bfd7cfefe803488d884776fa4"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_hip_roll_link.STL",
+      "bytes": 192184,
+      "sha256": "91f25922ee8a7c3152790051bebad17b4d9cd243569c38fe340285ff93a97acf"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_hip_yaw_link.STL",
+      "bytes": 296284,
+      "sha256": "a16d88aa6ddac8083aa7ad55ed317bea44b1fa003d314fba88965b7ed0f3b55b"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_knee_link.STL",
+      "bytes": 854884,
+      "sha256": "8d92b9e3d3a636761150bb8025e32514c4602b91c7028d523ee42b3e632de477"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_rubber_hand.STL",
+      "bytes": 2287484,
+      "sha256": "cff2221a690fa69303f61fce68f2d155c1517b52efb6ca9262dd56e0bc6e70fe"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_shoulder_pitch_link.STL",
+      "bytes": 176784,
+      "sha256": "f0d1cfd02fcf0d42f95e678eeca33da3afbcc366ffba5c052847773ec4f31d52"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_shoulder_roll_link.STL",
+      "bytes": 400284,
+      "sha256": "fb9df21687773522598dc384f1a2945c7519f11cbc8bd372a49170316d6eee88"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_shoulder_yaw_link.STL",
+      "bytes": 249184,
+      "sha256": "1aa97e9748e924336567992181f78c7cd0652fd52a4afcca3df6b2ef6f9e712e"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_wrist_pitch_link.STL",
+      "bytes": 85984,
+      "sha256": "b251d8e05047f695d0f536cd78c11973cfa4e78d08cfe82759336cc3471de3a9"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_wrist_roll_link.STL",
+      "bytes": 356184,
+      "sha256": "edc387c9a0ba8c2237e9b296d32531426fabeb6f53e58df45c76106bca74148c"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/left_wrist_yaw_link.STL",
+      "bytes": 318684,
+      "sha256": "83f8fb3a726bf9613d65dd14f0f447cb918c3c95b3938042a0c9c09749267d3b"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/logo_link.STL",
+      "bytes": 243384,
+      "sha256": "8571a0a19bc4916fa55f91449f51d5fdefd751000054865a842449429d5f155b"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/pelvis.STL",
+      "bytes": 1060884,
+      "sha256": "5ba6bbc888e630550140d3c26763f10206da8c8bd30ed886b8ede41c61f57a31"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/pelvis_contour_link.STL",
+      "bytes": 1805184,
+      "sha256": "5cc5c2c7a312329e3feeb2b03d3fc09fc29705bd01864f6767e51be959662420"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_ankle_pitch_link.STL",
+      "bytes": 71184,
+      "sha256": "15be426539ec1be70246d4d82a168806db64a41301af8b35c197a33348c787a9"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_ankle_roll_link.STL",
+      "bytes": 653784,
+      "sha256": "4b66222ea56653e627711b56d0a8949b4920da5df091da0ceb343f54e884e3a5"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_elbow_link.STL",
+      "bytes": 88784,
+      "sha256": "1be925d7aa268bb8fddf5362b9173066890c7d32092c05638608126e59d1e2ab"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_hip_pitch_link.STL",
+      "bytes": 181284,
+      "sha256": "e4f3c99d7f4a7d34eadbef9461fc66e3486cb5442db1ec50c86317d459f1a9c6"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_hip_roll_link.STL",
+      "bytes": 192684,
+      "sha256": "4c254ef66a356f492947f360dd931965477b631e3fcc841f91ccc46d945d54f6"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_hip_yaw_link.STL",
+      "bytes": 296284,
+      "sha256": "e479c2936ca2057e9eb2f7dff6c189b7419d7b8484dea0b298cbb36a2a6aa668"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_knee_link.STL",
+      "bytes": 852284,
+      "sha256": "63c4008449c9bbe701a6e2b557b7a252e90cf3a5abcf54cee46862b9a69f8ec8"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_rubber_hand.STL",
+      "bytes": 2192684,
+      "sha256": "99533b778bca6246144fa511bb9d4e555e075c641f2a0251e04372869cd99d67"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_shoulder_pitch_link.STL",
+      "bytes": 176784,
+      "sha256": "24cdb387e0128dfe602770a81c56cdce3a0181d34d039a11d1aaf8819b7b8c02"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_shoulder_roll_link.STL",
+      "bytes": 401884,
+      "sha256": "962b97c48f9ce9e8399f45dd9522e0865d19aa9fd299406b2d475a8fc4a53e81"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_shoulder_yaw_link.STL",
+      "bytes": 249984,
+      "sha256": "a0b76489271da0c72461a344c9ffb0f0c6e64f019ea5014c1624886c442a2fe5"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_wrist_pitch_link.STL",
+      "bytes": 79584,
+      "sha256": "d22f8f3b3127f15a63e5be1ee273cd5075786c3142f1c3d9f76cbf43d2a26477"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_wrist_roll_link.STL",
+      "bytes": 356084,
+      "sha256": "a7ee9212ff5b94d6cb7f52bb1bbf3f352194d5b598acff74f4c77d340c5b344f"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/right_wrist_yaw_link.STL",
+      "bytes": 341484,
+      "sha256": "bc9dece2d12509707e0057ba2e48df8f3d56db0c79410212963a25e8a50f61a6"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/torso_link_rev_1_0.STL",
+      "bytes": 2570584,
+      "sha256": "11ddb46f2098efbbd8816b1d65893632d8e78be936376c7cdcd6771899ccc723"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/waist_roll_link_rev_1_0.STL",
+      "bytes": 85884,
+      "sha256": "b67c347a05abc3e8ddae600d98a082bee273bb39f8e651647708b0a7140a8a97"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/g1_description/meshes/waist_yaw_link_rev_1_0.STL",
+      "bytes": 619984,
+      "sha256": "ec6db442b11f25eed898b5add07940c85d804f300de24dcbd264ccd8be7d554c"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/LICENSE-Unitree-ROS.txt",
+      "bytes": 1558,
+      "sha256": "84aac59fd3246e3ddc49d1387644e8fcf43b0def4f0b9fe687f372e90446df2d"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/policy/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/policy/beyondmimic/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/RoboNaldo_Deploy/README_PENDING.md",
+      "bytes": 894,
+      "sha256": "19749019dae4bc213030e715a2750bf99009d03f3ec0f06ee14503a2aad1cf1d"
+    },
+    {
+      "path": "app/RoboPenalty/phase2/freekick_adapter.py",
+      "bytes": 3499,
+      "sha256": "be96b0e67f77293dcb4a44baf2304ca91e8fd1bad0317ae03be8332be9897c84"
+    },
+    {
+      "path": "app/RoboPenalty/phase2/scene.py",
+      "bytes": 3456,
+      "sha256": "b16e80a9f8972782a72b4e3a45b23e631a7b06c2639684dd4310272386bf8af2"
+    },
+    {
+      "path": "app/RoboPenalty/phase3a/lateral_control.py",
+      "bytes": 2843,
+      "sha256": "230b8f04a795131656f19e89df72a947f6c20e5b425daa899a46fe172e12a2b9"
+    },
+    {
+      "path": "app/RoboPenalty/phase3a/lateral_scene.py",
+      "bytes": 3525,
+      "sha256": "b6569fd86c5154136fab541ff89a67192e967e583e2dec4ae612be2c91c55573"
+    },
+    {
+      "path": "app/RoboPenalty/phase3b/agent.py",
+      "bytes": 5369,
+      "sha256": "2d533b4e398d7421170975a5d0d83c44fdd0b7d8cd92311987ec1173143713b0"
+    },
+    {
+      "path": "app/RoboPenalty/phase3b/observations.py",
+      "bytes": 1329,
+      "sha256": "677f2111d234f2ab17ad9cebbcc66b041fcdc8f4920bbf48ab03c4ad1825e45f"
+    },
+    {
+      "path": "app/RoboPenalty/phase3b/predictor.py",
+      "bytes": 2034,
+      "sha256": "b2140d5c3bf01c57357eb96b245a77e9f25e497548f1598bb3104a1b5f6b9496"
+    },
+    {
+      "path": "app/RoboPenalty/phase4a/evaluation.py",
+      "bytes": 1328,
+      "sha256": "4cc58a971eeda14f9bb74aa9eb09646baf804ec7ae0cb56e5f098a916197a8c9"
+    },
+    {
+      "path": "app/RoboPenalty/phase4a/experiment.py",
+      "bytes": 17659,
+      "sha256": "fe9de82dc4afd9010bde5e983120b390aed403c49eb31f6fcd5e56ac1a3954e7"
+    },
+    {
+      "path": "app/RoboPenalty/phase4a/scenarios.py",
+      "bytes": 1972,
+      "sha256": "d7e0b37a252a638247649d2c0b7aea9c6cdfd32afa1c9a02679e48ddc21ca8a0"
+    },
+    {
+      "path": "app/RoboPenalty/phase4b/catalog.py",
+      "bytes": 2687,
+      "sha256": "bf46be63454620ee06059baeb0418c0be83fcb62ddd8a68e8e9171ac0fea13c9"
+    },
+    {
+      "path": "app/RoboPenalty/phase4b/striker_agent.py",
+      "bytes": 6313,
+      "sha256": "52117c07e8598b2f3c76b3686a4ce435be0b3fa06de21845df94aebca8aa7265"
+    },
+    {
+      "path": "app/RoboPenalty/phase5/game.py",
+      "bytes": 6544,
+      "sha256": "09ac8f7987482d336e793cc6f35430e005c25e6ff40a152a4751493521498b5e"
+    },
+    {
+      "path": "app/RoboPenalty/phase5/runtime.py",
+      "bytes": 8873,
+      "sha256": "b42665902cff3310ade89fb0a9757c549d9261369f6f721952762df5f6d7da98"
+    },
+    {
+      "path": "app/RoboPenalty/phase6a/integration.py",
+      "bytes": 3653,
+      "sha256": "aba90a5ced99e2e4e0ecc4e9280dd962f62a263711acbd51dc7d95db9903a0e5"
+    },
+    {
+      "path": "app/RoboPenalty/phase6a/presentation.py",
+      "bytes": 9613,
+      "sha256": "d1e257d280c4adf6e1a8485ed2d1c3d340547f0278e9d7612cf7df8188a3d7df"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/asr_profiles.py",
+      "bytes": 1371,
+      "sha256": "c7242a47a7c4906bdbbfbb9191a93bf6ce27c0607161548b71ad29a116fe14ce"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/audio.py",
+      "bytes": 13396,
+      "sha256": "632dee25e38544a4281e7a5257a268651ec63e4705707fc7cdc111dd75bc0412"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/commands.py",
+      "bytes": 2793,
+      "sha256": "d7c19195dcc6ed624d75c9ad83a7b3d7ce7a4dbf85a619a8094eb55f5c2bfc17"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/control.py",
+      "bytes": 4801,
+      "sha256": "667b6182eb9b749d7f95fe68727f9d5251bdfc9a817be1d9f13508fd9882cb89"
+    },
+    {
+      "path": "app/RoboPenalty/phase6b/session.py",
+      "bytes": 9065,
+      "sha256": "359c19cb3c9b1ce8552d952151ebc0fab48c5f3cabb3271f75d34b546baf4527"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/__init__.py",
+      "bytes": 82,
+      "sha256": "e8d9d87a7f2d277983e206b5b0045489fbb762f68d8562ab8bacabcf7beac303"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/cameras.py",
+      "bytes": 1602,
+      "sha256": "6d4f1298bad6428aed1056716a0a122d13d3327da6b3e7b34ba3856aa6aa96ba"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/integrity.py",
+      "bytes": 1877,
+      "sha256": "71209fdc46ece4ca1219fca81478a834424058b0354ae4417e5613ef36c77218"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/layout.py",
+      "bytes": 1434,
+      "sha256": "33686ebead2a2d50a4128079ab571f4f972bab2c4f04cecbbd56d5022d203f24"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/presentation.py",
+      "bytes": 5220,
+      "sha256": "59495823f77f74cc47ac5d37770d08c91f05034343fea414735804f89dd001e4"
+    },
+    {
+      "path": "app/RoboPenalty/phase7b/visual_scene.py",
+      "bytes": 6759,
+      "sha256": "283b03961f2afa74366d6206f93ad13615a31b8b7e47c8a438af836a92409337"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/cameras.py",
+      "bytes": 1136,
+      "sha256": "f927cfcc48ebb917e80e6dc866b28576ff2176ed80942fae9b5e4e70f241714b"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/environment.py",
+      "bytes": 4526,
+      "sha256": "ce62c9181f7e2b04582b614b636a09117e6bd230deea23435f9fa7068423913f"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/integrity.py",
+      "bytes": 930,
+      "sha256": "fcdde7b23b923cc1ac85e63a8d006c2a47e6803508268e0aa6726b545a09190a"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/presentation.py",
+      "bytes": 4311,
+      "sha256": "c3db0ca73098847bc834bf680b233fb49d80409f0dfa02d12af4b573e691d24f"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/preview.py",
+      "bytes": 2830,
+      "sha256": "86c0945149552c86d7459f3cc3f2ddb68319d3bdfd7fccc69620d8f80ef70bf8"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/scoreboard.py",
+      "bytes": 4272,
+      "sha256": "900630680494b790272ff093b1bdf22964cc619b520cd80877db9b44ffb9206e"
+    },
+    {
+      "path": "app/RoboPenalty/phase7c/visual_scene.py",
+      "bytes": 4870,
+      "sha256": "e072436b0727ded21580b7c726a33f380fbfd56662877442f52ec3a58b5665f4"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/cameras.py",
+      "bytes": 323,
+      "sha256": "016861bfb8ffec26cc45a8baede3b2a6f488cda8f10065a9196986edaa174871"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/integrity.py",
+      "bytes": 118,
+      "sha256": "c661d48771374fff3696585506993ac4f49d5c130a47401691afad3d326cec7b"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/presentation.py",
+      "bytes": 5120,
+      "sha256": "50ac56c61f7a9506070800d670c6a6c963ca104f8466354d5300d58b60785a1e"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/prototype/preview.py",
+      "bytes": 4528,
+      "sha256": "441985762dcd6a240fb0c2831eb762e789adf7af3c178232dfcecace8333623d"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/prototype/revision.py",
+      "bytes": 5166,
+      "sha256": "180165b047cc45dbc567471fa7f4bd3487cee8caec9b048c79cc90e0d63f5a58"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/prototype/stadium.py",
+      "bytes": 7399,
+      "sha256": "316456231b47a5568fbc4d5b746dffc2c925589812d7d305d7f2ece82c9f18b7"
+    },
+    {
+      "path": "app/RoboPenalty/phase7d/visual_scene.py",
+      "bytes": 1083,
+      "sha256": "3b2799299a8547d42e278f990397c6be9f55d021bd359943625e06464160b747"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b1/planners.py",
+      "bytes": 6844,
+      "sha256": "bec97a476fc1a68bf3dac910d2e2af4670eba63ed20f1b66bccfa8f025090d01"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b1/runtime_adapter.py",
+      "bytes": 2853,
+      "sha256": "02adcd0273966a55fbe2f8723adde2084cbf854fc8cb083908cf64d8ce263e3b"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b2/catalog.py",
+      "bytes": 3392,
+      "sha256": "b343c40456d3753ac8b911feba2cba85255fe4a846b542d6535ef30f24dc3fcf"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b2/experiment.py",
+      "bytes": 4861,
+      "sha256": "5ead479fd8b405a0db37881f0d808637b409af32f9f5da32f6c2d00ab93439dd"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b2/runtime.py",
+      "bytes": 3346,
+      "sha256": "6c21b5049f9afee5b9c2d461ace09e58caf5bbb60bc4c9486837c25412338020"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b3/posture.py",
+      "bytes": 8013,
+      "sha256": "cbf5795d891fca65929ad09796e635828aac001f2c6c5d57c078412db750d2b4"
+    },
+    {
+      "path": "app/RoboPenalty/phase8b3/runtime.py",
+      "bytes": 3196,
+      "sha256": "db46d2547031523c88985d772266d1c5a5038583c420c9b18f24421cda89dd91"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/catalog.py",
+      "bytes": 2434,
+      "sha256": "10b14ec790949008e73ca493642cebb2f14002eb7a2b447dd607e1d51e32750c"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/catalog_v1.json",
+      "bytes": 12220,
+      "sha256": "4095405ec5b5011cb3e9ca040f8fbdd27579a2571e626e0abaf186d300fc2b20"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.000_01.json",
+      "bytes": 2293328,
+      "sha256": "26d0a55b97fa0d4a189521432b373e29ce37edaec804fd64e5e5aeba1fd6a036"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.000_02.json",
+      "bytes": 2293328,
+      "sha256": "98ac36c2454749a670c8ec2b9a92a59ddf7d9d1accb4fe20cce31cbee1ad4765"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.001_02.json",
+      "bytes": 2285223,
+      "sha256": "2b46e64d490d01460f803c73e6ea4eca7e222d04ad0789f2e7fe9fec118edabc"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.002_02.json",
+      "bytes": 2281748,
+      "sha256": "34eac0c6822b15cc62df7da8d8fdc2d96faf6bd2d3cc6d11eba6a9688d91c76c"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy+0.005_02.json",
+      "bytes": 2290425,
+      "sha256": "b784e2dc043c2150e606e5e1fb64ddf87b24dbc702195421ba3c42cd61a8f22f"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy-0.001_02.json",
+      "bytes": 2289467,
+      "sha256": "ffdbe0d312c18f905fda8d2fbc7906f4ad2180c989c7cce9d0915b327fd47520"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy-0.002_02.json",
+      "bytes": 2285492,
+      "sha256": "c741145d21d08e139aba8a56ba5f5e855db167a17d29530550915d1f5379cb75"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/conservative_grid/bias_p0_6000_dy-0.005_02.json",
+      "bytes": 2284589,
+      "sha256": "59ad3a76269ed9099c2d5ee72e56194433e0feb941e0e7beecaa44f71b879b1f"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.000_01.json",
+      "bytes": 2284270,
+      "sha256": "083c63b26df42b4841abdc7e76531765ae9e7b56aebf6a7c2a81075495feadb6"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.000_02.json",
+      "bytes": 2284272,
+      "sha256": "ba57b330b11300b8a7098d075cf3ac9a47b589676fa464e2582fad4637ad0495"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.001_02.json",
+      "bytes": 2284706,
+      "sha256": "815571da3fd73c5d5f0b6e19e34ffd8ec4e9b440b983d0493be250b68ca35df3"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.002_02.json",
+      "bytes": 2288650,
+      "sha256": "2f94051ad8dfb8151cb3e7631be69b2bcb2daaf00b0b9d9bc82e979834103cd8"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy+0.005_02.json",
+      "bytes": 2283652,
+      "sha256": "39cc629abaa4f68538c46cdb2a439064182fdda4bcb76ed0689c61723d126e71"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy-0.001_02.json",
+      "bytes": 2287512,
+      "sha256": "268e2ebb68800b39472f0b2cc0f05ab4ce6071b538083bdea6274ff5ebdcd708"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy-0.002_02.json",
+      "bytes": 2289908,
+      "sha256": "65539b4725fba296c9290c29366d2029fb8984227ca341d9a3cf96c0906f69fd"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/final_candidate_grid/bias_m1_0000_dy-0.005_02.json",
+      "bytes": 2289778,
+      "sha256": "96a25becb1cb289533101aee1c460b374b27c0f533098a04c257f2d68ede394e"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy+0.000_01.json",
+      "bytes": 2155557,
+      "sha256": "8138f4b8cc5a9ec67b8a5160364e50e7f6bd07da742927045401c1546dc1292f"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy+0.001_01.json",
+      "bytes": 2159004,
+      "sha256": "7de45b54e01aacb71813c53d0e48d965c23131c13c942104c460b1621163a656"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy+0.002_01.json",
+      "bytes": 2159146,
+      "sha256": "b898ee5a8be4b6a6c6ded30db9935f8b3a7c9d7f6ab5832c4ec83923da1b7c04"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy+0.005_01.json",
+      "bytes": 2157777,
+      "sha256": "eae9739da102cba9422bfbec6b456b61f58ef1cca7d19615b69f2ca5b8f3f449"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy-0.001_01.json",
+      "bytes": 2160529,
+      "sha256": "7fc0cd27f773d679e703b132df35e26e2b161cdddab4efa44c603e8e107a907e"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy-0.002_01.json",
+      "bytes": 2164573,
+      "sha256": "186f91c816ec6393ec57b73da647777ab2ffba355d6c3f25841ea8bf2da2c54d"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m0_8000_dy-0.005_01.json",
+      "bytes": 2160554,
+      "sha256": "d5ef08071437a816bf0e65a8c7e21993295b25e81bb5d716bcc11b4783dedcd3"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy+0.000_01.json",
+      "bytes": 2152159,
+      "sha256": "f622a38910025413eb12083461f9764eaa52fbad8e8dc35c29a8116b69602a62"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy+0.001_01.json",
+      "bytes": 2154754,
+      "sha256": "3f498686a2b25cc5b71653c0bfb06bec41d3d5989b573464c2231dd32d423713"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy+0.002_01.json",
+      "bytes": 2153696,
+      "sha256": "ac2ab635de7eb571baae7939a9b6b1f22231a551d583c6946383596577922055"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy+0.005_01.json",
+      "bytes": 2157639,
+      "sha256": "622ced01d37ec7cce24aa07b45f49e9760953be9ce54b6e8b78dd21f66f4b733"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy-0.001_01.json",
+      "bytes": 2165073,
+      "sha256": "c5161fd40553b89021efc518491c956fa760aab7ef420626175fef84739cda0d"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy-0.002_01.json",
+      "bytes": 2157590,
+      "sha256": "82e2e2ae6f007c2c339f9ba6ac4b039e8ffda86ddd92c0ed1defebfbfa67a73a"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_m1_4000_dy-0.005_01.json",
+      "bytes": 2157480,
+      "sha256": "3a78884d553a33789b67f9c463f88ddec4f1ee722072177c98159df00f57f425"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy+0.000_01.json",
+      "bytes": 2166529,
+      "sha256": "f581c85df43e0ec816963b75b760a26595e82f875edcae5ddfdad9e3fefccff2"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy+0.001_01.json",
+      "bytes": 2170228,
+      "sha256": "0c3a2c5b17d35e278d6a0d84c7cf0891611eb208d89f423e13029c716eb94b54"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy+0.002_01.json",
+      "bytes": 2173621,
+      "sha256": "a5b1eeca93d7f30211a203e5a15e724e5d59ba11f40aa0dfc4e2512310c9ea4c"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy+0.005_01.json",
+      "bytes": 2170477,
+      "sha256": "067300c95443819339350f7a834d6f5ed3e1c1f7dff6cf1d1e795b3916625db2"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy-0.001_01.json",
+      "bytes": 2169772,
+      "sha256": "884b5264d84ee22cfc5b88e347fa94005b15f90d748cd0d56e9f46ee3ddc37f4"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy-0.002_01.json",
+      "bytes": 2171368,
+      "sha256": "a624c8020f157ddbd62355b122983f832c32834835f6c68e2494721da4a970dd"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/results/historical_grid/bias_p0_0000_dy-0.005_01.json",
+      "bytes": 2169505,
+      "sha256": "152c5ebada31a648ed174c730be58b487e040363175130233f3a46f9702113be"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/return_control.py",
+      "bytes": 1394,
+      "sha256": "dc7c94c7766caab281a40a030d2eb807394228b15b2966d7685313c7e1476529"
+    },
+    {
+      "path": "app/RoboPenalty/phase8c/runtime.py",
+      "bytes": 2898,
+      "sha256": "841454bff304dcbd66fc1018daf57546d3876abe4b3cdbfc52b9b4ad41a71ebe"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/bootstrap.py",
+      "bytes": 260,
+      "sha256": "75fe90fdaf2d0e74c5fd89bad3d65310918813d590d6e34479a6953153b69528"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/bus.py",
+      "bytes": 1643,
+      "sha256": "b633d48e181d5a124963562edbedabfb9a33baae0ee9aa8bec1def9d48e07cb0"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/commands.py",
+      "bytes": 2086,
+      "sha256": "4aa521a3866f7f0b3debf61e6311cd409237e937197b25a59f29f85385634cbd"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/console.py",
+      "bytes": 2887,
+      "sha256": "abaf2d07203af7a3ff8d6f6d8590a2e787e57964ae32ff7cf347af8aae0b30c6"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/control.py",
+      "bytes": 4276,
+      "sha256": "27b5f3bc2848deebd5a54cf8747010d1fc2dc7d4c087a701e984a7225d26b7ca"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/fixtures/directed.json",
+      "bytes": 1365,
+      "sha256": "294913b6a78f2742784f0062ab1e7bd35e3fa637af82a1f67c65dfe595e1ea35"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/run_session.py",
+      "bytes": 6973,
+      "sha256": "c0c49fc1662836d7705cc91e2acb8c568c9ca0ba7dd843fd377d4c2e328df0d1"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/selection.py",
+      "bytes": 3557,
+      "sha256": "f92abb4c4099c5fb990606c1280abf03f9c437df58a45f7ffdb36bb038adb6a7"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/session.py",
+      "bytes": 2332,
+      "sha256": "cd924a0e4709c15fef2ee04589bff128cc96b3425001650a2a12e2f4e8de8a91"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/voice.py",
+      "bytes": 5176,
+      "sha256": "7c89b02a66ed0a641037e51b22c6734721ac910fda49d0e9dfa3c5188ddbf9f9"
+    },
+    {
+      "path": "app/RoboPenalty/portability/bundle.py",
+      "bytes": 3731,
+      "sha256": "b4fd766d4278cd275f83021e77ba0e5bc0c039e5f3577b0523825dda8f4f6fe7"
+    },
+    {
+      "path": "app/RoboPenalty/portability/diagnose.py",
+      "bytes": 8090,
+      "sha256": "7c864c489f5d7e130b99bc7a714cdcb6b4220b416071c0935e598d88f7e14d2e"
+    },
+    {
+      "path": "app/RoboPenalty/portability/distribution_profile.json",
+      "bytes": 901,
+      "sha256": "ba57397a7ff73d2e245476314c0563edac8fcb212b356e3485083d38aa54d064"
+    },
+    {
+      "path": "app/RoboPenalty/portability/downloads.py",
+      "bytes": 5742,
+      "sha256": "577b900812991eeed87c8becfe7c298e57397c6738df2931e3de5dc541c82317"
+    },
+    {
+      "path": "app/RoboPenalty/portability/external_manifest.json",
+      "bytes": 40604,
+      "sha256": "a4f850441bad399c6293414c64cbc63410af3083c94131031363c5af32bd0626"
+    },
+    {
+      "path": "app/RoboPenalty/portability/external_sources.json",
+      "bytes": 58274,
+      "sha256": "c8b789b6e8d63b00ca37fbd6491f26c2d726def3634cdd40b89938da718fba39"
+    },
+    {
+      "path": "app/RoboPenalty/portability/install_resources.py",
+      "bytes": 6825,
+      "sha256": "b869c606f60e06f566df4941aee5a9330d68dcd364bb526aa272c9b84cd5fc97"
+    },
+    {
+      "path": "app/RoboPenalty/portability/local_import.py",
+      "bytes": 8360,
+      "sha256": "ba19665979e3335602ed0dc487449e81b1e222ef0fd734d6babde9de45890a2c"
+    },
+    {
+      "path": "app/RoboPenalty/portability/reconstruction.py",
+      "bytes": 2423,
+      "sha256": "ebd29375275df94858827563b3a070ddea03c5d8696ea4f7f1ebb9cd05cdad59"
+    },
+    {
+      "path": "app/RoboPenalty/portability/resources.py",
+      "bytes": 3164,
+      "sha256": "bda78416e553e1c1846725d5e028a88e16f8e55def3a73bc026d165acda27731"
+    },
+    {
+      "path": "app/RoboPenalty/portability/runtime_profile.json",
+      "bytes": 41053,
+      "sha256": "a1b8e1165f0a543e612f898f280c9fa4293b634cd387b03012115bfcbdd10d5c"
+    },
+    {
+      "path": "app/RoboPenalty/requirements-windows.txt",
+      "bytes": 324,
+      "sha256": "102b43935773a865af5ef5cb0b10616802fb0d3594c33b26b6ea954d47ac6870"
+    },
+    {
+      "path": "app/RoboPenalty/run_robopenalty.py",
+      "bytes": 767,
+      "sha256": "049ce668bf43ec38e32cfcda94eef2b72c93b1c38ebc6221850234a4982f692e"
+    },
+    {
+      "path": "app/unitree_mujoco/LICENSE",
+      "bytes": 1559,
+      "sha256": "a5d73fc4aca9074e3e6fe0b1a0ba763cf9514b2249b7390ed20fe8d53630bf25"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/g1_29dof.xml",
+      "bytes": 36170,
+      "sha256": "423e28bd718b19f7a65cda539b6f794ddbb268b4b9bdbd85f4bd982b30729617"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/head_link.STL",
+      "bytes": 337584,
+      "sha256": "d297328b3569fc85074355e76cba6c889d19de5361224bcd3c5b8ce82e13b9b6"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_ankle_pitch_link.STL",
+      "bytes": 71184,
+      "sha256": "d49e3abc6f5b12e532062cd575b87b5ef40cd2a3fc18f54a1ca5bba4f773d51d"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_ankle_roll_link.STL",
+      "bytes": 653384,
+      "sha256": "c4092af943141d4d9f74232f3cfa345afc6565f46a077793b8ae0e68b39dc33f"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_elbow_link.STL",
+      "bytes": 88784,
+      "sha256": "fa752198accd104d5c4c3a01382e45165b944fbbc5acce085059223324e5bed3"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_hip_pitch_link.STL",
+      "bytes": 181684,
+      "sha256": "4725168105ee768ee31638ef22b53f6be2d7641bfd7cfefe803488d884776fa4"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_hip_roll_link.STL",
+      "bytes": 192184,
+      "sha256": "91f25922ee8a7c3152790051bebad17b4d9cd243569c38fe340285ff93a97acf"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_hip_yaw_link.STL",
+      "bytes": 296284,
+      "sha256": "a16d88aa6ddac8083aa7ad55ed317bea44b1fa003d314fba88965b7ed0f3b55b"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_knee_link.STL",
+      "bytes": 854884,
+      "sha256": "8d92b9e3d3a636761150bb8025e32514c4602b91c7028d523ee42b3e632de477"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_rubber_hand.STL",
+      "bytes": 2287484,
+      "sha256": "cff2221a690fa69303f61fce68f2d155c1517b52efb6ca9262dd56e0bc6e70fe"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_shoulder_pitch_link.STL",
+      "bytes": 176784,
+      "sha256": "f0d1cfd02fcf0d42f95e678eeca33da3afbcc366ffba5c052847773ec4f31d52"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_shoulder_roll_link.STL",
+      "bytes": 400284,
+      "sha256": "fb9df21687773522598dc384f1a2945c7519f11cbc8bd372a49170316d6eee88"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_shoulder_yaw_link.STL",
+      "bytes": 249184,
+      "sha256": "1aa97e9748e924336567992181f78c7cd0652fd52a4afcca3df6b2ef6f9e712e"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_wrist_pitch_link.STL",
+      "bytes": 85984,
+      "sha256": "b251d8e05047f695d0f536cd78c11973cfa4e78d08cfe82759336cc3471de3a9"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_wrist_roll_link.STL",
+      "bytes": 356184,
+      "sha256": "edc387c9a0ba8c2237e9b296d32531426fabeb6f53e58df45c76106bca74148c"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/left_wrist_yaw_link.STL",
+      "bytes": 318684,
+      "sha256": "83f8fb3a726bf9613d65dd14f0f447cb918c3c95b3938042a0c9c09749267d3b"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/logo_link.STL",
+      "bytes": 243384,
+      "sha256": "8571a0a19bc4916fa55f91449f51d5fdefd751000054865a842449429d5f155b"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/pelvis.STL",
+      "bytes": 1060884,
+      "sha256": "5ba6bbc888e630550140d3c26763f10206da8c8bd30ed886b8ede41c61f57a31"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/pelvis_contour_link.STL",
+      "bytes": 1805184,
+      "sha256": "5cc5c2c7a312329e3feeb2b03d3fc09fc29705bd01864f6767e51be959662420"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_ankle_pitch_link.STL",
+      "bytes": 71184,
+      "sha256": "15be426539ec1be70246d4d82a168806db64a41301af8b35c197a33348c787a9"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_ankle_roll_link.STL",
+      "bytes": 653784,
+      "sha256": "4b66222ea56653e627711b56d0a8949b4920da5df091da0ceb343f54e884e3a5"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_elbow_link.STL",
+      "bytes": 88784,
+      "sha256": "1be925d7aa268bb8fddf5362b9173066890c7d32092c05638608126e59d1e2ab"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_hip_pitch_link.STL",
+      "bytes": 181284,
+      "sha256": "e4f3c99d7f4a7d34eadbef9461fc66e3486cb5442db1ec50c86317d459f1a9c6"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_hip_roll_link.STL",
+      "bytes": 192684,
+      "sha256": "4c254ef66a356f492947f360dd931965477b631e3fcc841f91ccc46d945d54f6"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_hip_yaw_link.STL",
+      "bytes": 296284,
+      "sha256": "e479c2936ca2057e9eb2f7dff6c189b7419d7b8484dea0b298cbb36a2a6aa668"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_knee_link.STL",
+      "bytes": 852284,
+      "sha256": "63c4008449c9bbe701a6e2b557b7a252e90cf3a5abcf54cee46862b9a69f8ec8"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_rubber_hand.STL",
+      "bytes": 2192684,
+      "sha256": "99533b778bca6246144fa511bb9d4e555e075c641f2a0251e04372869cd99d67"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_shoulder_pitch_link.STL",
+      "bytes": 176784,
+      "sha256": "24cdb387e0128dfe602770a81c56cdce3a0181d34d039a11d1aaf8819b7b8c02"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_shoulder_roll_link.STL",
+      "bytes": 401884,
+      "sha256": "962b97c48f9ce9e8399f45dd9522e0865d19aa9fd299406b2d475a8fc4a53e81"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_shoulder_yaw_link.STL",
+      "bytes": 249984,
+      "sha256": "a0b76489271da0c72461a344c9ffb0f0c6e64f019ea5014c1624886c442a2fe5"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_wrist_pitch_link.STL",
+      "bytes": 79584,
+      "sha256": "d22f8f3b3127f15a63e5be1ee273cd5075786c3142f1c3d9f76cbf43d2a26477"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_wrist_roll_link.STL",
+      "bytes": 356084,
+      "sha256": "a7ee9212ff5b94d6cb7f52bb1bbf3f352194d5b598acff74f4c77d340c5b344f"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/right_wrist_yaw_link.STL",
+      "bytes": 341484,
+      "sha256": "bc9dece2d12509707e0057ba2e48df8f3d56db0c79410212963a25e8a50f61a6"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/torso_link.STL",
+      "bytes": 2232984,
+      "sha256": "e96d023f0368a4e3450b86ca5d4f10227d8141156a373e7da8cb3c93266523e0"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/waist_roll_link.STL",
+      "bytes": 24184,
+      "sha256": "34f0aa73f41131230be4d25876c944fdf6c24d62553f199ff8b980c15e8913df"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/waist_support_link.STL",
+      "bytes": 150484,
+      "sha256": "1fae9e1bb609848a1667d32eed8d6083ae443538a306843056a2a660f1b2926a"
+    },
+    {
+      "path": "app/unitree_mujoco/unitree_robots/g1/meshes/waist_yaw_link.STL",
+      "bytes": 336284,
+      "sha256": "2883f20e03f09b669b5b4ce10677ee6b5191c0934b584d7cbaef2d0662856ffb"
+    },
+    {
+      "path": "docs/authorized_resources.json",
+      "bytes": 32023,
+      "sha256": "8bff013d5f53dfc7ea3450b830cc8eb180595522a33775b2736df5e3d1ee3489"
+    },
+    {
+      "path": "docs/copied_files.json",
+      "bytes": 36381,
+      "sha256": "d06958a4f62d92a32580467f4477a0d67960805f34bcaf91c409e55148d64433"
+    },
+    {
+      "path": "docs/IMPORTACION_LOCAL.md",
+      "bytes": 3813,
+      "sha256": "15d51869e27609ec1a99badf4f24ac881766ae688291b0452d451e38eace8de7"
+    },
+    {
+      "path": "docs/INSTALACION_WINDOWS.md",
+      "bytes": 2656,
+      "sha256": "a5bd01fd895f30058c5d5c974e0a42bf52f905e8f2139ca1572fcd99fc1a926f"
+    },
+    {
+      "path": "docs/INSTALADOR.md",
+      "bytes": 3954,
+      "sha256": "1024c771af293132d063cd2a9cb8bd46a36f360875e7b0e76b1374e7800ca338"
+    },
+    {
+      "path": "docs/INSTALLER_RESULTS.json",
+      "bytes": 2401,
+      "sha256": "c82c6e86f22c3f3cf6e00fa89305e2d708bbbe04e0058d1cf4857ef04dc0e55b"
+    },
+    {
+      "path": "docs/INVENTARIO.md",
+      "bytes": 2064,
+      "sha256": "5bf32d486d0252825207b7218f48bc84c85abd380520d3ec5977884a07ddf648"
+    },
+    {
+      "path": "docs/LOCAL_IMPORT_RESULTS.json",
+      "bytes": 4284,
+      "sha256": "ee7a6099b145226215b0fd9ebd05f205604994202ba5635d89a8e1b91b1c0531"
+    },
+    {
+      "path": "docs/LOCAL_IMPORT_RESULTS.md",
+      "bytes": 4467,
+      "sha256": "a242289a7a31b70df70795fcabfd461386513bd3b03df3dad069398d21055d83"
+    },
+    {
+      "path": "docs/pending_resources.json",
+      "bytes": 26112,
+      "sha256": "5f8671495d24a9fee27c22eb070f20c5c2f8accac9dd51d78259318a2235ff5b"
+    },
+    {
+      "path": "docs/privacy_review.json",
+      "bytes": 312,
+      "sha256": "126d2b9d52e11a91a8879399b48b1e377eef7ef09e7725be32968c0a1bb541cd"
+    },
+    {
+      "path": "docs/PUBLICACION.md",
+      "bytes": 9064,
+      "sha256": "cdfeead4b523daeb7584d156534037ea4f58a7b7fba623c0da5749fb95a90510"
+    },
+    {
+      "path": "docs/RECURSOS_PENDIENTES.md",
+      "bytes": 2333,
+      "sha256": "822b6c4a3a6f8b662de29df0774d05dbdfbd6d12d81fa0a19062ab5381fb9a90"
+    },
+    {
+      "path": "docs/script_checks.json",
+      "bytes": 1220,
+      "sha256": "8ba59adbb12c838b8da9f8013e9091979100e9df53cc34b5c769840688a1bc1a"
+    },
+    {
+      "path": "docs/source_preservation.json",
+      "bytes": 732,
+      "sha256": "017bf058ff43627226041f44908a4a3fee3a15babde3e22dadfdf67941b0fbda"
+    },
+    {
+      "path": "docs/VALIDACION.md",
+      "bytes": 5394,
+      "sha256": "ee06872b26a253dcf73021eb6039c15ea14fe25567584458c60403e59587b902"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10776,
+      "sha256": "71ce82bdcfd30debacef4f4df72c236599efa1c114d2a06f2032f197fe044df0"
+    },
+    {
+      "path": "scripts/_common.ps1",
+      "bytes": 963,
+      "sha256": "89a89bb41dc39aaea2094599270ff6a0a4d03762eadc06443b4c01dcba6b5975"
+    },
+    {
+      "path": "scripts/_jugar.ps1",
+      "bytes": 962,
+      "sha256": "8f339bc267c6e77fded70ce0b3aa95279771b1cd5d7364b77d0e600499a7b858"
+    },
+    {
+      "path": "scripts/importar_deploy.ps1",
+      "bytes": 617,
+      "sha256": "d3b505271f180b5c56f499a229f7ec7dcb778fa5cda763e18ad5c03bf41bf9d2"
+    },
+    {
+      "path": "scripts/instalar.ps1",
+      "bytes": 3151,
+      "sha256": "67d1a39499cb0658fb6a3a3feb4c8e8e08d0af99f4d212f90eb55621f348f88b"
+    },
+    {
+      "path": "scripts/jugar_automatico.ps1",
+      "bytes": 168,
+      "sha256": "52638782c848e3527029bdb774f76e93fe27d18241ca972212c95ca9d7a950fe"
+    },
+    {
+      "path": "scripts/jugar_dirigido.ps1",
+      "bytes": 172,
+      "sha256": "ea7091dc2f0742f040eb6daa268f7505a9f67eaf5f75cb2ca18dc31d66dde8cf"
+    },
+    {
+      "path": "scripts/verificar.ps1",
+      "bytes": 480,
+      "sha256": "37e4d6d9b0952a4e1db1724bc7f0fee215a7fb53d014d29522f8812b09e92ab1"
+    },
+    {
+      "path": "tests/reference/phase3b/test_agent.py",
+      "bytes": 7086,
+      "sha256": "778e9fb820b6eb307c8acc9370dc4307417f7e0f0402e2f9bb1a0fb7013dd593"
+    },
+    {
+      "path": "tests/reference/phase4a/test_evaluation.py",
+      "bytes": 1945,
+      "sha256": "8de205131b2a64057d65f1f80f39f6f4150b856597ab870c583ac04018a587ba"
+    },
+    {
+      "path": "tests/reference/phase4b/test_striker.py",
+      "bytes": 7268,
+      "sha256": "641ed37253569cf5bf52ae0ac9dd69c4835e9d3265d09e14b21cbe7a2aea58fe"
+    },
+    {
+      "path": "tests/reference/phase9a/test_input.py",
+      "bytes": 4204,
+      "sha256": "19310007ad2242b13ddc336800386f1cd03e9c33b9233dce320ea65a680d6645"
+    },
+    {
+      "path": "tests/reference/phase9a/test_selection.py",
+      "bytes": 3063,
+      "sha256": "17c02aa73ec86d220383f2d06417534097404249b2dbd34883974c78e3368d81"
+    },
+    {
+      "path": "tests/run_tests.py",
+      "bytes": 1760,
+      "sha256": "a7d5650817ef751aa2edf0bb9f8e27e6c42497d71e700fcdcc10b5dd20ca6d87"
+    },
+    {
+      "path": "tests/test_distribution.py",
+      "bytes": 8112,
+      "sha256": "87c6c31c701b9064a46252f32653b8230c18be1c0b0ca95acc52936ac1193f30"
+    },
+    {
+      "path": "tests/test_installer.py",
+      "bytes": 11438,
+      "sha256": "cddd5ea5e539d6b74744332c607e8bf5be7e5df239bb7b9ba6e3a2f8404ce8ac"
+    },
+    {
+      "path": "tests/test_local_import.py",
+      "bytes": 6860,
+      "sha256": "90640a84773540fba8b08fa97ee1fa3363a1db0baca9b0540b4baa99ccb7ea20"
+    },
+    {
+      "path": "THIRD_PARTY.md",
+      "bytes": 3853,
+      "sha256": "a4488753bcca224a3bbc72177a8dc7f2b7eb9952c3d863bd7c199315388a4d0b"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-30",
+  "status": "PARTIAL_NOT_PLAYABLE",
+  "authorized_runtime_resources": 78,
+  "expected_runtime_resources": 104,
+  "pending_resources": 26,
+  "authorized_meshes_added": 35,
+  "empty_files_generated": 5,
+  "extra_license_notices": 1,
+  "clean_install": {
+    "exit_code": 2,
+    "wall_s": 224.08801549999043,
+    "venv_created": true,
+    "expected_partial_code": 2
+  },
+  "offline_resume": {
+    "cached": 41,
+    "blocked": 26,
+    "errors": [],
+    "core_packages_ready": true,
+    "core_packages": 19,
+    "inventory_ready": true,
+    "runtime_ok": 78,
+    "runtime_missing": 26,
+    "new_venv": true,
+    "system_site_packages_disabled": true,
+    "core_modules_in_new_venv": true,
+    "environment_ignored": true,
+    "user_site_disabled": true
+  },
+  "inventory_tamper_rejection": {
+    "exit_code": 1,
+    "inventory_mismatch_rejected": true,
+    "match_output_absent": true
+  },
+  "git_exclusions": {
+    "pending_ignored": true,
+    "authorized_not_ignored": true,
+    "calibrations_not_ignored": true,
+    "private_outputs_ignored": true,
+    "counts": {
+      "pending": 26,
+      "authorized": 41,
+      "calibrations": 37
+    },
+    "git_init_executed": false
+  },
+  "physical_matches_executed": false,
+  "viewer_executed": false,
+  "baseline_comparison_executed": false,
+  "note": "Infrastructure validation only. Clean environment in this Windows, not another PC. No pending third-party source, patch, ONNX or NPZ installed.",
+  "tests": {
+    "package": 18,
+    "installer": 28,
+    "core_components": 70,
+    "total": 116,
+    "exit_code": 0,
+    "environment": "new isolated CPython 3.12.14 venv"
+  },
+  "final_scripts": [
+    {
+      "script": "instalar.ps1",
+      "exit_code": 2,
+      "expected_code": 2,
+      "wall_s": 25.37450039992109
+    },
+    {
+      "script": "verificar.ps1",
+      "exit_code": 1,
+      "expected_code": 1,
+      "wall_s": 1.8076594998128712,
+      "missing": 26,
+      "inventory_ok": true,
+      "pending": 26
+    },
+    {
+      "script": "jugar_automatico.ps1",
+      "exit_code": 1,
+      "expected_code": 1,
+      "wall_s": 4.195017500082031,
+      "safe_guard_executed": true
+    },
+    {
+      "script": "jugar_dirigido.ps1",
+      "exit_code": 1,
+      "expected_code": 1,
+      "wall_s": 4.267239700071514,
+      "safe_guard_executed": true
+    }
+  ],
+  "no_git_repository_created": true,
+  "root_venv_created": false
+}

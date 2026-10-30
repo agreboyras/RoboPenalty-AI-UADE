@@ -1,0 +1,46 @@
+{
+  "platform": "Windows PowerShell 5.1",
+  "initial_default_execution_policy_blocked_scripts": true,
+  "test_process_policy": "RemoteSigned, process only; no permanent settings changed",
+  "checks": [
+    {
+      "script": "verificar.ps1",
+      "exit_code": 1,
+      "blocked": true,
+      "missing": 66,
+      "inventory_ok": true,
+      "permissions_pending": [
+        "RoboNaldo_Deploy"
+      ],
+      "venv_absent": true,
+      "no_match_output": true
+    },
+    {
+      "script": "instalar.ps1",
+      "exit_code": 1,
+      "blocked": true,
+      "expected_guard_message": true,
+      "venv_absent": true,
+      "no_match_output": true
+    },
+    {
+      "script": "jugar_automatico.ps1",
+      "exit_code": 1,
+      "blocked": true,
+      "expected_guard_message": true,
+      "venv_absent": true,
+      "no_match_output": true
+    },
+    {
+      "script": "jugar_dirigido.ps1",
+      "exit_code": 1,
+      "blocked": true,
+      "expected_guard_message": true,
+      "venv_absent": true,
+      "no_match_output": true
+    }
+  ],
+  "note": "Explicit existing core test interpreter; no clean installation or match executed",
+  "historical_preparation_only": true,
+  "current_results": "INSTALLER_RESULTS.json"
+}

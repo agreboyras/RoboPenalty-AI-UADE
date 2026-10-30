@@ -1,0 +1,518 @@
+{
+  "version": 2,
+  "status": "26_STEPS_PENDING_PERMISSION",
+  "resources": [
+    {
+      "target": "RoboNaldo_Deploy/FSM/FSM.py",
+      "sha256": "17c507098faa24128362b0b0733b14146aa0928e27941908c4c828c633d61d3d",
+      "git_blob_oid": "a6e3eabb1ae541dd762b977fb26b078bf21925b1",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "FSM/FSM.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/FSM/FSM.py",
+        "sha256": "17c507098faa24128362b0b0733b14146aa0928e27941908c4c828c633d61d3d",
+        "bytes": 4295
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/FSM/FSMState.py",
+      "sha256": "002b2a427c3282817d536c4a9edfd2744624f55278d77cec4648782ba921a843",
+      "git_blob_oid": "00d91277fbe4c8b0da1f6d66d26d625f20f10a2b",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "FSM/FSMState.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/FSM/FSMState.py",
+        "sha256": "002b2a427c3282817d536c4a9edfd2744624f55278d77cec4648782ba921a843",
+        "bytes": 1278
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/common/ctrlcomp.py",
+      "sha256": "e9e3544f70b61428467f64f0d9db57868d8846700890c787f94f0ed9c6223616",
+      "git_blob_oid": "aca68cd50747dde482f40eb6e621ecc8a0615aab",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "common/ctrlcomp.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/common/ctrlcomp.py",
+        "sha256": "e9e3544f70b61428467f64f0d9db57868d8846700890c787f94f0ed9c6223616",
+        "bytes": 4511
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/common/joystick.py",
+      "sha256": "c8a806acd4ffd234d5bfa8029fb147e05036a6867535df14c47e729cccf17e67",
+      "git_blob_oid": "26505de730df9463ca9eb745bb5fc9b7b0516cfd",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "common/joystick.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/common/joystick.py",
+        "sha256": "c8a806acd4ffd234d5bfa8029fb147e05036a6867535df14c47e729cccf17e67",
+        "bytes": 3682
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/common/logger.py",
+      "sha256": "7dcc19d1fc5dfa69dabb03013454b84fceb0f6a54e86977e05ae944cdf2ebfc3",
+      "git_blob_oid": "76a8edf8578d30fdd0c05d96fac505f2b654bf18",
+      "category": "tp07_modified",
+      "authorization": "pending",
+      "action": "reconstruct_verified_pair",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "common/logger.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/common/logger.py",
+        "sha256": "d2d6c44cd60c986ff093b2bbab7371cedd5ea5c9758b80a80ec4adfb1ed0d138",
+        "bytes": 4958
+      },
+      "reconstruction": {
+        "algorithm": "verified-pair-ephemeral-delta-v1",
+        "verified_target": {
+          "repository": "agreboyras/TP07-IA-G1-Futbol",
+          "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+          "path": "common/logger.py",
+          "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/common/logger.py",
+          "sha256": "7dcc19d1fc5dfa69dabb03013454b84fceb0f6a54e86977e05ae944cdf2ebfc3",
+          "bytes": 4954
+        },
+        "note": "No patch text is shipped. Fetch/reconstruction disabled until usage and derivative permissions are reviewed."
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/common/path_config.py",
+      "sha256": "f29e73ebea420118d0d6943942d42af994659d11bba30729fd73d54baa46c1bf",
+      "git_blob_oid": "ded3863583f0dbeb60f0f4ebb80509f0a21b7204",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "common/path_config.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/common/path_config.py",
+        "sha256": "f29e73ebea420118d0d6943942d42af994659d11bba30729fd73d54baa46c1bf",
+        "bytes": 200
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/common/utils.py",
+      "sha256": "e1fcb8a15b4a49d66dbb52de3370db12fa9b61567d6157d3afb0ee696da8e7f1",
+      "git_blob_oid": "1d322807ffde925e775d728a12eb8d90f9445718",
+      "category": "tp07_modified",
+      "authorization": "pending",
+      "action": "reconstruct_verified_pair",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "common/utils.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/common/utils.py",
+        "sha256": "6037298421f327072c69798be0b121cbce04a558ea31ec094f29c74f450b7b02",
+        "bytes": 1383
+      },
+      "reconstruction": {
+        "algorithm": "verified-pair-ephemeral-delta-v1",
+        "verified_target": {
+          "repository": "agreboyras/TP07-IA-G1-Futbol",
+          "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+          "path": "common/utils.py",
+          "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/common/utils.py",
+          "sha256": "e1fcb8a15b4a49d66dbb52de3370db12fa9b61567d6157d3afb0ee696da8e7f1",
+          "bytes": 1381
+        },
+        "note": "No patch text is shipped. Fetch/reconstruction disabled until usage and derivative permissions are reviewed."
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/deploy_mujoco/celebration_coordinator.py",
+      "sha256": "9eaf7b308b643a9a8e4a9890587aa2b297105d5379fdc30d0683e2e39168bb33",
+      "git_blob_oid": "95b44ec63e485ed9d3492f76de4b6e0d5bf542f6",
+      "category": "tp07_addition",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "agreboyras/TP07-IA-G1-Futbol",
+        "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+        "path": "deploy_mujoco/celebration_coordinator.py",
+        "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/deploy_mujoco/celebration_coordinator.py",
+        "sha256": "9eaf7b308b643a9a8e4a9890587aa2b297105d5379fdc30d0683e2e39168bb33",
+        "bytes": 12237
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/deploy_mujoco/config/mujoco_freekick.yaml",
+      "sha256": "5f83b032ab37bd107616a1b48c37f8a429cd7615c21ed44b523cd4f11e36f5b0",
+      "git_blob_oid": "7ab22549b31d72bbf36fbb932330fcc157311e03",
+      "category": "tp07_modified",
+      "authorization": "pending",
+      "action": "reconstruct_verified_pair",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "deploy_mujoco/config/mujoco_freekick.yaml",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/deploy_mujoco/config/mujoco_freekick.yaml",
+        "sha256": "b312b1ab4a6487336318748fef3a8fd20ffb8827818530d6dd2700729b5e215d",
+        "bytes": 911
+      },
+      "reconstruction": {
+        "algorithm": "verified-pair-ephemeral-delta-v1",
+        "verified_target": {
+          "repository": "agreboyras/TP07-IA-G1-Futbol",
+          "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+          "path": "deploy_mujoco/config/mujoco_freekick.yaml",
+          "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/deploy_mujoco/config/mujoco_freekick.yaml",
+          "sha256": "5f83b032ab37bd107616a1b48c37f8a429cd7615c21ed44b523cd4f11e36f5b0",
+          "bytes": 997
+        },
+        "note": "No patch text is shipped. Fetch/reconstruction disabled until usage and derivative permissions are reviewed."
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/deploy_mujoco/deploy_mujoco.py",
+      "sha256": "8987606bcc8fc2794cc14f7eadcd0b72c70e15477be068b3b9ef2fb96c419866",
+      "git_blob_oid": "453048bbb0a1f8a7ecbb6a04f4693252cfd97156",
+      "category": "tp07_modified",
+      "authorization": "pending",
+      "action": "reconstruct_verified_pair",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "deploy_mujoco/deploy_mujoco.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/deploy_mujoco/deploy_mujoco.py",
+        "sha256": "13a8014ab4192cb222f5c8a26e5ce5fbf6e04c3129f1285f8a455a22b78e5da1",
+        "bytes": 16595
+      },
+      "reconstruction": {
+        "algorithm": "verified-pair-ephemeral-delta-v1",
+        "verified_target": {
+          "repository": "agreboyras/TP07-IA-G1-Futbol",
+          "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+          "path": "deploy_mujoco/deploy_mujoco.py",
+          "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/deploy_mujoco/deploy_mujoco.py",
+          "sha256": "8987606bcc8fc2794cc14f7eadcd0b72c70e15477be068b3b9ef2fb96c419866",
+          "bytes": 37995
+        },
+        "note": "No patch text is shipped. Fetch/reconstruction disabled until usage and derivative permissions are reviewed."
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/g1_description/g1_liao.xml",
+      "sha256": "66f252f310befd4f1dc3265d223d5f74849e5b9967fdeb49dac19b5c98afc111",
+      "git_blob_oid": "dee3ae40db1ffe3ae8c8c14d597e621db1aecd2a",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "g1_description/g1_liao.xml",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/g1_description/g1_liao.xml",
+        "sha256": "66f252f310befd4f1dc3265d223d5f74849e5b9967fdeb49dac19b5c98afc111",
+        "bytes": 36584
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/g1_description/scene_with_ball.xml",
+      "sha256": "e562588911e3b00e4606df96a7630f8a2239376807346cc47f78b93e0c1c41a8",
+      "git_blob_oid": "3ab47e00489ab19e338ab0422392d656e29c5cf2",
+      "category": "tp07_modified",
+      "authorization": "pending",
+      "action": "reconstruct_verified_pair",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "g1_description/scene_with_ball.xml",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/g1_description/scene_with_ball.xml",
+        "sha256": "4f052e9263d2344dbe64e40c039f7916f190d2202c855b7d3f80deb41843a083",
+        "bytes": 1013
+      },
+      "reconstruction": {
+        "algorithm": "verified-pair-ephemeral-delta-v1",
+        "verified_target": {
+          "repository": "agreboyras/TP07-IA-G1-Futbol",
+          "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+          "path": "g1_description/scene_with_ball.xml",
+          "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/g1_description/scene_with_ball.xml",
+          "sha256": "e562588911e3b00e4606df96a7630f8a2239376807346cc47f78b93e0c1c41a8",
+          "bytes": 3657
+        },
+        "note": "No patch text is shipped. Fetch/reconstruction disabled until usage and derivative permissions are reviewed."
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/amp/Amp.py",
+      "sha256": "df03d696cd0a90d60af9aee60bafbdbd8c8ace5b00ff045b61ca82adaf3069c2",
+      "git_blob_oid": "d065247cb6ee0331009be49281d844d50be4a866",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/amp/Amp.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/amp/Amp.py",
+        "sha256": "df03d696cd0a90d60af9aee60bafbdbd8c8ace5b00ff045b61ca82adaf3069c2",
+        "bytes": 9032
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/beyondmimic/BeyondMimic.py",
+      "sha256": "c44ab9c855200c2407356f064377bb0c4e4b6557e7840b73fd0fd93ecfcfd96e",
+      "git_blob_oid": "11e1f0e57edb3c099debf9d53f85e8a9deb316e9",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/beyondmimic/BeyondMimic.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/beyondmimic/BeyondMimic.py",
+        "sha256": "c44ab9c855200c2407356f064377bb0c4e4b6557e7840b73fd0fd93ecfcfd96e",
+        "bytes": 15058
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/beyondmimic_mj/BeyondMimicMJ.py",
+      "sha256": "7be80bdb3763fc9d56634508fb6f9b684223fed30e1a96af353514c6bd47c70c",
+      "git_blob_oid": "477227fcad8012127c421bc2ebc6d8ff4a87fcf7",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/beyondmimic_mj/BeyondMimicMJ.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/beyondmimic_mj/BeyondMimicMJ.py",
+        "sha256": "7be80bdb3763fc9d56634508fb6f9b684223fed30e1a96af353514c6bd47c70c",
+        "bytes": 17191
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/celebration/Celebration.py",
+      "sha256": "e3cb199d8a74c8aa6ff72c190b6e8dc8cb62c9adee7ed52a0af5a455d262d30e",
+      "git_blob_oid": "ff75ac1f5af47443ca977dc5b522b3048b33b135",
+      "category": "tp07_addition",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "agreboyras/TP07-IA-G1-Futbol",
+        "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+        "path": "policy/celebration/Celebration.py",
+        "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/policy/celebration/Celebration.py",
+        "sha256": "e3cb199d8a74c8aa6ff72c190b6e8dc8cb62c9adee7ed52a0af5a455d262d30e",
+        "bytes": 20615
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/celebration/__init__.py",
+      "sha256": "5815c92fb82b2ee06fc93b1aa456ff17125c7a63274546aae4274bb7f8bd8210",
+      "git_blob_oid": "905bff6fcd2830f11ad526ae1fc05e7f1647d436",
+      "category": "tp07_addition",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "agreboyras/TP07-IA-G1-Futbol",
+        "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+        "path": "policy/celebration/__init__.py",
+        "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/policy/celebration/__init__.py",
+        "sha256": "5815c92fb82b2ee06fc93b1aa456ff17125c7a63274546aae4274bb7f8bd8210",
+        "bytes": 151
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/fixedpose/FixedPose.py",
+      "sha256": "e25b4720ebfad27f140ecc41d01f5ffc77c6f32efa3e786442ae00d4cc178611",
+      "git_blob_oid": "fcc1e60535adf6461ce7c5fa9fa861f571fc69e8",
+      "category": "tp07_modified",
+      "authorization": "pending",
+      "action": "reconstruct_verified_pair",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/fixedpose/FixedPose.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/fixedpose/FixedPose.py",
+        "sha256": "6aa22ab9df64bda367478550d2652b595674ba7598571d99a779fb4a6d4c9c77",
+        "bytes": 4007
+      },
+      "reconstruction": {
+        "algorithm": "verified-pair-ephemeral-delta-v1",
+        "verified_target": {
+          "repository": "agreboyras/TP07-IA-G1-Futbol",
+          "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+          "path": "policy/fixedpose/FixedPose.py",
+          "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/policy/fixedpose/FixedPose.py",
+          "sha256": "e25b4720ebfad27f140ecc41d01f5ffc77c6f32efa3e786442ae00d4cc178611",
+          "bytes": 4008
+        },
+        "note": "No patch text is shipped. Fetch/reconstruction disabled until usage and derivative permissions are reviewed."
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/fixedpose/config/FixedPose.yaml",
+      "sha256": "0a3bff7f3091490c0d52a763b96bd1a7c2cb75bba0d8933ea2ce4ca07bc08246",
+      "git_blob_oid": "a0d26675b50fbdf2c5c179e21e528ad74e62b09f",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/fixedpose/config/FixedPose.yaml",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/fixedpose/config/FixedPose.yaml",
+        "sha256": "0a3bff7f3091490c0d52a763b96bd1a7c2cb75bba0d8933ea2ce4ca07bc08246",
+        "bytes": 737
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/loco_mode/LocoMode.py",
+      "sha256": "69dfd1e79d7fe4e925971076efc55b0f60f374c1ca16c66fcadbbdc9f4c451bf",
+      "git_blob_oid": "97ebe3d140dabf907ae19bcb446785711821d897",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/loco_mode/LocoMode.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/loco_mode/LocoMode.py",
+        "sha256": "69dfd1e79d7fe4e925971076efc55b0f60f374c1ca16c66fcadbbdc9f4c451bf",
+        "bytes": 6350
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/passive/PassiveMode.py",
+      "sha256": "689cbdc3b00a605a048f6a88477d9a984d7d69e8fa0a12376848154849506e11",
+      "git_blob_oid": "5daa15820adee8c6f763d322bb4a5b15d1a682e7",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/passive/PassiveMode.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/passive/PassiveMode.py",
+        "sha256": "689cbdc3b00a605a048f6a88477d9a984d7d69e8fa0a12376848154849506e11",
+        "bytes": 1744
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/passive/config/Passive.yaml",
+      "sha256": "f56ca519ac14c33079be3494d907fb26e06eb0db46c62ac6dd058d3301a10f82",
+      "git_blob_oid": "099c8dde3ae1bc94ed74366f87c83be60da67b0a",
+      "category": "official_original",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/passive/config/Passive.yaml",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/passive/config/Passive.yaml",
+        "sha256": "f56ca519ac14c33079be3494d907fb26e06eb0db46c62ac6dd058d3301a10f82",
+        "bytes": 188
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/robonaldo/FreeKick.py",
+      "sha256": "b0997ca6395b5202517e74239377ad404b3df686539faa9ce022495610071fb4",
+      "git_blob_oid": "dcb6961b5cdb438bde181746f3558d9d23096b29",
+      "category": "tp07_modified",
+      "authorization": "pending",
+      "action": "reconstruct_verified_pair",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/robonaldo/FreeKick.py",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/robonaldo/FreeKick.py",
+        "sha256": "c3c84d533f248442ced5734d80c34ec95b3aeaa59d17f9686369539faa5f93d2",
+        "bytes": 35203
+      },
+      "reconstruction": {
+        "algorithm": "verified-pair-ephemeral-delta-v1",
+        "verified_target": {
+          "repository": "agreboyras/TP07-IA-G1-Futbol",
+          "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+          "path": "policy/robonaldo/FreeKick.py",
+          "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/policy/robonaldo/FreeKick.py",
+          "sha256": "b0997ca6395b5202517e74239377ad404b3df686539faa9ce022495610071fb4",
+          "bytes": 35432
+        },
+        "note": "No patch text is shipped. Fetch/reconstruction disabled until usage and derivative permissions are reviewed."
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/robonaldo/config/freekick.yaml",
+      "sha256": "df37acd95e9f852d623d6daddf35965bdec495d27760cb5f2c4f5ebfeb586645",
+      "git_blob_oid": "4acf2a02b296bf9abc7c9622aefb8e8849334c68",
+      "category": "tp07_modified",
+      "authorization": "pending",
+      "action": "reconstruct_verified_pair",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/robonaldo/config/freekick.yaml",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/robonaldo/config/freekick.yaml",
+        "sha256": "480c5fba89f7241fba677c158e73dc58cbb210d923f73cfe6920f95b480e9c2a",
+        "bytes": 3518
+      },
+      "reconstruction": {
+        "algorithm": "verified-pair-ephemeral-delta-v1",
+        "verified_target": {
+          "repository": "agreboyras/TP07-IA-G1-Futbol",
+          "revision": "ce4b34d1bccfd0420a81bf1688271d86feb8a117",
+          "path": "policy/robonaldo/config/freekick.yaml",
+          "url": "https://raw.githubusercontent.com/agreboyras/TP07-IA-G1-Futbol/ce4b34d1bccfd0420a81bf1688271d86feb8a117/policy/robonaldo/config/freekick.yaml",
+          "sha256": "df37acd95e9f852d623d6daddf35965bdec495d27760cb5f2c4f5ebfeb586645",
+          "bytes": 3616
+        },
+        "note": "No patch text is shipped. Fetch/reconstruction disabled until usage and derivative permissions are reviewed."
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/robonaldo/model/freekick_motion.npz",
+      "sha256": "108f3fa7972a240d2b324b14585d215eb3cfbe375aef691cf017add1e25a69f9",
+      "git_blob_oid": "bb3da518ec9e2718f827ed6ffe441ec13205f858",
+      "category": "motion_npz",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/robonaldo/model/freekick_motion.npz",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/robonaldo/model/freekick_motion.npz",
+        "sha256": "108f3fa7972a240d2b324b14585d215eb3cfbe375aef691cf017add1e25a69f9",
+        "bytes": 1098498
+      }
+    },
+    {
+      "target": "RoboNaldo_Deploy/policy/robonaldo/model/policy-obs-aic.onnx",
+      "sha256": "b952af481c47402c40a883ea214635368b44ee36de356780258d04601eaa3774",
+      "git_blob_oid": "0d65f9605ce8b66361f08cfd45cc8c50d5a7ca46",
+      "category": "onnx",
+      "authorization": "pending",
+      "action": "download",
+      "source": {
+        "repository": "OpenDriveLab/RoboNaldo_Deploy",
+        "revision": "f60f24459aaabc3aea9187a2b13f8923049b629c",
+        "path": "policy/robonaldo/model/policy-obs-aic.onnx",
+        "url": "https://raw.githubusercontent.com/OpenDriveLab/RoboNaldo_Deploy/f60f24459aaabc3aea9187a2b13f8923049b629c/policy/robonaldo/model/policy-obs-aic.onnx",
+        "sha256": "b952af481c47402c40a883ea214635368b44ee36de356780258d04601eaa3774",
+        "bytes": 1795420
+      }
+    }
+  ]
+}
