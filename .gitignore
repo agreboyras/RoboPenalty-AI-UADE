@@ -8,6 +8,7 @@
 *.part
 /tests/.tmp/
 /app/RoboPenalty/phase9a/results/
+/app/RoboPenalty/experiments/keeper_saves/results/
 *.wav
 *.mp3
 *.mp4

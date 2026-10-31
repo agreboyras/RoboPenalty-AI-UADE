@@ -145,6 +145,8 @@ La entrada Python equivalente es `--no-institutional-ads`. [Diseño V2, capturas
 
 ## Pruebas y validación
 
+La [Etapa 4A de alcance del arquero](docs/ATAJADAS_ETAPA4A.md) es un experimento separado, con entrada propia y opción `--experimental` desactivada por defecto. No modifica estos modos públicos ni demuestra una mejora de atajadas de los tiros rasantes. Sus tests se ejecutan separadamente de la batería estable. Para observarla físicamente en vivo, ver [visor privado 4A](docs/VISOR_ETAPA4A.md).
+
 ```powershell
 # Tests del paquete, sin dependencias científicas ni descargas.
 py -3.12 -X utf8 -E -s -B tests/run_tests.py
