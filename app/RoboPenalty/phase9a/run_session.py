@@ -14,6 +14,7 @@ from phase9a.bus import InputBus
 from phase9a.control import Control
 from phase9a.console import ConsoleInput
 from phase9a.commands import LEFT_NEAR, LEFT_OPEN
+from phase9a.language import TextInput
 from phase9a.session import Match,Service,Script,CommandBoundary
 from phase9a.voice import VoiceInput
 from phase9a.whisper_api import DEFAULT_TRANSCRIPTION_MODEL, TRANSCRIPTION_MODELS
@@ -21,7 +22,7 @@ from phase9a.whisper_api import DEFAULT_TRANSCRIPTION_MODEL, TRANSCRIPTION_MODEL
 def main():
     start=time.perf_counter();p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--mode',choices=['auto','directed'],default='directed');p.add_argument('--viewer',action='store_true')
-    p.add_argument('--voice',action='store_true',help='One capture per directed selection, plus Enter or /voz to retry')
+    p.add_argument('--voice',action='store_true',help='One capture per directed selection plus natural-language console shots')
     p.add_argument('--voice-backend',choices=['openai','local'],default='openai',help='OpenAI API or local faster-whisper')
     p.add_argument('--transcription-model',choices=TRANSCRIPTION_MODELS,default=DEFAULT_TRANSCRIPTION_MODEL,
         help='OpenAI transcription model (default: %(default)s)')
@@ -72,7 +73,8 @@ def main():
         visual=PresentationConfig(a.viewer,30.,not a.unpaced,1.,1.5,.5,2.,a.capture_frame)
         runtime=Runtime()
     control.emit=lambda *x,**kw:print(*x,file=runtime.console,**kw)
-    presenter=voice=console=service=None;matches=[];current=None;failure=None;termination=None;voice_joined=console_joined=None
+    presenter=voice=console=text_input=service=None;matches=[];current=None;failure=None;termination=None
+    voice_joined=console_joined=text_input_joined=None
     try:
         presenter = Presenter(
             runtime, visual, a.output, 'long', lod='none' if a.no_decoration else 'medium',
@@ -86,8 +88,14 @@ def main():
             audio=AudioConfig(str(a.model),a.device,a.listen_seconds,a.asr_threads,a.min_rms,a.device_name,a.device_hostapi,a.audio_blocksize)
             voice=VoiceInput(bus,audio,a.output/'voice',backend=a.voice_backend,transcription_model=a.transcription_model)
             control.voice=voice;voice.start()
-        if not a.script:console=ConsoleInput(bus,runtime.console,voice_enabled=a.voice);console.start()
-        print(f'READY | Modo {a.mode.upper()} | {control.help_text}',flush=True)
+        if not a.script:
+            if a.voice:
+                text_input=TextInput(exhibition=a.free_keeper_exhibition)
+                control.text_input=text_input;text_input.start()
+            console=ConsoleInput(bus,runtime.console,voice_enabled=a.voice)
+            control.emit=console.emit
+            console.start()
+        control.emit(f'READY | Modo {a.mode.upper()} | {control.help_text}',flush=True)
         presenter.set_status({'phase':'READY','total':config.penalties})
         if a.autostart:bus.submit('Iniciar partido','startup-text')
         while True:
@@ -111,7 +119,7 @@ def main():
             if control.reset_requested:continue
             presenter.pause('finished',visual.end_s)
             if a.once:termination='once';break
-            print('FINISHED | Marcador, modo, reiniciar partido o salir',flush=True)
+            control.emit('FINISHED | Marcador, modo, reiniciar partido o salir',flush=True)
     except (ViewerClosed,KeyboardInterrupt) as exc:
         termination=('viewer_closed' if isinstance(exc,ViewerClosed) else 'keyboard_interrupt')+'_unfinished_penalty_unscored'
         if current:
@@ -122,6 +130,7 @@ def main():
     finally:
         control.close_selection()
         if console:console_joined=console.close()
+        if text_input:text_input_joined=text_input.close()
         if voice:voice_joined=voice.close()
         try:
             if presenter:presenter.close()
@@ -137,9 +146,10 @@ def main():
             control_pauses=service.pause_records if service else [],voice_enabled=a.voice,voice_worker_joined=voice_joined,
             voice_backend=a.voice_backend if voice else None,
             transcription_model=a.transcription_model if voice and a.voice_backend=='openai' else None,
-            console_worker_joined=console_joined,voice_metrics=voice.metrics if voice else [],script_wall_s=time.perf_counter()-start,
+            console_worker_joined=console_joined,text_input_worker_joined=text_input_joined,
+            voice_metrics=voice.metrics if voice else [],script_wall_s=time.perf_counter()-start,
             catalog_sha256=catalog.id,keeper_information_contract=information_contract)
         (a.output/'session.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
-        if voice_joined is False or console_joined is False:raise RuntimeError('An input worker did not close')
+        if False in (voice_joined,console_joined,text_input_joined):raise RuntimeError('An input worker did not close')
     print(f'Sesion 9A cerrada | pasos {report["physics_steps"]} | real {report["script_wall_s"]:.3f}s',flush=True)
 if __name__=='__main__':main()

@@ -28,10 +28,11 @@ class ExhibitionInputTests(unittest.TestCase):
                 self.assertEqual(decision['strategy'], 'fixed')
 
     def test_open_left_command_is_scoped_to_exhibition(self):
-        self.assertIsNone(interpret('Patea a la izquierda abierta'))
+        self.assertEqual(interpret('Patea a la izquierda abierta'), 'unsupported:left_open')
         self.assertIsNone(interpret('Patea a la izquierda abierta o a la derecha', exhibition=True))
         self.assertEqual(interpret('Pateá a la izquierda abierta', exhibition=True), 'shot:' + LEFT_OPEN)
         self.assertEqual(interpret('Pateá abierto izquierdo', exhibition=True), 'shot:' + LEFT_OPEN)
+        self.assertEqual(interpret('Patea abierto a la izquierda', exhibition=True), 'shot:' + LEFT_OPEN)
 
     def test_voice_fallback_uses_exhibition_actions(self):
         client = Mock()

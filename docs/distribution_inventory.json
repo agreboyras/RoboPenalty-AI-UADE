@@ -739,18 +739,18 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/commands.py",
-      "bytes": 2775,
-      "sha256": "5d14ce448d527442bda18a4464a52eb05a47fb2d12464c2069cb935d197ec6a6"
+      "bytes": 2803,
+      "sha256": "2aa3b60975bb0d4ef3659b5ef8facf584ed244432eb820051aeaca9e23160df3"
     },
     {
       "path": "app/RoboPenalty/phase9a/console.py",
-      "bytes": 3049,
-      "sha256": "61174af180356b9981b7f63aa55ad9a835e82c597261d0bef9bdf8403dcc02bd"
+      "bytes": 3783,
+      "sha256": "5a83198b08c42838af194f0c069b9af614f05d7f1f90429773988cfe30200b80"
     },
     {
       "path": "app/RoboPenalty/phase9a/control.py",
-      "bytes": 5457,
-      "sha256": "a081c9a7b4dcdfd6f332c4990eafb8578017dcbafb0c60c5fd3136344aabfc71"
+      "bytes": 7929,
+      "sha256": "a910555fe6debf6b99c0a39926080b81c6a7077b95b190cd327fe2aed8eef347"
     },
     {
       "path": "app/RoboPenalty/phase9a/fixtures/directed.json",
@@ -759,8 +759,8 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/run_session.py",
-      "bytes": 10080,
-      "sha256": "0a55a3d82cedb21f17577de57c4cc74398b3208f6788e4a57b2878ef0052aed2"
+      "bytes": 10522,
+      "sha256": "92f84c22622035d8b8eed05dca70e9b1e441d952b996dc667505fbb070ac51f8"
     },
     {
       "path": "app/RoboPenalty/phase9a/selection.py",
@@ -1049,8 +1049,8 @@
     },
     {
       "path": "docs/copied_files.json",
-      "bytes": 37908,
-      "sha256": "fecc88c3b2e685e3cf302f430d9ece7dbb2284be84d5e12e21460c7232dd4e7a"
+      "bytes": 38295,
+      "sha256": "03fea8c6be6368045265211349d29b169b3c51d5ba8134ea06ea240683e7a7d9"
     },
     {
       "path": "docs/data/keeper_saves_4a.csv",
@@ -1269,8 +1269,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 17572,
-      "sha256": "04f45306a5cc01f09a0adc8847a1551ef6b528c096d8089f2a1b7c425c6d3185"
+      "bytes": 17831,
+      "sha256": "f037a18cfd3ba39498e1eb1ba6047e566f47ec2fb35138aa0bd69def25b81110"
     },
     {
       "path": "scripts/_common.ps1",
@@ -1574,8 +1574,8 @@
     },
     {
       "path": "tests/reference/phase9a/test_voice.py",
-      "bytes": 10048,
-      "sha256": "d5896d06fcae460d30c4eb93e52147fb6773505d4a7a9c98c6b3b8fcab2de790"
+      "bytes": 16391,
+      "sha256": "e2e2d37772b15bc3bc65180574ab4be8e089cfafe5d6ad397097ae02bdbc9283"
     },
     {
       "path": "app/RoboPenalty/requirements-voice.txt",
@@ -1589,8 +1589,8 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/language.py",
-      "bytes": 3936,
-      "sha256": "60a7ef9a53a5f7cfb38d4554dc367cf3140c3feb32bf0abdcfc39a22b0a8aeb8"
+      "bytes": 6155,
+      "sha256": "de272bcf3d93702615f45ba657ab5a96b863035605746966354e3703b4f4e583"
     },
     {
       "path": "app/RoboPenalty/phase9a/exhibition.py",
@@ -1649,8 +1649,8 @@
     },
     {
       "path": "tests/reference/phase9a/test_exhibition.py",
-      "bytes": 6186,
-      "sha256": "550f105ea8953ca3c51a4f586833ba7b894a7bf057586e3d1f3c270fb92d1924"
+      "bytes": 6316,
+      "sha256": "398dd41c5d56d6a38eb88452ce8e591dc6f6d01dc1edc7a8b0c277417b879444"
     },
     {
       "path": "app/RoboPenalty/phase9a/exhibition_left_open.json",

@@ -26,11 +26,11 @@ def interpret(text, *, exhibition=False):
     if phrase=='al centro a la izquierda':return 'shot:left_near_b060'
     open_left = ('abierto izquierdo|abierto izquierda|izquierda abierta|izquierda mas abierta|'
                  'bien a la izquierda|abierto a la izquierda')
-    if exhibition and re.fullmatch(
+    if re.fullmatch(
         rf'(?:(?:patea|patear|tira|tirar|dispara|disparar) )?(?:(?:hacia la|hacia el|al|a la|a) )?(?:{open_left})',
         phrase,
     ):
-        return 'shot:' + LEFT_OPEN
+        return 'shot:' + LEFT_OPEN if exhibition else 'unsupported:left_open'
     # Full match: conjunctions, multiple destinations, negations or vague corners fail closed.
     match=re.fullmatch(r'(patea|patear|tira|tirar|dispara|disparar) (?:(?:hacia la|hacia el|a la|hacia|al|a) )?(.+)',phrase)
     if match:
