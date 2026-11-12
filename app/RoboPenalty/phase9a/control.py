@@ -2,19 +2,35 @@ import time
 from control import Control as PreviousControl
 from phase9a.commands import LABELS
 
-HELP='Iniciar partido; modo dirigido/automatico; patea al centro/a la izquierda/a la derecha/a la derecha abierta/a la esquina derecha; microfono; estado; mostrar marcador; pausar partida; reanudar partida; salir. Izquierda = centro-izquierda. La llegada depende de la fisica.'
+HELP=('Iniciar partido; modo dirigido/automatico; patea al centro/a la izquierda/a la derecha/'
+      'a la derecha abierta/a la esquina derecha; /voz (o Enter) con --voice; '
+      'estado; mostrar marcador; pausar partida; reanudar partida; salir. '
+      'Izquierda = centro-izquierda. La llegada depende de la fisica.')
 
 class Control(PreviousControl):
     def __init__(self,bus,mode='directed',emit=print):
         super().__init__(bus,False,emit);self.mode=mode;self.awaiting_shot=False;self.pending_shot=None;self.voice=None
     def open_selection(self):
-        self.assert_owner();self.awaiting_shot=True;self.pending_shot=None;return self.bus.open_window()
+        self.assert_owner();self.awaiting_shot=True;self.pending_shot=None;self.cancel_voice()
+        return self.bus.open_window()
     def close_selection(self):
         self.assert_owner();self.awaiting_shot=False;self.bus.close_window()
+        self.cancel_voice()
+    def cancel_voice(self):
         if self.voice:self.voice.cancel_request()
+    def current_voice(self,message):
+        return (self.voice and self.awaiting_shot and not self.paused
+                and message.ticket==self.bus.active_ticket()
+                and self.voice.is_current(message.capture_id))
     def process(self,message):
         self.assert_owner()
         intent=message.intent
+        if message.source=='voice':
+            if not self.current_voice(message):return False,'Orden de voz vencida; repetila para el penal actual'
+            if intent=='listen':return False,'Usá /voz en la consola para volver a grabar'
+            if intent is None:
+                options=', '.join(LABELS.values())
+                return False,f'Necesito una aclaración. Elegí un solo destino: {options}. Podés repetir con /voz.'
         if intent=='help':return True,HELP
         if intent=='state':return True,f'Modo {self.mode.upper()} | estado {self.phase} | penal {self.penalty} | esperando tiro={self.awaiting_shot} | {self.score}'
         if intent and intent.startswith('mode:'):
@@ -35,16 +51,19 @@ class Control(PreviousControl):
             action=intent.split(':',1)[1]
             if action not in LABELS:return False,'Accion fuera del catalogo 8C'
             self.pending_shot=dict(action=action,text=message.text,source=message.source,ticket=message.ticket)
+            if message.capture_id is not None:self.pending_shot['capture_id']=message.capture_id
             self.close_selection()
             return True,f'Accion seleccionada: {LABELS[action]}. Arquero autonomo. La trayectoria depende del contacto fisico'
         accepted,reason=super().handle(intent)
         if intent in ('stop','reset') and accepted:self.close_selection()
+        if intent=='pause' and accepted:self.cancel_voice()
         return accepted,reason
     def pump(self):
         self.assert_owner()
         while (m:=self.bus.drain()) is not None:
             if m.generation!=self.bus.epoch():continue
             if m.kind=='status':
+                if m.source=='voice' and not self.current_voice(m):continue
                 self.emit(f'[microfono] {m.text}',flush=True);self.events.append(dict(kind='status',text=m.text));continue
             before=dict(phase=self.phase,penalty=self.penalty,mode=self.mode,awaiting_shot=self.awaiting_shot)
             accepted,reason=self.process(m)

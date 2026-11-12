@@ -1,4 +1,5 @@
 """Owner-thread presentation of the same physical runtime and command service."""
+from dataclasses import replace
 import threading
 import time
 from session import CommandPresenter
@@ -9,8 +10,16 @@ from phase7d.integrity import model_signature
 from presentation import png_write
 
 class MonumentalPresenter(EnhancedPresenter):
-    def __init__(self,runtime,config,output,distance,*,lod='medium',camera='behind',camera_requests=None,institutional_ads=True):
+    def __init__(
+        self, runtime, config, output, distance, *, lod='medium', camera='behind',
+        camera_requests=None, institutional_ads=True, light_viewer=False,
+    ):
         if distance!='long':raise ValueError('7D supports validated long distance only')
+        self.light_viewer = light_viewer
+        if light_viewer:
+            config = replace(config, fps=20.)
+            if lod == 'medium':
+                lod = 'low'
         self.lod=lod;self.stage=6;self.decoration=lod!='none';self.view=camera
         self.owner=threading.get_ident();self.camera_requests=camera_requests;self.camera_events=[]
         self.final_captured=False;self.screen_events=[];self.population_wall_s=0.;self.population_calls=0
@@ -24,7 +33,13 @@ class MonumentalPresenter(EnhancedPresenter):
             with self.handle.lock():
                 self.visual_capacity=int(self.handle.user_scn.maxgeom)
                 self.visual_scene.populate(self.handle.user_scn)
+                self._configure_render_flags(self.handle.user_scn)
         self.select_camera(camera)
+
+    def _configure_render_flags(self, scene):
+        if self.light_viewer:
+            scene.flags[self.mj.mjtRndFlag.mjRND_SHADOW] = 0
+            scene.flags[self.mj.mjtRndFlag.mjRND_REFLECTION] = 0
 
     def select_camera(self,name):
         if threading.get_ident()!=self.owner:raise RuntimeError('Camera selection requires simulation owner')
@@ -57,6 +72,7 @@ class MonumentalPresenter(EnhancedPresenter):
     def render_views(self,prefix):
         start=time.perf_counter();before=self.runtime.integration_state(self.runtime.data)
         with self.mj.Renderer(self.runtime.model,height=640,width=960) as renderer:
+            self._configure_render_flags(renderer.scene)
             for name in ('behind','execution','overview','goal'):
                 spec=specification(name);cam=self.mj.MjvCamera();self.mj.mjv_defaultCamera(cam)
                 cam.lookat[:]=spec['lookat'];cam.distance=spec['distance']
@@ -75,7 +91,7 @@ class MonumentalPresenter(EnhancedPresenter):
             'physical_model_unchanged':unchanged,'visual_geom_count':len(self.visual_scene.primitives),
             'visual_capacity':self.visual_capacity,'camera_events':self.camera_events,'view':self.view,
             'decoration':self.decoration,'model_signature':self.initial_signature},'phase7d':{
-            'lod':self.lod,'institutional_ads':self.visual_scene.institutional_ads,
+            'lod':self.lod,'light_viewer':self.light_viewer,'institutional_ads':self.visual_scene.institutional_ads,
             'institutional_ad_geoms':sum(p.name.startswith('uade_ad_') for p in self.visual_scene.primitives),
             'screen_state':self.visual_scene.screen_state,'screen_updates':self.visual_scene.screen_updates,
             'screen_events':self.screen_events,'pause_display_events':self.pause_display_events,

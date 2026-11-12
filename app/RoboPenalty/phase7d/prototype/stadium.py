@@ -38,13 +38,15 @@ def prepare(model):
     return changes+['existing cubemap RGB reused for crowd; background skybox disabled']
 
 class BowlScene(VisualScene):
-    def __init__(self,model,decoration=True):
+    def __init__(self,model,decoration=True,*,low_detail=False):
         self.decoration=decoration
+        self.low_detail = low_detail
         self.texture_id=ground_texture_id(model)
         self.material_id=model.mat('groundplane').id
         self.rotations={};self.crowd=set()
+        net_detail = 'low' if low_detail else 'medium'
         self.primitives=[replace(p,color=(.12,.29,.15,1) if i%2 else (.105,.26,.13,1))
-                         for i,p in enumerate(turf())]+markings()+goal_net('medium')
+                         for i,p in enumerate(turf())]+markings()+goal_net(net_detail)
         if decoration:self.bowl()
         self.static=list(self.primitives)
         self.update_status(dict(goals=0,saves=0,penalty=1,total=5))
@@ -57,7 +59,7 @@ class BowlScene(VisualScene):
     def bowl(self):
         sections=[]
         # Rear semicircle continuous with both straight side terraces.
-        segments=32
+        segments = 16 if self.low_detail else 32
         for i in range(segments):
             a=-math.pi/2+(i+.5)*math.pi/segments
             sections.append((np.array([-8.,0.,0.]),np.array([math.cos(a),math.sin(a),0.]),
@@ -66,6 +68,7 @@ class BowlScene(VisualScene):
             for x in (-20.25,-16.75,-13.25,-9.75):
                 sections.append((np.array([x,0.,0.]),np.array([0.,side,0.]),
                                  np.array([side,0.,0.]),None))
+        step_fractions = () if self.low_detail else (.33, .66)
         for s,(origin,radial,tangent,angle) in enumerate(sections):
             for level,(r0,r1,z0,z1) in enumerate(LEVELS):
                 r0+=20;r1+=20
@@ -78,33 +81,36 @@ class BowlScene(VisualScene):
                 tag=f'bowl_{s}_{level}'
                 self.panel(tag,center,(width/2+.025,math.hypot(r1-r0,z1-z0)/2,.035),
                            tangent,along,normal,(.62,.62,.62,1),True)
-                for row,fraction in enumerate((.33,.66)):
+                for row,fraction in enumerate(step_fractions):
                     r=r0+(r1-r0)*fraction
                     c=origin+radial*r;c[2]=z0+(z1-z0)*fraction+.025
                     w=(2*r*math.tan(angle/2) if angle else 3.5)
                     self.panel(tag+f'_step_{row}',c,(w/2+.025,.14,.045),tangent,radial,
                                np.array([0,0,1.]),(.34,.35,.37,1))
-                # Concourse fascia, front guardrail and radial aisle stripe.
-                for suffix,r,z,h,color in (('fascia',r0,z0-.35,.30,WHITE),
-                                           ('red_band',r0,z0-.08,.08,RED),
-                                           ('rim',r1,z1,.12,WHITE)):
+                red_band = ('red_band',r0,z0-.08,.08,RED)
+                tier_bands = (red_band,)
+                if not self.low_detail:
+                    tier_bands = (('fascia',r0,z0-.35,.30,WHITE), red_band, ('rim',r1,z1,.12,WHITE))
+                for suffix,r,z,h,color in tier_bands:
                     c=origin+radial*r;c[2]=z
                     w=(2*r*math.tan(angle/2) if angle else 3.5)
                     self.panel(tag+suffix,c,(w/2+.03,.13,h),tangent,radial,
                                np.array([0,0,1.]),color)
-                aisle=center+tangent*(width/2-.12)+normal*.045
-                self.panel(tag+'aisle',aisle,(.09,math.hypot(r1-r0,z1-z0)/2,.012),
-                           tangent,along,normal,(.38,.38,.40,1))
-                if s%3==0:
-                    c=origin+radial*(r0+.1);c[2]=z0+.45
-                    self.panel(tag+'entrance',c,(.40,.08,.42),tangent,radial,
-                               np.array([0,0,1.]),DARK)
+                if not self.low_detail:
+                    aisle=center+tangent*(width/2-.12)+normal*.045
+                    self.panel(tag+'aisle',aisle,(.09,math.hypot(r1-r0,z1-z0)/2,.012),
+                               tangent,along,normal,(.38,.38,.40,1))
+                    if s%3==0:
+                        c=origin+radial*(r0+.1);c[2]=z0+.45
+                        self.panel(tag+'entrance',c,(.40,.08,.42),tangent,radial,
+                                   np.array([0,0,1.]),DARK)
             # Continuous roof lip and emissive strip; not additional lights.
             c=origin+radial*37;c[2]=20.1
             width=(74*math.tan(angle/2) if angle else 3.5)
             self.panel(f'roof_{s}',c,(width/2+.04,.8,.16),tangent,radial,np.array([0,0,1.]),DARK)
-            c=c-radial*.7;c[2]=19.9
-            self.panel(f'lamp_{s}',c,(width/2-.10,.16,.10),tangent,radial,np.array([0,0,1.]),(1,.95,.85,1))
+            if not self.low_detail:
+                c=c-radial*.7;c[2]=19.9
+                self.panel(f'lamp_{s}',c,(width/2-.10,.16,.10),tangent,radial,np.array([0,0,1.]),(1,.95,.85,1))
         # Screen supported by a steel frame above the rear upper tier.
         for y in (-6.5,6.5):
             self.primitives.append(connector(f'screen_support_{y}',(27.8,y,16),(27.8,y,24.5),.15,DARK))

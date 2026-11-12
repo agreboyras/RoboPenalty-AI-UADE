@@ -21,6 +21,8 @@ def main():
         p.add_argument('--'+name,required=True,type=Path)
     p.add_argument('--action',choices=ACTIONS,required=True)
     p.add_argument('--viewer',action='store_true')
+    p.add_argument('--light-viewer', action=argparse.BooleanOptionalAction, default=True,
+                   help='Use the lightweight stadium viewer (default)')
     p.add_argument('--camera',choices=('behind','execution','overview','goal','follow'),default='goal')
     a=p.parse_args(); a.output=a.output.resolve()
     calibration=json.loads((PROJECT/'phase8c/catalog_v1.json').read_text())['actions'][a.action]['sha256']
@@ -69,6 +71,7 @@ def main():
     sys.argv=[str(path),'--deploy',str(a.deploy),'--loco-deploy',str(a.loco_deploy),'--policy-python',str(a.policy_python),
         '--output',str(a.output),'--placement','center','--action',a.action,'--camera',a.camera]
     if a.viewer:sys.argv.append('--viewer')
+    if not a.light_viewer:sys.argv.append('--no-light-viewer')
     try:engine.main()
     finally:sys.argv=argv;presentation.FreeKeeperPresenter=old
     dump(a.output/'shadow_decisions.json',agent.history)

@@ -59,8 +59,8 @@ def face_basis(face):
     return matrices[face]
 
 class RevisedBowl(BowlScene):
-    def __init__(self,model):
-        super().__init__(model)
+    def __init__(self,model,*,low_detail=False):
+        super().__init__(model, low_detail=low_detail)
         self.faces={}
         # Sector variation is deterministic and independent of game RNG/history.
         for p in self.primitives:

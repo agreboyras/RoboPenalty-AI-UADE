@@ -60,6 +60,22 @@ class InstitutionalAdsTests(unittest.TestCase):
         self.assertFalse(StadiumScene(m,'none').institutional_ads)
         self.assertTrue(StadiumScene(m,'low').institutional_ads)
 
+    def test_low_detail_simplifies_stands_and_net_and_keeps_score_and_ads(self):
+        model = self.model()
+        full = StadiumScene(model)
+        low = StadiumScene(model, 'low')
+        status = dict(penalty=3, total=5, goals=2, saves=1)
+        full.update_status(status)
+        low.update_status(status)
+        self.assertLess(len(low.primitives), len(full.primitives) * 0.65)
+        for prefix in ('turf_', 'screen_', PREFIX):
+            self.assertEqual([p for p in low.primitives if p.name.startswith(prefix)],
+                             [p for p in full.primitives if p.name.startswith(prefix)])
+        for prefix in ('bowl_', 'net_'):
+            self.assertLess(0, sum(p.name.startswith(prefix) for p in low.primitives))
+            self.assertLess(sum(p.name.startswith(prefix) for p in low.primitives),
+                            sum(p.name.startswith(prefix) for p in full.primitives))
+
     def test_population_is_decorative_and_leaves_model_and_state_exact(self):
         m=self.model();d=mujoco.MjData(m);before=model_signature(m)
         arrays=[x.copy() for x in (d.qpos,d.qvel,d.ctrl)]

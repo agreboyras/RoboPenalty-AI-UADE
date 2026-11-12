@@ -1,5 +1,28 @@
 # Hito 2: maniobra lateral física, manual y aislada
 
+## Estirada centrada
+
+`-Ensayo maniobra` abre la prueba manual nueva con el G1 frente al arco, en
+`(X=4.38, Y=0)`. El G1 arranca en guardia semiflexionada, empuja con la pierna
+contraria al lado elegido y recoge el codo al aterrizar. El visor encuadra los
+dos postes desde la cancha y prescinde de las tribunas. Cada ensayo integra
+2,4 s de física a 500 Hz, con 0,39 s de guardia. La pelota queda en reposo y el
+ensayo muestra el movimiento del arquero en aislamiento.
+
+Desde la raíz de `RoboPenalty-AI-UADE`:
+
+```powershell
+.\scripts\probar_maniobra_h2.ps1 -Ensayo maniobra -Lado LEFT -Viewer
+.\scripts\probar_maniobra_h2.ps1 -Ensayo maniobra -Lado RIGHT -Viewer
+```
+
+Sin `-Viewer` se ejecuta headless. `-Capturas` guarda las fases y la pose final.
+Esta variante usa el Python del juego y los MJCF y mallas del campo y del G1.
+Cada corrida guarda `report.json` con tiempos, posición inicial/final y alcance
+entre postes, más las posiciones de pelvis y muñeca a 500 Hz.
+
+## H2 histórico
+
 Estado técnico: APROBADO para este laboratorio nominal. No demuestra una atajada,
 una reacción autónoma ni una zambullida humana afinada. Reutiliza sin modificar el
 mundo del Hito 1 y la presentación 7D; el arquero empieza en X=4.2, Y=4 m para
@@ -8,7 +31,7 @@ preset histórico right_inter_m080, pero no se evalúa un resultado de atajada.
 
 ## Ver en esta computadora
 
-Abrir PowerShell en la raíz de RoboPenalty-AI-Complete, ejecutar una orden por vez:
+Abrir PowerShell en la raíz de RoboPenalty-AI-UADE, ejecutar una orden por vez:
 
 ```powershell
 # Referencia: equilibrio sin maniobra, 6 segundos simulados.
@@ -19,11 +42,11 @@ Abrir PowerShell en la raíz de RoboPenalty-AI-Complete, ejecutar una orden por 
 .\scripts\probar_maniobra_h2.ps1 -Ensayo transicion -Viewer
 
 # Izquierda y derecha, desde la perspectiva del delantero mirando el arco.
-.\scripts\probar_maniobra_h2.ps1 -Ensayo maniobra -Lado LEFT -Viewer
-.\scripts\probar_maniobra_h2.ps1 -Ensayo maniobra -Lado RIGHT -Viewer
+.\scripts\probar_maniobra_h2.ps1 -Ensayo maniobra_historica -Lado LEFT -Viewer
+.\scripts\probar_maniobra_h2.ps1 -Ensayo maniobra_historica -Lado RIGHT -Viewer
 
 # Opcional: cinco capturas físicas (equilibrio, preparación, impulso, extensión y final).
-.\scripts\probar_maniobra_h2.ps1 -Ensayo maniobra -Lado LEFT -Viewer -Capturas
+.\scripts\probar_maniobra_h2.ps1 -Ensayo maniobra_historica -Lado LEFT -Viewer -Capturas
 ```
 
 LEFT es +Y mundial y usa principalmente el brazo anatómico derecho del arquero;

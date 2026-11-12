@@ -6,8 +6,9 @@ import sys
 import threading
 
 class ConsoleInput:
-    def __init__(self,bus,console):
+    def __init__(self,bus,console,*,voice_enabled=False):
         self.bus,self.console=bus,console;self.stop=threading.Event()
+        self.voice_enabled=voice_enabled
         self.thread=threading.Thread(target=self.run,name='phase9a-console',daemon=False)
     def start(self):self.thread.start()
     def run(self):
@@ -24,7 +25,9 @@ class ConsoleInput:
                     if ch=='\x03':self.bus.submit('salir');return
                     if ch=='\x1a':return
                     if ch in ('\r','\n'):
-                        print('',file=self.console,flush=True);self.bus.submit(buffer);buffer=''
+                        print('',file=self.console,flush=True)
+                        if not buffer and self.voice_enabled:buffer='/voz'
+                        self.bus.submit(buffer);buffer=''
                     elif ch=='\b':
                         if buffer:buffer=buffer[:-1];print('\b \b',end='',file=self.console,flush=True)
                     else:buffer+=ch;print(ch,end='',file=self.console,flush=True)

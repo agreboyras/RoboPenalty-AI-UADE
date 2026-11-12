@@ -216,7 +216,7 @@ La referencia automática registró 3 goles, 2 atajadas, 0 errados y 35.000 paso
 | Visor no abre | Revisar el error gráfico/controlador y probar `jugar_automatico.ps1 -Headless`. No se promete solucionar un fallo DLL o gráfico sin ese error concreto. |
 | Ruta con espacios | Usar comillas: `-DeployPath '..\Deploy Compatible'`. El importador usa rutas literales, no comodines. |
 | Descarga incompleta/conexión | Corregir conexión y repetir; solo se reutilizan archivos completos con SHA correcto. Los temporales no cuentan como recursos válidos. |
-| Voz/micrófono | Esta guía usa texto; la voz sigue pendiente y no forma parte de la instalación estándar. |
+| Voz/micrófono | Instalá las dependencias opcionales y ejecutá el modo dirigido con `-Voz`. [Instrucciones de voz](../README.md#jugar-con-órdenes-de-voz) |
 
 ## Tests y evidencias
 

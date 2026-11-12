@@ -1,0 +1,5 @@
+# Optional microphone and OpenAI transcription dependencies.
+openai>=1.66
+python-dotenv>=1.0
+sounddevice==0.5.6
+av==18.1.0

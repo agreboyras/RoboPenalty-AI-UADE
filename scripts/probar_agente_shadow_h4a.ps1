@@ -1,7 +1,8 @@
 param([ValidateSet('center','left_near_b060','right_inter_m080','right_open_m100','right_corner_m140')][string]$Accion='center',
       [ValidateSet('behind','execution','overview','goal','follow')][string]$Camara='goal',
       [string]$Salida,[switch]$Viewer,
-      [string]$Python,[string]$PolicyPython,[string]$DeployPath,[string]$LocoDeployPath,[string]$Referencia,[string]$Baseline)
+      [string]$Python,[string]$PolicyPython,[string]$DeployPath,[string]$LocoDeployPath,
+      [string]$Referencia,[string]$Baseline,[switch]$VisorLiviano = $true,[switch]$VisorCompleto)
 $ErrorActionPreference='Stop'
 $bundle=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 . "$PSScriptRoot/_experiment_paths.ps1"
@@ -19,7 +20,10 @@ if (-not $Salida) { $Salida=Join-Path $bundle ('validation/shadow_agent_h4a/'+$A
 $arguments=@('-X','utf8','-u','-B','-m','experiments.shadow_agent_h4a.run',
  '--deploy',$deploy,'--loco-deploy',$loco,'--policy-python',$policy,'--output',([IO.Path]::GetFullPath($Salida)),
  '--action',$Accion,'--camera',$Camara,'--baseline',$baseline,'--reference',$reference)
-if ($Viewer) {$arguments+='--viewer'}
+if ($Viewer) {
+    $arguments += '--viewer'
+    if ($VisorCompleto -or -not $VisorLiviano) { $arguments += '--no-light-viewer' }
+}
 Push-Location -LiteralPath (Join-Path $bundle 'app/RoboPenalty')
 try { & $python @arguments; $code=$LASTEXITCODE } finally { Pop-Location }
 exit $code

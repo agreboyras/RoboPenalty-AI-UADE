@@ -15,11 +15,15 @@ from phase9a.control import Control,HELP
 from phase9a.console import ConsoleInput
 from phase9a.session import Match,Service,Script,CommandBoundary
 from phase9a.voice import VoiceInput
+from phase9a.whisper_api import DEFAULT_TRANSCRIPTION_MODEL, TRANSCRIPTION_MODELS
 
 def main():
     start=time.perf_counter();p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--mode',choices=['auto','directed'],default='directed');p.add_argument('--viewer',action='store_true')
-    p.add_argument('--voice',action='store_true',help='Explicit opt-in: one bounded capture on each directed selection window; no continuous recording')
+    p.add_argument('--voice',action='store_true',help='One capture per directed selection, plus Enter or /voz to retry')
+    p.add_argument('--voice-backend',choices=['openai','local'],default='openai',help='OpenAI API or local faster-whisper')
+    p.add_argument('--transcription-model',choices=TRANSCRIPTION_MODELS,default=DEFAULT_TRANSCRIPTION_MODEL,
+        help='OpenAI transcription model (default: %(default)s)')
     p.add_argument('--device',type=int);p.add_argument('--device-name');p.add_argument('--device-hostapi')
     p.add_argument('--model',type=Path,default=PROJECT/'phase6b/models/whisper-tiny')
     p.add_argument('--listen-seconds',type=float,default=6.);p.add_argument('--audio-blocksize',type=int)
@@ -28,6 +32,8 @@ def main():
     p.add_argument('--seed',type=int,default=2026);p.add_argument('--autostart',action='store_true');p.add_argument('--once',action='store_true')
     p.add_argument('--script',type=Path);p.add_argument('--output',type=Path);p.add_argument('--capture-frame',action='store_true')
     p.add_argument('--no-decoration',action='store_true');p.add_argument('--unpaced',action='store_true')
+    p.add_argument('--light-viewer', action=argparse.BooleanOptionalAction, default=True,
+                   help='Use a simpler stadium and update the viewer at 20 Hz (default)')
     p.add_argument('--no-institutional-ads',action='store_true',help='Hide provisional UADE signs; keep the stadium')
     a=p.parse_args()
     if a.list_devices:print(json.dumps(devices(),indent=2));return
@@ -38,14 +44,19 @@ def main():
     bus=InputBus();control=Control(bus,a.mode);runtime=Runtime();control.emit=lambda *x,**kw:print(*x,file=runtime.console,**kw)
     presenter=voice=console=service=None;matches=[];current=None;failure=None;termination=None;voice_joined=console_joined=None
     try:
-        presenter=MonumentalPresenter(runtime,visual,a.output,'long',lod='none' if a.no_decoration else 'medium',camera='behind',camera_requests=bus.camera_requests,institutional_ads=not a.no_institutional_ads)
+        presenter = MonumentalPresenter(
+            runtime, visual, a.output, 'long', lod='none' if a.no_decoration else 'medium',
+            camera='behind', camera_requests=bus.camera_requests,
+            institutional_ads=not a.no_institutional_ads, light_viewer=a.viewer and a.light_viewer,
+        )
         runtime.attach(presenter);script=Script(json.loads(a.script.read_text(encoding='utf-8'))) if a.script else None
         service=Service(control,runtime,presenter,script);service.voice_on_wait=a.voice;presenter.service=service
         boundary=CommandBoundary(runtime.engine.mujoco,service);runtime.engine.mujoco=boundary
         if a.voice:
             audio=AudioConfig(str(a.model),a.device,a.listen_seconds,a.asr_threads,a.min_rms,a.device_name,a.device_hostapi,a.audio_blocksize)
-            voice=VoiceInput(bus,audio,a.output/'voice');control.voice=voice;voice.start()
-        if not a.script:console=ConsoleInput(bus,runtime.console);console.start()
+            voice=VoiceInput(bus,audio,a.output/'voice',backend=a.voice_backend,transcription_model=a.transcription_model)
+            control.voice=voice;voice.start()
+        if not a.script:console=ConsoleInput(bus,runtime.console,voice_enabled=a.voice);console.start()
         print(f'READY | Modo {a.mode.upper()} | {HELP}',flush=True)
         presenter.set_status({'phase':'READY','total':config.penalties})
         if a.autostart:bus.submit('Iniciar partido','startup-text')
@@ -86,6 +97,8 @@ def main():
         report=dict(mode_initial=a.mode,matches=matches,commands=control.events,termination=termination,failure=failure,
             physics_steps=boundary.steps if service else 0,runtime=runtime.summary(),presentation=presenter.summary() if presenter else None,
             control_pauses=service.pause_records if service else [],voice_enabled=a.voice,voice_worker_joined=voice_joined,
+            voice_backend=a.voice_backend if voice else None,
+            transcription_model=a.transcription_model if voice and a.voice_backend=='openai' else None,
             console_worker_joined=console_joined,voice_metrics=voice.metrics if voice else [],script_wall_s=time.perf_counter()-start,
             catalog_sha256=catalog.id,keeper_information_contract='Unchanged 8C runtime; only ObservationReader physical observations. Router/bus/text/action selection not passed to keeper.')
         (a.output/'session.json').write_text(json.dumps(report,indent=2),encoding='utf-8')

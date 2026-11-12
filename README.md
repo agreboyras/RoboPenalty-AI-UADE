@@ -56,7 +56,24 @@ En modo dirigido, escribir `Iniciar partido`, esperar la solicitud y dar una ord
 
 La prueba con clones limpios de ambos repositorios, en la revisión TP07 fijada, completó **104/104 recursos, 170 tests y cinco penales automáticos headless: 3 goles, 2 atajadas, 0 errados y 35.000 pasos**. Esa prueba no repitió el visor ni representa validación en otra computadora física.
 
-**[Guía completa para estudiantes: descarga, recursos, instalación y solución de errores](docs/INSTALACION_WINDOWS.md).** Las fuentes y avisos se conservan en [THIRD_PARTY.md](THIRD_PARTY.md). La voz sigue pendiente de validación y está desactivada.
+**[Guía completa para estudiantes: descarga, recursos, instalación y solución de errores](docs/INSTALACION_WINDOWS.md).** Las fuentes y avisos se conservan en [THIRD_PARTY.md](THIRD_PARTY.md).
+
+### Jugar con órdenes de voz
+
+Guardá la clave como `OPENAI_API_KEY=tu_clave` en `.env.local`, en la raíz del repositorio. Git ignora ese archivo. Si PowerShell ya tiene `OPENAI_API_KEY` definida, el juego usa la de PowerShell.
+
+Con la instalación estándar lista, ejecutá desde la raíz del repositorio.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r .\app\RoboPenalty\requirements-voice.txt
+.\scripts\jugar_dirigido.ps1 -Voz
+```
+
+Escribí `Iniciar partido`. Al esperar cada penal, el juego graba una orden breve y envía el audio a OpenAI. Esperá `ESCUCHANDO` y decí «pateá al centro a la izquierda». La consola muestra lo que oyó y el juego ejecuta el tiro centro-izquierda. Si pide aclaración, grabá otra orden con Enter o `/voz`, o elegí por texto.
+
+La transcripción usa `gpt-transcribe`. Para conservar Whisper en la entrega, usá `-ModeloTranscripcion whisper-1` junto con `-Voz`. OpenAI anunció el retiro de `whisper-1` para el 26 de febrero de 2027. [OpenAI Docs sobre transcripción](https://developers.openai.com/api/docs/guides/speech-to-text)
+
+Si el parser no reconoce la transcripción, `gpt-6-luna` usa `patear` para seleccionar uno de los cinco tiros del catálogo o `pedir_aclaracion` para solicitar otra orden. [OpenAI Docs sobre GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
 
 ## Qué incluye
 
@@ -68,8 +85,6 @@ La prueba con clones limpios de ambos repositorios, en la revisión TP07 fijada,
 - Modo dirigido por texto, con estadísticas manuales separadas del aprendizaje automático.
 - Media cancha de distancia física de tiro de 6 m, estadio envolvente, pantalla de marcador, cámaras y visor nativo MuJoCo.
 - Pausa, reanudación y cierre seguros; ejecución sin ventana para pruebas.
-
-La voz está integrada como opción experimental, pero **no está validada como funcional** y permanece desactivada por defecto.
 
 ## Arquitectura y aporte del equipo
 
@@ -115,6 +130,8 @@ La [guía Windows](docs/INSTALACION_WINDOWS.md) identifica las revisiones, los 2
 ```
 
 Los lanzadores usan cinco penales, semilla 2026, distancia `long` y visor por defecto. El modo automático inicia la tanda; en modo dirigido, escribir `Iniciar partido` y esperar la solicitud de tiro.
+
+El visor liviano es el predeterminado. Simplifica las tribunas y la red visual, desactiva sombras y reflejos y publica el estado durante el penal a 20 Hz. Para ver el estadio con todo el detalle, agregar `-VisorCompleto` a `jugar_automatico.ps1` o `jugar_dirigido.ps1`. La misma opción funciona con `probar_agente_shadow_h4a.ps1 -Viewer`.
 
 | Orden de texto | Acción |
 |---|---|
@@ -167,7 +184,7 @@ Se comprobó también el caso sin Deploy: código 2 y partida bloqueada, y el di
 - **PowerShell bloquea scripts:** revisar [instalación Windows](docs/INSTALACION_WINDOWS.md); cualquier cambio de política sugerido es solo para esa terminal, sujeto a las políticas del equipo.
 - **Fallo de red:** corregir la conexión y repetir la instalación. Solo se reutilizan recursos completos cuyos hashes coinciden; un archivo distinto no se sobrescribe.
 - **El visor falla:** comprobar el controlador gráfico y probar `-Headless`. La instalación y el rendimiento en otros equipos todavía requieren validación.
-- **Voz:** no se presenta como funcional, no se incluyen modelos Whisper ni se activa durante la instalación estándar.
+- **Voz** con dependencias opcionales y una clave de OpenAI configurada por el usuario. La instalación estándar inicia en modo de texto.
 
 El escenario es de fútbol robótico a escala adaptada; el arquero tiene guía lateral, no locomoción libre ni saltos. El catálogo es finito y algunas trayectorias son sensibles a condiciones iniciales: la validación nominal no demuestra robustez global.
 

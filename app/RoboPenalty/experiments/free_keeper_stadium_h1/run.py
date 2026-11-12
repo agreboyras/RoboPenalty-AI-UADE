@@ -71,6 +71,8 @@ def main():
     p.add_argument('--placement',choices=('aside','center','absent'),default='aside')
     p.add_argument('--action',default='right_inter_m080')
     p.add_argument('--viewer',action='store_true');p.add_argument('--capture',action='store_true')
+    p.add_argument('--light-viewer', action=argparse.BooleanOptionalAction, default=True,
+                   help='Use the lightweight stadium viewer (default)')
     p.add_argument('--camera',choices=('behind','execution','overview','goal','follow'),default='overview')
     a=p.parse_args();start=time.perf_counter();a.output=a.output.resolve()
     if not a.output.is_relative_to(PROJECT.parents[1]/'validation') or a.output.exists():
@@ -117,7 +119,10 @@ def main():
         runtime=View();runtime.model=model;runtime.data=data
         from .presentation import FreeKeeperPresenter
         from phase6a.presentation import PresentationConfig,ViewerClosed
-        presenter=FreeKeeperPresenter(runtime,PresentationConfig(enabled=a.viewer,fps=30.,realtime=True),a.output,'long',camera=a.camera)
+        presenter = FreeKeeperPresenter(
+            runtime, PresentationConfig(enabled=a.viewer, fps=30., realtime=True),
+            a.output, 'long', camera=a.camera, light_viewer=a.viewer and a.light_viewer,
+        )
         presenter.set_status(dict(penalty=1,total=1,phase='PREPARING',action=a.action,goals=0,saves=0,misses=0))
         if a.capture:presenter.render_views('initial')
         presenter.pause('ready',1.);presenter.begin_episode()

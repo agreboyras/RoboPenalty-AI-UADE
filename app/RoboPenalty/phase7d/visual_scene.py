@@ -1,4 +1,4 @@
-"""Production adapter reusing the approved prototype without changing it."""
+"""Production adapter for the stadium, scoreboard and advertising."""
 from phase7d.prototype.revision import RevisedBowl,prepare_revision
 from phase7d.prototype.stadium import BowlScene
 from phase7d.institutional_ads import advertisements
@@ -11,10 +11,7 @@ class StadiumScene(RevisedBowl):
             self.faces={};self.face_transforms={}
             BowlScene.__init__(self,model,False)
         else:
-            super().__init__(model)
-            if lod=='low':
-                self.static=[p for p in self.static if '_step_' not in p.name]
-                BowlScene.update_status(self,dict(zip(('goals','saves','penalty','total'),self.screen_state)))
+            super().__init__(model, low_detail=lod == 'low')
         if self.institutional_ads:
             self.static+=advertisements()
             BowlScene.update_status(self,dict(zip(('goals','saves','penalty','total'),self.screen_state)))

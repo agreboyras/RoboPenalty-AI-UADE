@@ -156,8 +156,8 @@ Con `$comun` y las referencias anteriores:
 
 ```powershell
 # H2: original, apartado; H2.5: centrado. No son atajadas demostradas.
-.\scripts\probar_maniobra_h2.ps1 @comun -Ensayo maniobra -Lado LEFT -Viewer
-.\scripts\probar_maniobra_h2.ps1 @comun -Ensayo maniobra -Lado RIGHT -Viewer
+.\scripts\probar_maniobra_h2.ps1 @comun -Ensayo maniobra_historica -Lado LEFT -Viewer
+.\scripts\probar_maniobra_h2.ps1 @comun -Ensayo maniobra_historica -Lado RIGHT -Viewer
 .\scripts\probar_centro_h25.ps1 @comun -Variante original -Lado LEFT -Viewer
 .\scripts\probar_centro_h25.ps1 @comun -Variante original -Lado RIGHT -Viewer
 

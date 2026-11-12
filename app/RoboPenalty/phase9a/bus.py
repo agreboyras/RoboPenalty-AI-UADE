@@ -28,8 +28,15 @@ class InputBus(CameraBus):
             if epoch!=self.generation:self.dropped+=1;return False
             item=Message(text,interpret(text) if kind=='command' else None,source,epoch,time.perf_counter(),kind,capture_id,
                 self.ticket if ticket=='current' else ticket)
-            try:self.queue.put_nowait(item)
-            except queue.Full:self.dropped+=1;return False
-            return True
+            return self._enqueue(item)
+    def submit_voice(self,text,intent,generation,ticket,capture_id,*,kind='command'):
+        with self.lock:
+            if generation!=self.generation or ticket!=self.ticket:
+                self.dropped+=1;return False
+            return self._enqueue(Message(text,intent,'voice',generation,time.perf_counter(),kind,capture_id,ticket))
+    def _enqueue(self,item):
+        try:self.queue.put_nowait(item)
+        except queue.Full:self.dropped+=1;return False
+        return True
     def rotate(self):
         result=super().rotate();self.close_window();return result

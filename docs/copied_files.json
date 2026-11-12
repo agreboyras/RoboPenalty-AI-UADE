@@ -234,20 +234,22 @@
       "path": "app/RoboPenalty/phase7d/prototype/revision.py",
       "source_sha256": "180165b047cc45dbc567471fa7f4bd3487cee8caec9b048c79cc90e0d63f5a58",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Allow the production stadium to select simplified visual geometry."
     },
     {
       "path": "app/RoboPenalty/phase7d/prototype/stadium.py",
       "source_sha256": "316456231b47a5568fbc4d5b746dffc2c925589812d7d305d7f2ece82c9f18b7",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Generate simpler terraces and goal net when low detail is requested."
     },
     {
       "path": "app/RoboPenalty/phase7d/visual_scene.py",
       "source_sha256": "3b2799299a8547d42e278f990397c6be9f55d021bd359943625e06464160b747",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Render-only provisional UADE signs and opt-out; historical source SHA retained."
+      "modification": "Render-only provisional UADE signs, advertising opt-out, and simplified stadium detail."
     },
     {
       "path": "app/RoboPenalty/phase8b1/planners.py",
@@ -547,25 +549,29 @@
       "path": "app/RoboPenalty/phase9a/bus.py",
       "source_sha256": "b633d48e181d5a124963562edbedabfb9a33baae0ee9aa8bec1def9d48e07cb0",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Queue voice responses with their selection ticket and capture ID."
     },
     {
       "path": "app/RoboPenalty/phase9a/commands.py",
       "source_sha256": "4aa521a3866f7f0b3debf61e6311cd409237e937197b25a59f29f85385634cbd",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Recognize microphone commands and compound shot directions."
     },
     {
       "path": "app/RoboPenalty/phase9a/console.py",
       "source_sha256": "abaf2d07203af7a3ff8d6f6d8590a2e787e57964ae32ff7cf347af8aae0b30c6",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Use Enter to request a recording when voice is enabled."
     },
     {
       "path": "app/RoboPenalty/phase9a/control.py",
       "source_sha256": "27b5f3bc2848deebd5a54cf8747010d1fc2dc7d4c087a701e984a7225d26b7ca",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Apply voice selections on the owner thread and invalidate obsolete captures."
     },
     {
       "path": "app/RoboPenalty/phase9a/fixtures/directed.json",
@@ -578,7 +584,7 @@
       "source_sha256": "c0c49fc1662836d7705cc91e2acb8c568c9ca0ba7dd843fd377d4c2e328df0d1",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Render-only provisional UADE signs and opt-out; historical source SHA retained."
+      "modification": "Render-only provisional UADE signs and opt-out, default lightweight viewer, and configurable OpenAI transcription."
     },
     {
       "path": "app/RoboPenalty/phase9a/selection.py",
@@ -596,7 +602,8 @@
       "path": "app/RoboPenalty/phase9a/voice.py",
       "source_sha256": "7c89b02a66ed0a641037e51b22c6734721ac910fda49d0e9dfa3c5188ddbf9f9",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Adapt the capture worker to transcribe and interpret orders with OpenAI."
     },
     {
       "path": "app/RoboPenalty/portability/diagnose.py",
