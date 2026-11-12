@@ -7,7 +7,7 @@ import sys
 ROOT=Path(__file__).resolve().parents[1]
 APP=ROOT/'app/RoboPenalty'
 JOBS=('phase3b/test_agent.py','phase4a/test_evaluation.py','phase4b/test_striker.py',
-      'phase9a/test_input.py','phase9a/test_selection.py','phase9a/test_voice.py')
+      'phase9a/test_input.py','phase9a/test_selection.py','phase9a/test_voice.py','phase9a/test_exhibition.py')
 
 
 def main():

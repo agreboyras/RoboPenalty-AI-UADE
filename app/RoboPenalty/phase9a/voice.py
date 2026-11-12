@@ -107,12 +107,12 @@ class VoiceInput:
             self.status('No oí una orden. Escribí /voz para volver a grabar o elegí el tiro por texto.',job)
             return
 
-        intent=interpret(text)
+        intent=interpret(text,exhibition=self.bus.exhibition)
         if intent is None and self.recognizer:
             self.status(f'Oí {text!r}. Interpretando la orden con {COMMAND_MODEL}.',job)
             record['command_model']=COMMAND_MODEL
             start=time.perf_counter()
-            intent=resolve_shot(self.recognizer.client,text)
+            intent=resolve_shot(self.recognizer.client,text,exhibition=self.bus.exhibition)
             record['interpretation_wall_s']=time.perf_counter()-start
         record['intent']=intent
         submitted=self.valid(job) and self.bus.submit_voice(text,intent,*job)

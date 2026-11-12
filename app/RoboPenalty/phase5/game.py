@@ -108,12 +108,14 @@ class Match:
             observation=selection['observation']
             record={'penalty':number,'action':execution['action'],'scenario':execution['scenario'],
                 'outcome':outcome,'keeper_initial_y_w_m':observation['keeper_y_w'],
-                'keeper_final_q_m':physical['rail']['final_q_m'],
+                'keeper_final_q_m':None if 'free_keeper' in physical else physical['rail']['final_q_m'],
                 'simulated_s':physical['simulated_s'],'wall_s':wall,'physics_call_wall_s':physical_wall,
                 'initial_state_sha256':physical['initial_state_sha256'],
                 'ball_prefix_error_vs_historical_probe':prefix_error,
                 'first_foot_ball':physical['evaluation']['first_foot_ball'],
                 'first_keeper_ball':physical['evaluation']['first_keeper_ball']}
+            if 'free_keeper' in physical:
+                record['free_keeper']=physical['free_keeper']
             self.score.record(record)
             self.save(directory/'feedback_after_shot.json',{'record':record,'update':update,
                 'feedback_time_sim_s':physical['simulated_s'],'statistics_after':self.selector.snapshot()})

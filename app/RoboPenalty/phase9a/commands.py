@@ -4,10 +4,14 @@ import unicodedata
 
 LABELS={'center':'central','left_near_b060':'centro-izquierda (opción izquierda disponible)',
         'right_inter_m080':'intermedio derecho','right_open_m100':'abierto derecho','right_corner_m140':'esquina derecha'}
+LEFT_NEAR = 'left_near_b060'
+LEFT_OPEN = 'left_open_b104'
+EXHIBITION_LABELS = {LEFT_NEAR: 'centro-izquierda', LEFT_OPEN: 'abierto izquierdo'}
+
 def normalize(text):
     return ' '.join(re.findall(r'[a-z0-9]+',''.join(c for c in unicodedata.normalize('NFD',text.casefold()) if unicodedata.category(c)!='Mn')))
 
-def interpret(text):
+def interpret(text, *, exhibition=False):
     phrase=normalize(text)
     phrase=re.sub(r'^por favor ','',phrase);phrase=re.sub(r' por favor$','',phrase)
     if phrase in ('ayuda','help'):return 'help'
@@ -20,6 +24,13 @@ def interpret(text):
     old=previous(phrase)
     if old:return old
     if phrase=='al centro a la izquierda':return 'shot:left_near_b060'
+    open_left = ('abierto izquierdo|abierto izquierda|izquierda abierta|izquierda mas abierta|'
+                 'bien a la izquierda|abierto a la izquierda')
+    if exhibition and re.fullmatch(
+        rf'(?:(?:patea|patear|tira|tirar|dispara|disparar) )?(?:(?:hacia la|hacia el|al|a la|a) )?(?:{open_left})',
+        phrase,
+    ):
+        return 'shot:' + LEFT_OPEN
     # Full match: conjunctions, multiple destinations, negations or vague corners fail closed.
     match=re.fullmatch(r'(patea|patear|tira|tirar|dispara|disparar) (?:(?:hacia la|hacia el|a la|hacia|al|a) )?(.+)',phrase)
     if match:

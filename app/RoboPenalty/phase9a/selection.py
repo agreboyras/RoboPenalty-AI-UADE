@@ -17,7 +17,7 @@ class SelectionRouter:
         if c.mode=='auto':return self.automatic.choose(observation,calibration,episode_id,strategy,seed,fixed_action)
         if observation.time_sim_s!=0:raise RuntimeError('Directed selection requires initialized episode at t=0')
         runtime=self.service.runtime;before=runtime.integration_state(runtime.data).copy();ticket=c.open_selection()
-        c.emit(f'READY PARA ELEGIR | Modo DIRIGIDO | Esperando instruccion para penal {c.penalty} | fisica PREPARING t=0 | Izquierda disponible: centro-izquierda',flush=True)
+        c.emit(f'READY PARA ELEGIR | Modo DIRIGIDO | Esperando instruccion para penal {c.penalty} | fisica PREPARING t=0 | {c.shot_prompt}',flush=True)
         if c.voice and getattr(self.service,'voice_on_wait',False):
             ok,reason=c.voice.request(ticket);c.emit(f'[microfono] {reason}',flush=True)
         try:

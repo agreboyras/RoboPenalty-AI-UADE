@@ -21,6 +21,7 @@ def components(catalog):
     module.InitialObservation=lambda *a,**k:agent.InitialObservation(*a,available_actions=catalog.actions,**k)
 
     class Selector(agent.StrikerAgent):
+        observation_type = agent.InitialObservation
         def __init__(self,state=None):
             if state is not None and state.get('catalog_sha256')!=catalog.id:
                 raise ValueError('Historical/different-catalog statistics cannot be reused')

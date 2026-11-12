@@ -77,7 +77,8 @@
       "path": "app/RoboPenalty/phase5/game.py",
       "source_sha256": "09ac8f7987482d336e793cc6f35430e005c25e6ff40a152a4751493521498b5e",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Accept free-keeper pose in exhibition match records."
     },
     {
       "path": "app/RoboPenalty/phase5/runtime.py",
@@ -279,7 +280,8 @@
       "path": "app/RoboPenalty/phase8b2/runtime.py",
       "source_sha256": "6c21b5049f9afee5b9c2d461ace09e58caf5bbb60bc4c9486837c25412338020",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Expose the catalog-specific observation type to the exhibition."
     },
     {
       "path": "app/RoboPenalty/phase8b3/posture.py",
@@ -550,14 +552,14 @@
       "source_sha256": "b633d48e181d5a124963562edbedabfb9a33baae0ee9aa8bec1def9d48e07cb0",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Queue voice responses with their selection ticket and capture ID."
+      "modification": "Queue voice responses with their selection ticket and capture ID. Scoped support for the open-left exhibition shot."
     },
     {
       "path": "app/RoboPenalty/phase9a/commands.py",
       "source_sha256": "4aa521a3866f7f0b3debf61e6311cd409237e937197b25a59f29f85385634cbd",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Recognize microphone commands and compound shot directions."
+      "modification": "Recognize microphone commands and compound shot directions. Scoped support for the open-left exhibition shot."
     },
     {
       "path": "app/RoboPenalty/phase9a/console.py",
@@ -571,7 +573,7 @@
       "source_sha256": "27b5f3bc2848deebd5a54cf8747010d1fc2dc7d4c087a701e984a7225d26b7ca",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Apply voice selections on the owner thread and invalidate obsolete captures."
+      "modification": "Apply voice selections on the owner thread and invalidate obsolete captures. Scoped support for the open-left exhibition shot."
     },
     {
       "path": "app/RoboPenalty/phase9a/fixtures/directed.json",
@@ -584,13 +586,14 @@
       "source_sha256": "c0c49fc1662836d7705cc91e2acb8c568c9ca0ba7dd843fd377d4c2e328df0d1",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Render-only provisional UADE signs and opt-out, default lightweight viewer, and configurable OpenAI transcription."
+      "modification": "Render-only provisional UADE signs and opt-out, default lightweight viewer, and configurable OpenAI transcription. Optional single-penalty free-goalkeeper exhibition. Scoped support for the open-left exhibition shot."
     },
     {
       "path": "app/RoboPenalty/phase9a/selection.py",
       "source_sha256": "f92abb4c4099c5fb990606c1280abf03f9c437df58a45f7ffdb36bb038adb6a7",
       "classification": "owned_runtime",
-      "status": "unchanged"
+      "status": "modified",
+      "modification": "Show the prompt for the active shot catalog."
     },
     {
       "path": "app/RoboPenalty/phase9a/session.py",
@@ -603,7 +606,7 @@
       "source_sha256": "7c89b02a66ed0a641037e51b22c6734721ac910fda49d0e9dfa3c5188ddbf9f9",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Adapt the capture worker to transcribe and interpret orders with OpenAI."
+      "modification": "Adapt the capture worker to transcribe and interpret orders with OpenAI. Scoped support for the open-left exhibition shot."
     },
     {
       "path": "app/RoboPenalty/portability/diagnose.py",

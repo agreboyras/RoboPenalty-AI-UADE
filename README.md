@@ -147,6 +147,36 @@ Controles: `ayuda`, `estado`, `mostrar marcador`, `pausar partida`, `reanudar pa
 
 Las salidas de partida se crean bajo `app/RoboPenalty/phase9a/results/` y quedan excluidas de Git.
 
+## Exhibición con arquero libre
+
+La opción `-ArqueroLibre` abre **un penal de exhibición en el estadio 7D** con dos tiros disponibles.
+El pateador ejecuta FreeKick y el arquero arranca en el centro, con la pelvis libre.
+El lado de la estirada está fijado para esta jugada. El impulso se dispara cuando MuJoCo registra
+el contacto pie–pelota y la pelota sale hacia el arco. El visor cambia a una toma
+cercana del arco y el marcador usa el resultado físico.
+
+```powershell
+.\scripts\jugar_dirigido.ps1 -Voz -ArqueroLibre
+# Escribí «Iniciar partido» y decí «Patea a la izquierda» o «Patea a la izquierda abierta».
+
+.\scripts\jugar_automatico.ps1 -ArqueroLibre
+# Ejecuta centro-izquierda de forma automática.
+
+.\scripts\jugar_automatico.ps1 -ArqueroLibre -IzquierdaAbierta
+# Ejecuta abierto izquierdo de forma automática.
+```
+
+El tiro abierto izquierdo usa el bias +1,04 de FreeKick. En la prueba nominal,
+con guardia sola cruza la línea a 0,87 m del centro. En la estirada, el G1 adelanta
+la preparación y acelera las referencias articulares para llegar con la muñeca.
+El resultado se verifica por contacto y cruce de la línea.
+
+En el modo dirigido también podés escribir el tiro. Con `-Headless` se ejecuta
+sin visor. Para el equilibrio inicial se usa la política local de H1 y su entorno
+Python, resueltos por el lanzador. Si están en otra carpeta, usá `-PolicyPython`
+y `-LocoDeployPath`. El lanzador habitual abre la tanda guiada de cinco penales
+cuando se ejecuta sin `-ArqueroLibre`.
+
 ## Publicidad UADE: versión visual 2
 
 El estadio muestra dos vallas bajas detrás del arco, seis laterales exteriores y una franja en la base de la tribuna del fondo, tanto en modo automático como dirigido. Combinan azul oscuro, blanco y rojo, con el texto «UADE» sin la leyenda PROTOTIPO. La tipografía sigue siendo provisional: **no son los logos ni el escudo oficiales**, no usan imágenes institucionales y no tienen colisiones. Toda la publicidad queda fuera del césped.

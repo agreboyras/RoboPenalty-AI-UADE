@@ -8,6 +8,9 @@ HELP=('Iniciar partido; modo dirigido/automatico; patea al centro/a la izquierda
       'Izquierda = centro-izquierda. La llegada depende de la fisica.')
 
 class Control(PreviousControl):
+    shot_labels = LABELS
+    shot_prompt = 'Izquierda disponible: centro-izquierda'
+    help_text = HELP
     def __init__(self,bus,mode='directed',emit=print):
         super().__init__(bus,False,emit);self.mode=mode;self.awaiting_shot=False;self.pending_shot=None;self.voice=None
     def open_selection(self):
@@ -29,9 +32,9 @@ class Control(PreviousControl):
             if not self.current_voice(message):return False,'Orden de voz vencida; repetila para el penal actual'
             if intent=='listen':return False,'Usá /voz en la consola para volver a grabar'
             if intent is None:
-                options=', '.join(LABELS.values())
+                options=', '.join(self.shot_labels.values())
                 return False,f'Necesito una aclaración. Elegí un solo destino: {options}. Podés repetir con /voz.'
-        if intent=='help':return True,HELP
+        if intent=='help':return True,self.help_text
         if intent=='state':return True,f'Modo {self.mode.upper()} | estado {self.phase} | penal {self.penalty} | esperando tiro={self.awaiting_shot} | {self.score}'
         if intent and intent.startswith('mode:'):
             mode=intent.split(':',1)[1]
@@ -49,11 +52,11 @@ class Control(PreviousControl):
                 return False,'Tiro permitido solo al esperar seleccion en modo dirigido; no se guarda para otro penal'
             if getattr(message,'ticket',None)!=self.bus.active_ticket():return False,'Orden antigua o recibida fuera de esta ventana; repita'
             action=intent.split(':',1)[1]
-            if action not in LABELS:return False,'Accion fuera del catalogo 8C'
+            if action not in self.shot_labels:return False,'Accion fuera del catalogo 8C'
             self.pending_shot=dict(action=action,text=message.text,source=message.source,ticket=message.ticket)
             if message.capture_id is not None:self.pending_shot['capture_id']=message.capture_id
             self.close_selection()
-            return True,f'Accion seleccionada: {LABELS[action]}. Arquero autonomo. La trayectoria depende del contacto fisico'
+            return True,f'Accion seleccionada: {self.shot_labels[action]}. Arquero autonomo. La trayectoria depende del contacto fisico'
         accepted,reason=super().handle(intent)
         if intent in ('stop','reset') and accepted:self.close_selection()
         if intent=='pause' and accepted:self.cancel_voice()

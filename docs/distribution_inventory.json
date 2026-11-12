@@ -339,8 +339,8 @@
     },
     {
       "path": "app/RoboPenalty/phase5/game.py",
-      "bytes": 6544,
-      "sha256": "09ac8f7987482d336e793cc6f35430e005c25e6ff40a152a4751493521498b5e"
+      "bytes": 6687,
+      "sha256": "18506a1528a9abbd0516b8dda154bafcbf05cbfb8427610e7644f6da0d7ced8d"
     },
     {
       "path": "app/RoboPenalty/phase5/runtime.py",
@@ -509,8 +509,8 @@
     },
     {
       "path": "app/RoboPenalty/phase8b2/runtime.py",
-      "bytes": 3346,
-      "sha256": "6c21b5049f9afee5b9c2d461ace09e58caf5bbb60bc4c9486837c25412338020"
+      "bytes": 3398,
+      "sha256": "5a778655fdc3c0cdeb01473b6fd9248cf0142d585ef7b1d1b80fb8bebf95c2b9"
     },
     {
       "path": "app/RoboPenalty/phase8b3/posture.py",
@@ -734,13 +734,13 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/bus.py",
-      "bytes": 2038,
-      "sha256": "8486c787977bdf21d86e15cd540d7d3c16a4ec62cec856dd1aa7643074930037"
+      "bytes": 2111,
+      "sha256": "974455925b037b0888a4ebd12128323d4cedf34b571932ef496065d83bb9fb96"
     },
     {
       "path": "app/RoboPenalty/phase9a/commands.py",
-      "bytes": 2242,
-      "sha256": "e0b5b2e487f00829f99b701d52f87779725896d9d421c4a86e00e900f6e0d631"
+      "bytes": 2775,
+      "sha256": "5d14ce448d527442bda18a4464a52eb05a47fb2d12464c2069cb935d197ec6a6"
     },
     {
       "path": "app/RoboPenalty/phase9a/console.py",
@@ -749,8 +749,8 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/control.py",
-      "bytes": 5312,
-      "sha256": "953bab854ebbb243f62dd94acebe3b3f6bdb783e23b4a5576556558f86a97091"
+      "bytes": 5457,
+      "sha256": "a081c9a7b4dcdfd6f332c4990eafb8578017dcbafb0c60c5fd3136344aabfc71"
     },
     {
       "path": "app/RoboPenalty/phase9a/fixtures/directed.json",
@@ -759,13 +759,13 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/run_session.py",
-      "bytes": 8029,
-      "sha256": "94c9952388765d96bb2730ac365dc6ed44bbf239e9ca34b6e1ef8ce9e737b2a4"
+      "bytes": 10080,
+      "sha256": "0a55a3d82cedb21f17577de57c4cc74398b3208f6788e4a57b2878ef0052aed2"
     },
     {
       "path": "app/RoboPenalty/phase9a/selection.py",
-      "bytes": 3557,
-      "sha256": "f92abb4c4099c5fb990606c1280abf03f9c437df58a45f7ffdb36bb038adb6a7"
+      "bytes": 3534,
+      "sha256": "c81bac99d96717219dbad45d12ffc631adb90c9ce9b701153cf800cd9a6ca3c5"
     },
     {
       "path": "app/RoboPenalty/phase9a/session.py",
@@ -774,8 +774,8 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/voice.py",
-      "bytes": 7474,
-      "sha256": "ec94836ac2299a2bb4e091962922bcf30212a09806b7dbe4de643ba20ec1262e"
+      "bytes": 7536,
+      "sha256": "576e3cde3be0262e7add5cbe6c4ba185edd410e29c3f71d8723f350f04eb65b6"
     },
     {
       "path": "app/RoboPenalty/portability/bundle.py",
@@ -1049,8 +1049,8 @@
     },
     {
       "path": "docs/copied_files.json",
-      "bytes": 37372,
-      "sha256": "b696706ee4fa69af4d9cc97ebed62c25735acec58436d8e2beeb1767dc2cafb6"
+      "bytes": 37908,
+      "sha256": "fecc88c3b2e685e3cf302f430d9ece7dbb2284be84d5e12e21460c7232dd4e7a"
     },
     {
       "path": "docs/data/keeper_saves_4a.csv",
@@ -1269,8 +1269,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 16058,
-      "sha256": "89a90710dadb01837436817b9dd96c7126f4cd01a55a7aaddc0945028c647971"
+      "bytes": 17572,
+      "sha256": "04f45306a5cc01f09a0adc8847a1551ef6b528c096d8089f2a1b7c425c6d3185"
     },
     {
       "path": "scripts/_common.ps1",
@@ -1284,8 +1284,8 @@
     },
     {
       "path": "scripts/_jugar.ps1",
-      "bytes": 1405,
-      "sha256": "50cf069e608e49e990136dbb90f6bc95af968e0666b518f7ed89be6ffef9d526"
+      "bytes": 2100,
+      "sha256": "ed43c223ff3baec6e46214604f52041abe8cb95f19134e7a9cf7825960b0bc89"
     },
     {
       "path": "scripts/importar_deploy.ps1",
@@ -1299,13 +1299,13 @@
     },
     {
       "path": "scripts/jugar_automatico.ps1",
-      "bytes": 347,
-      "sha256": "963f1ef76624d4aacb983f45e33eee90014fc0d360d22e0347a835fe33f9c178"
+      "bytes": 575,
+      "sha256": "f2adc66f1ed40d92c0e7e0ded6bfdfc4b0c397ed817d65d754f3adec6e83baa4"
     },
     {
       "path": "scripts/jugar_dirigido.ps1",
-      "bytes": 523,
-      "sha256": "374ca35834660d8b2313030bbfd5a7039b3eca34af84c5b9f407c015e91d50d1"
+      "bytes": 688,
+      "sha256": "708476de0965cae27638319c846595c40ad5c0ea3b48ac4ef185669315817abd"
     },
     {
       "path": "scripts/ver_arquero_4a.ps1",
@@ -1344,8 +1344,8 @@
     },
     {
       "path": "tests/run_tests.py",
-      "bytes": 2306,
-      "sha256": "2e3c56f289a170f8ccd0fbd8d17f3a841d299797c8b4de337f86a0abae22994d"
+      "bytes": 2335,
+      "sha256": "441cf039309848e4b582841d75a1bfd9c578b91a0e7f0534739b39740962f6fa"
     },
     {
       "path": "tests/test_distribution.py",
@@ -1589,8 +1589,73 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/language.py",
-      "bytes": 3043,
-      "sha256": "17d6453acbf96d308034241da33a52b5553ae1a7a8e674015d63b36e976b4a1a"
+      "bytes": 3936,
+      "sha256": "60a7ef9a53a5f7cfb38d4554dc367cf3140c3feb32bf0abdcfc39a22b0a8aeb8"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/exhibition.py",
+      "bytes": 20662,
+      "sha256": "d3f996aa8dff9c999d43e02d7c6a07cf7cb05f21557c5f2ec07d8f92513bafa4"
+    },
+    {
+      "path": "app/RoboPenalty/experiments/free_keeper_stadium_h1/__init__.py",
+      "bytes": 79,
+      "sha256": "c2b65bc06d993924241fac98cce6da9b2dc596313348f214b9179a7b3d47fd4d"
+    },
+    {
+      "path": "app/RoboPenalty/experiments/free_keeper_stadium_h1/bootstrap.py",
+      "bytes": 246,
+      "sha256": "cffccf71b4f175750ad25f36648ca0122c8c9fa67bc32245aca27d56253f0d8f"
+    },
+    {
+      "path": "app/RoboPenalty/experiments/free_keeper_stadium_h1/policy_client.py",
+      "bytes": 2291,
+      "sha256": "67c240b4e378d6d77787e8f96ed3cbb3ceab23c5343971d4e1c8e98367452ab6"
+    },
+    {
+      "path": "app/RoboPenalty/experiments/free_keeper_stadium_h1/policy_worker.py",
+      "bytes": 1442,
+      "sha256": "6da5dd1d0048edf1292d88d8a87994ddb7e3554079bec1096af25399b25e140f"
+    },
+    {
+      "path": "app/RoboPenalty/experiments/free_keeper_stadium_h1/run.py",
+      "bytes": 16525,
+      "sha256": "d118f90c1e5a064b47f0ffc8b7241f793020fa62cbf187c94c05027507206fd3"
+    },
+    {
+      "path": "app/RoboPenalty/experiments/free_keeper_stadium_h1/scene.py",
+      "bytes": 4600,
+      "sha256": "f0c060a55fb47dd5cac6322c3130b8147587f1d4d4663ff3f7dfed44ceaf2692"
+    },
+    {
+      "path": "app/RoboPenalty/experiments/lateral_keeper_h2/__init__.py",
+      "bytes": 81,
+      "sha256": "526b88074fffb6c61c6d8f9d573c6cdf0a628ba74fec1046ba5902bc1ce2fd04"
+    },
+    {
+      "path": "app/RoboPenalty/experiments/lateral_keeper_h2/dive.py",
+      "bytes": 3261,
+      "sha256": "57fec44b4bbc1cc174816c8b720ba1acd7f8a53b78e03dcb54224ad654c85b26"
+    },
+    {
+      "path": "app/RoboPenalty/experiments/lateral_keeper_h2/maneuver.py",
+      "bytes": 4018,
+      "sha256": "36aca21d1059fc8a1dda5d32329bad6c70e242311ee6c28e63cae7f94f4e9464"
+    },
+    {
+      "path": "scripts/_experiment_paths.ps1",
+      "bytes": 2267,
+      "sha256": "4518974bf9802971f5db98d84a5d9baec8706abc91d26a6269e1dcc614004629"
+    },
+    {
+      "path": "tests/reference/phase9a/test_exhibition.py",
+      "bytes": 6186,
+      "sha256": "550f105ea8953ca3c51a4f586833ba7b894a7bf057586e3d1f3c270fb92d1924"
+    },
+    {
+      "path": "app/RoboPenalty/phase9a/exhibition_left_open.json",
+      "bytes": 32153,
+      "sha256": "796b55448a2ca009033d6771628faf33a9560b3bae56c34388dd704b3740f779"
     }
   ]
 }

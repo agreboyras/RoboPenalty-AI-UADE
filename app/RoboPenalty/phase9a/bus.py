@@ -10,9 +10,9 @@ class Message:
     kind:str='command';capture_id:str|None=None;ticket:int|None=None
 
 class InputBus(CameraBus):
-    def __init__(self,camera_requests=None):
+    def __init__(self,camera_requests=None,*,exhibition=False):
         super().__init__(camera_requests=camera_requests or queue.Queue(16))
-        self.ticket=None;self.ticket_counter=0
+        self.ticket=None;self.ticket_counter=0;self.exhibition=exhibition
     def open_window(self):
         with self.lock:
             self.ticket_counter+=1;self.ticket=self.ticket_counter;return self.ticket
@@ -26,7 +26,7 @@ class InputBus(CameraBus):
         with self.lock:
             epoch=self.generation if generation is None else generation
             if epoch!=self.generation:self.dropped+=1;return False
-            item=Message(text,interpret(text) if kind=='command' else None,source,epoch,time.perf_counter(),kind,capture_id,
+            item=Message(text,interpret(text,exhibition=self.exhibition) if kind=='command' else None,source,epoch,time.perf_counter(),kind,capture_id,
                 self.ticket if ticket=='current' else ticket)
             return self._enqueue(item)
     def submit_voice(self,text,intent,generation,ticket,capture_id,*,kind='command'):

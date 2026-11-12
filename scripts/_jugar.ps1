@@ -1,8 +1,11 @@
 param([ValidateSet('auto','directed')][string]$Mode, [string]$Python, [switch]$Headless, [int]$Seed = 2026,
       [switch]$SinPublicidad, [switch]$VisorLiviano = $true, [switch]$Voz,
       [ValidateSet('gpt-transcribe','whisper-1')][string]$ModeloTranscripcion = 'gpt-transcribe',
-      [switch]$VisorCompleto)
+      [switch]$VisorCompleto, [switch]$ArqueroLibre, [string]$PolicyPython, [string]$LocoDeployPath, [switch]$IzquierdaAbierta)
 . "$PSScriptRoot/_common.ps1"
+if ($IzquierdaAbierta -and (-not $ArqueroLibre -or $Mode -ne 'auto')) {
+    throw '-IzquierdaAbierta requiere el modo automatico con -ArqueroLibre.'
+}
 $exe = Get-BundlePython -Python $Python
 & "$PSScriptRoot/verificar.ps1" -Python $exe
 if ($LASTEXITCODE -ne 0) {
@@ -17,6 +20,14 @@ if (-not $Headless) {
     if ($VisorCompleto -or -not $VisorLiviano) { $arguments += '--no-light-viewer' }
 }
 if ($SinPublicidad) { $arguments += '--no-institutional-ads' }
+if ($ArqueroLibre) {
+    . "$PSScriptRoot/_experiment_paths.ps1"
+    $paths = Resolve-ExperimentPaths -Bundle (Split-Path -Parent $PSScriptRoot) -Python $exe `
+        -PolicyPython $PolicyPython -LocoDeployPath $LocoDeployPath
+    $arguments += @('--free-keeper-exhibition', '--keeper-policy-python', $paths.PolicyPython,
+        '--keeper-loco-deploy', $paths.LocoDeployPath)
+}
+if ($IzquierdaAbierta) { $arguments += '--exhibition-open-left' }
 if ($Voz) { $arguments += @('--voice', '--transcription-model', $ModeloTranscripcion) }
 if ($Mode -eq 'auto') { $arguments += '--autostart' }
 Push-Location -LiteralPath $app
