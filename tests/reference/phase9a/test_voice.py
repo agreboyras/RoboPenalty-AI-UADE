@@ -12,8 +12,9 @@ import numpy as np
 
 from audio import AudioConfig
 from phase9a.bus import InputBus
-from phase9a.commands import LABELS, interpret
+from phase9a.commands import EXHIBITION_LABELS, LABELS, LEFT_OPEN, interpret
 from phase9a.control import Control
+from phase9a.language import TextInput
 from phase9a.voice import VoiceInput
 from phase9a.whisper_api import WhisperAPI
 
@@ -209,6 +210,108 @@ class VoiceSelectionTests(unittest.TestCase):
         self.assertTrue(any('Falta OPENAI_API_KEY' in line for line in self.console))
         self.submit('Pateá al centro')
         self.assertEqual(self.control.pending_shot['action'], 'center')
+
+
+class TypedSelectionTests(unittest.TestCase):
+    def setup_control(self, *, exhibition=False):
+        self.bus = InputBus(exhibition=exhibition)
+        self.control = Control(self.bus, emit=lambda *args, **kwargs: None)
+        if exhibition:
+            self.control.shot_labels = EXHIBITION_LABELS
+        self.control.phase = 'PREPARING'
+        self.control.active = True
+        self.ticket = self.control.open_selection()
+        self.control.voice = Mock()
+        self.client = Mock()
+        self.text_input = TextInput(exhibition=exhibition, api=WhisperAPI(client=self.client))
+        self.control.text_input = self.text_input
+        self.text_input.start()
+        self.addCleanup(lambda: self.assertTrue(self.text_input.close()))
+
+    def submit(self, text):
+        self.bus.submit(text)
+        self.control.pump()
+
+    def wait_for_text(self):
+        deadline = time.monotonic() + 3
+        while self.text_input.pending is not None and time.monotonic() < deadline:
+            self.control.pump()
+            time.sleep(.01)
+        self.assertIsNone(self.text_input.pending, 'Text interpretation did not finish')
+
+    def test_known_and_misspelled_console_shots_use_luna(self):
+        self.setup_control()
+
+        def resolve(**kwargs):
+            self.assertNotEqual(threading.get_ident(), self.control.owner)
+            self.assertEqual(kwargs['model'], 'gpt-6-luna')
+            self.assertEqual(kwargs['tool_choice'], 'required')
+            self.assertEqual({tool['name'] for tool in kwargs['tools']}, {'patear', 'pedir_aclaracion'})
+            return tool_response('patear', action='left_near_b060')
+
+        self.client.responses.create.side_effect = resolve
+        for text in ('Pateá a la izquierda', 'Pateá a la isquierda'):
+            with self.subTest(text=text):
+                self.control.open_selection()
+                self.control.voice.reset_mock()
+                self.submit(text)
+                self.wait_for_text()
+                self.assertEqual(self.client.responses.create.call_args.kwargs['input'], text)
+                self.control.voice.cancel_request.assert_called()
+                self.assertEqual(self.control.pending_shot['source'], 'text')
+                self.assertEqual(self.control.pending_shot['action'], 'left_near_b060')
+        self.client.audio.transcriptions.create.assert_not_called()
+        self.assertEqual(self.client.responses.create.call_count, 2)
+
+    def test_exhibition_uses_its_catalog_and_can_ask_for_clarification(self):
+        self.setup_control(exhibition=True)
+        self.client.responses.create.side_effect = [
+            tool_response('pedir_aclaracion'),
+            tool_response('patear', action=LEFT_OPEN),
+        ]
+        self.submit('Pateá a la izquierda')
+        self.wait_for_text()
+        self.assertIsNone(self.control.pending_shot)
+        self.assertEqual(self.bus.active_ticket(), self.ticket)
+        self.assertIn('Necesito una aclaración', self.control.events[-1]['reason'])
+        self.submit('Isquierda avierta')
+        self.wait_for_text()
+        shot_tool = self.client.responses.create.call_args.kwargs['tools'][0]
+        self.assertEqual(set(shot_tool['parameters']['properties']['action']['enum']), set(EXHIBITION_LABELS))
+        self.assertEqual(self.control.pending_shot['action'], LEFT_OPEN)
+
+    def test_pause_invalidates_text_and_controls_stay_responsive(self):
+        self.setup_control()
+        entered, release = threading.Event(), threading.Event()
+
+        def resolve(**kwargs):
+            entered.set()
+            release.wait(3)
+            return tool_response('patear', action='left_near_b060')
+
+        self.client.responses.create.side_effect = resolve
+        self.submit('Mandala a la isquierda')
+        self.addCleanup(release.set)
+        self.assertTrue(entered.wait(3))
+        self.submit('Pausar partida')
+        self.assertTrue(self.control.paused)
+        self.assertIsNone(self.text_input.pending)
+        self.submit('Reanudar partida')
+        self.assertFalse(self.control.paused)
+        self.assertEqual(self.bus.active_ticket(), self.ticket)
+        release.set()
+        self.assertTrue(self.text_input.close())
+        self.control.pump()
+        self.assertIsNone(self.control.pending_shot)
+        self.assertEqual(self.client.responses.create.call_count, 1)
+
+    def test_exact_text_remains_usable_when_the_api_fails(self):
+        self.setup_control()
+        self.client.responses.create.side_effect = TimeoutError()
+        self.submit('Pateá al centro')
+        self.wait_for_text()
+        self.assertEqual(self.control.pending_shot['action'], 'center')
+        self.assertIn('Parser local', self.control.events[-1]['reason'])
 
 
 if __name__ == '__main__':

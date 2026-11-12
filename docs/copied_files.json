@@ -573,7 +573,7 @@
       "source_sha256": "27b5f3bc2848deebd5a54cf8747010d1fc2dc7d4c087a701e984a7225d26b7ca",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Apply voice selections on the owner thread and invalidate obsolete captures. Scoped support for the open-left exhibition shot."
+      "modification": "Apply voice selections on the owner thread and invalidate obsolete captures. Scoped support for the open-left exhibition shot. Route written shots through Luna when voice is enabled."
     },
     {
       "path": "app/RoboPenalty/phase9a/fixtures/directed.json",
@@ -586,7 +586,7 @@
       "source_sha256": "c0c49fc1662836d7705cc91e2acb8c568c9ca0ba7dd843fd377d4c2e328df0d1",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Render-only provisional UADE signs and opt-out, default lightweight viewer, and configurable OpenAI transcription. Optional single-penalty free-goalkeeper exhibition. Scoped support for the open-left exhibition shot."
+      "modification": "Render-only provisional UADE signs and opt-out, default lightweight viewer, and configurable OpenAI transcription. Optional single-penalty free-goalkeeper exhibition. Scoped support for the open-left exhibition shot. Manage the console shot interpreter in voice mode."
     },
     {
       "path": "app/RoboPenalty/phase9a/selection.py",

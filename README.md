@@ -73,7 +73,7 @@ Escribí `Iniciar partido`. Al esperar cada penal, el juego graba una orden brev
 
 La transcripción usa `gpt-transcribe`. Para conservar Whisper en la entrega, usá `-ModeloTranscripcion whisper-1` junto con `-Voz`. OpenAI anunció el retiro de `whisper-1` para el 26 de febrero de 2027. [OpenAI Docs sobre transcripción](https://developers.openai.com/api/docs/guides/speech-to-text)
 
-Si el parser no reconoce la transcripción, `gpt-6-luna` usa `patear` para seleccionar uno de los cinco tiros del catálogo o `pedir_aclaracion` para solicitar otra orden. [OpenAI Docs sobre GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
+Con `-Voz`, los tiros que escribís en la consola y las transcripciones que el parser no reconoce se envían a `gpt-6-luna`. El modelo puede corregir «patea a la isquierda», usar `patear` con un destino del catálogo activo o usar `pedir_aclaracion` si la orden es ambigua. Escribir un tiro interrumpe la captura para ese penal. Si falla la llamada, un tiro escrito que el parser local reconoce se puede ejecutar igual. [OpenAI Docs sobre GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna)
 
 ## Qué incluye
 

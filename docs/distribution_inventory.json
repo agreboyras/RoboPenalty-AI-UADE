@@ -749,8 +749,8 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/control.py",
-      "bytes": 5457,
-      "sha256": "a081c9a7b4dcdfd6f332c4990eafb8578017dcbafb0c60c5fd3136344aabfc71"
+      "bytes": 7504,
+      "sha256": "074b4336d3fbe3503cd613a870998f6d5a1fdd9657ebcc24b976da3ab1fd430d"
     },
     {
       "path": "app/RoboPenalty/phase9a/fixtures/directed.json",
@@ -759,8 +759,8 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/run_session.py",
-      "bytes": 10080,
-      "sha256": "0a55a3d82cedb21f17577de57c4cc74398b3208f6788e4a57b2878ef0052aed2"
+      "bytes": 10458,
+      "sha256": "314f8ded15d8ae7bcdce75e8d129219f2f0416fc1fb58a18d369bacdce6a48e9"
     },
     {
       "path": "app/RoboPenalty/phase9a/selection.py",
@@ -1049,8 +1049,8 @@
     },
     {
       "path": "docs/copied_files.json",
-      "bytes": 37908,
-      "sha256": "fecc88c3b2e685e3cf302f430d9ece7dbb2284be84d5e12e21460c7232dd4e7a"
+      "bytes": 38015,
+      "sha256": "6e7415b44d4103b59594f928cae7fcf87c1616d550921e967af80a4c7be9cdf0"
     },
     {
       "path": "docs/data/keeper_saves_4a.csv",
@@ -1269,8 +1269,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 17572,
-      "sha256": "04f45306a5cc01f09a0adc8847a1551ef6b528c096d8089f2a1b7c425c6d3185"
+      "bytes": 17822,
+      "sha256": "30698c38e363dade44d88b3d15e04ad2764903cd1fbf68be60c2d4f00d4c910e"
     },
     {
       "path": "scripts/_common.ps1",
@@ -1574,8 +1574,8 @@
     },
     {
       "path": "tests/reference/phase9a/test_voice.py",
-      "bytes": 10048,
-      "sha256": "d5896d06fcae460d30c4eb93e52147fb6773505d4a7a9c98c6b3b8fcab2de790"
+      "bytes": 14836,
+      "sha256": "32b34aa0565e65be3430bd612949a6bfeb510f337dc590d684b3c5bdbfec4f59"
     },
     {
       "path": "app/RoboPenalty/requirements-voice.txt",
@@ -1589,8 +1589,8 @@
     },
     {
       "path": "app/RoboPenalty/phase9a/language.py",
-      "bytes": 3936,
-      "sha256": "60a7ef9a53a5f7cfb38d4554dc367cf3140c3feb32bf0abdcfc39a22b0a8aeb8"
+      "bytes": 6099,
+      "sha256": "aef5df360f267864c7132f884511764f0c26d066e2b78d86ccfa9d940045d6b3"
     },
     {
       "path": "app/RoboPenalty/phase9a/exhibition.py",
