@@ -92,8 +92,10 @@ def main():
             if a.voice:
                 text_input=TextInput(exhibition=a.free_keeper_exhibition)
                 control.text_input=text_input;text_input.start()
-            console=ConsoleInput(bus,runtime.console,voice_enabled=a.voice);console.start()
-        print(f'READY | Modo {a.mode.upper()} | {control.help_text}',flush=True)
+            console=ConsoleInput(bus,runtime.console,voice_enabled=a.voice)
+            control.emit=console.emit
+            console.start()
+        control.emit(f'READY | Modo {a.mode.upper()} | {control.help_text}',flush=True)
         presenter.set_status({'phase':'READY','total':config.penalties})
         if a.autostart:bus.submit('Iniciar partido','startup-text')
         while True:
@@ -117,7 +119,7 @@ def main():
             if control.reset_requested:continue
             presenter.pause('finished',visual.end_s)
             if a.once:termination='once';break
-            print('FINISHED | Marcador, modo, reiniciar partido o salir',flush=True)
+            control.emit('FINISHED | Marcador, modo, reiniciar partido o salir',flush=True)
     except (ViewerClosed,KeyboardInterrupt) as exc:
         termination=('viewer_closed' if isinstance(exc,ViewerClosed) else 'keyboard_interrupt')+'_unfinished_penalty_unscored'
         if current:

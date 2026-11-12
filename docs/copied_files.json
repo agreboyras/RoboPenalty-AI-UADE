@@ -559,21 +559,21 @@
       "source_sha256": "4aa521a3866f7f0b3debf61e6311cd409237e937197b25a59f29f85385634cbd",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Recognize microphone commands and compound shot directions. Scoped support for the open-left exhibition shot."
+      "modification": "Recognize microphone commands and compound shot directions. Scoped support for the open-left exhibition shot. Identify open-left as exhibition-only outside the exhibition."
     },
     {
       "path": "app/RoboPenalty/phase9a/console.py",
       "source_sha256": "abaf2d07203af7a3ff8d6f6d8590a2e787e57964ae32ff7cf347af8aae0b30c6",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Use Enter to request a recording when voice is enabled."
+      "modification": "Use Enter to request a recording when voice is enabled. Preserve the edit buffer around status output and cancel capture when the user types."
     },
     {
       "path": "app/RoboPenalty/phase9a/control.py",
       "source_sha256": "27b5f3bc2848deebd5a54cf8747010d1fc2dc7d4c087a701e984a7225d26b7ca",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Apply voice selections on the owner thread and invalidate obsolete captures. Scoped support for the open-left exhibition shot. Route written shots through Luna when voice is enabled."
+      "modification": "Apply voice selections on the owner thread and invalidate obsolete captures. Scoped support for the open-left exhibition shot. Route written shots through Luna when voice is enabled. Handle typing signals and explain when the open-left shot is available."
     },
     {
       "path": "app/RoboPenalty/phase9a/fixtures/directed.json",
@@ -586,7 +586,7 @@
       "source_sha256": "c0c49fc1662836d7705cc91e2acb8c568c9ca0ba7dd843fd377d4c2e328df0d1",
       "classification": "owned_runtime",
       "status": "modified",
-      "modification": "Render-only provisional UADE signs and opt-out, default lightweight viewer, and configurable OpenAI transcription. Optional single-penalty free-goalkeeper exhibition. Scoped support for the open-left exhibition shot. Manage the console shot interpreter in voice mode."
+      "modification": "Render-only provisional UADE signs and opt-out, default lightweight viewer, and configurable OpenAI transcription. Optional single-penalty free-goalkeeper exhibition. Scoped support for the open-left exhibition shot. Manage the console shot interpreter in voice mode. Route interactive status output through the console editor."
     },
     {
       "path": "app/RoboPenalty/phase9a/selection.py",

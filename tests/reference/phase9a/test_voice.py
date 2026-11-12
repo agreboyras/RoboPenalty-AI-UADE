@@ -1,4 +1,5 @@
 from bootstrap import *
+from io import StringIO
 import json
 import sys
 import threading
@@ -13,6 +14,7 @@ import numpy as np
 from audio import AudioConfig
 from phase9a.bus import InputBus
 from phase9a.commands import EXHIBITION_LABELS, LABELS, LEFT_OPEN, interpret
+from phase9a.console import ConsoleInput
 from phase9a.control import Control
 from phase9a.language import TextInput
 from phase9a.voice import VoiceInput
@@ -279,6 +281,37 @@ class TypedSelectionTests(unittest.TestCase):
         shot_tool = self.client.responses.create.call_args.kwargs['tools'][0]
         self.assertEqual(set(shot_tool['parameters']['properties']['action']['enum']), set(EXHIBITION_LABELS))
         self.assertEqual(self.control.pending_shot['action'], LEFT_OPEN)
+
+    def test_open_left_in_standard_match_points_to_exhibition(self):
+        self.setup_control()
+        self.submit('Patea abierto a la izquierda')
+        self.client.responses.create.assert_not_called()
+        self.assertIsNone(self.control.pending_shot)
+        self.assertIn('-ArqueroLibre', self.control.events[-1]['reason'])
+        self.assertEqual(self.bus.active_ticket(), self.ticket)
+
+    def test_first_console_key_cancels_capture_and_status_preserves_input(self):
+        self.setup_control()
+        output = StringIO()
+        console = ConsoleInput(self.bus, output, voice_enabled=True)
+        console.read_key('P')
+        self.control.pump()
+        self.control.voice.cancel_request.assert_called_once()
+        self.client.responses.create.assert_not_called()
+        console.emit('[microfono] Estado', flush=True)
+        self.assertEqual(output.getvalue(), 'P\r \r[microfono] Estado\nP')
+        for char in 'atea abierto a la izquierda\r':
+            console.read_key(char)
+        self.control.pump()
+        self.assertEqual(self.control.events[-1]['text'], 'Patea abierto a la izquierda')
+        self.control.voice.cancel_request.assert_called_once()
+
+        for char in '/voz\r':
+            console.read_key(char)
+        self.control.voice.request.return_value = True, 'Captura solicitada'
+        self.control.pump()
+        self.control.voice.cancel_request.assert_called_once()
+        self.control.voice.request.assert_called_once_with(self.ticket)
 
     def test_pause_invalidates_text_and_controls_stay_responsive(self):
         self.setup_control()

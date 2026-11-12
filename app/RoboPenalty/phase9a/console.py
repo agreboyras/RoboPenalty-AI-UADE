@@ -9,8 +9,36 @@ class ConsoleInput:
     def __init__(self,bus,console,*,voice_enabled=False):
         self.bus,self.console=bus,console;self.stop=threading.Event()
         self.voice_enabled=voice_enabled
+        self.buffer=''
+        self.line_lock=threading.Lock()
         self.thread=threading.Thread(target=self.run,name='phase9a-console',daemon=False)
     def start(self):self.thread.start()
+
+    def emit(self, text, *, flush=False):
+        with self.line_lock:
+            if self.buffer:
+                print('\r' + ' ' * len(self.buffer) + '\r',end='',file=self.console)
+            print(text,file=self.console,flush=flush)
+            if self.buffer:
+                print(self.buffer,end='',file=self.console,flush=True)
+
+    def read_key(self, ch):
+        with self.line_lock:
+            if ch in ('\r','\n'):
+                print('',file=self.console,flush=True)
+                text=self.buffer or ('/voz' if self.voice_enabled else '')
+                self.buffer=''
+                self.bus.submit(text)
+            elif ch=='\b':
+                if self.buffer:
+                    self.buffer=self.buffer[:-1]
+                    print('\b \b',end='',file=self.console,flush=True)
+            elif ch.isprintable():
+                if not self.buffer.strip() and self.voice_enabled and not ch.isspace() and ch!='/':
+                    self.bus.submit('',kind='typing')
+                self.buffer+=ch
+                print(ch,end='',file=self.console,flush=True)
+
     def run(self):
         if os.name!='nt':
             self.bus.submit('Consola interactiva soportada en Windows; use --script en este entorno','console',kind='status');return
@@ -24,13 +52,7 @@ class ConsoleInput:
                     if ch in ('\x00','\xe0'):skip=True;continue
                     if ch=='\x03':self.bus.submit('salir');return
                     if ch=='\x1a':return
-                    if ch in ('\r','\n'):
-                        print('',file=self.console,flush=True)
-                        if not buffer and self.voice_enabled:buffer='/voz'
-                        self.bus.submit(buffer);buffer=''
-                    elif ch=='\b':
-                        if buffer:buffer=buffer[:-1];print('\b \b',end='',file=self.console,flush=True)
-                    else:buffer+=ch;print(ch,end='',file=self.console,flush=True)
+                    self.read_key(ch)
             return
         try:
             handle=msvcrt.get_osfhandle(sys.stdin.fileno());kernel=ctypes.WinDLL('kernel32',use_last_error=True)

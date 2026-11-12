@@ -60,6 +60,8 @@ class Control(PreviousControl):
                 return False,'Esperá el resultado de la orden escrita'
             return self.voice.request(self.bus.active_ticket())
         if intent=='unsupported:left_corner':return False,'No hay esquina izquierda validada en 8C. Izquierda disponible: centro-izquierda; repita una orden valida'
+        if intent=='unsupported:left_open':
+            return False,'El tiro abierto izquierdo está disponible en la exhibición. Ejecutá jugar_dirigido.ps1 -ArqueroLibre -Voz, o elegí centro-izquierda en esta tanda.'
         if intent and intent.startswith('shot:'):
             if not self.can_select_shot():
                 return False,'Tiro permitido solo al esperar seleccion en modo dirigido; no se guarda para otro penal'
@@ -86,6 +88,10 @@ class Control(PreviousControl):
                 if not self.can_select_shot() or original.ticket!=self.bus.active_ticket():continue
                 m=replace(original,intent=intent,kind='interpreted_text')
             if m.generation!=self.bus.epoch():continue
+            if m.kind=='typing':
+                if self.voice and self.can_select_shot() and m.ticket==self.bus.active_ticket():
+                    self.voice.cancel_request()
+                continue
             if m.kind=='status':
                 if m.source=='voice' and not self.current_voice(m):continue
                 self.emit(f'[microfono] {m.text}',flush=True);self.events.append(dict(kind='status',text=m.text));continue
